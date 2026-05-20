@@ -1,0 +1,84 @@
+:root {
+  --navy: #002d62;
+  --blue: #00448f;
+  --bg-grey: #f8fafc;
+  --border: #e2e8f0;
+}
+
+.cp__wrapper { font-family: 'Inter', sans-serif; color: #1e293b; overflow-x: hidden; }
+.cp__container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* 1. HERO - STRICT CENTER ALIGNMENT */
+.cp__bar_hero { background: var(--navy); padding: 60px 0 100px; text-align: center; }
+.cp__heading { font-size: clamp(28px, 5vw, 42px); font-weight: 800; color: #ffffff; margin-bottom: 20px; text-align: center; }
+.text_light_blue { color: #60a5fa; }
+.cp__hero_text_white { max-width: 800px; margin: 0 auto; font-size: clamp(14px, 2vw, 18px); color: #cbd5e1; line-height: 1.6; text-align: center; }
+
+/* Background Bars */
+.grey_bar { background: var(--bg-grey); padding: 60px 0; }
+.white_bar { background: #ffffff; padding: 60px 0; }
+.cp__title_dark { text-align: center; font-size: clamp(24px, 4vw, 32px); font-weight: 800; color: var(--navy); margin-bottom: 35px; width: 100%; }
+
+/* 2. Contact Buttons Grid */
+.cp__bar_info { margin-top: -45px; padding-bottom: 35px; position: relative; z-index: 5; }
+.cp__button_row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+.cp__btn_card { background: white; padding: 22px; border-radius: 12px; display: flex; align-items: center; gap: 15px; border: 1px solid var(--border); box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-decoration: none; color: inherit; transition: 0.3s; }
+.cp__btn_card:hover:not(.no_hover) { transform: translateY(-8px); border-color: var(--blue); box-shadow: 0 15px 30px rgba(0,68,143,0.12); }
+.cp__card_icon { font-size: 32px; }
+.cp__btn_card h3 { font-size: 12px; color: var(--blue); text-transform: uppercase; margin-bottom: 3px; }
+
+/* 3. Form Responsive */
+.cp__form_box { max-width: 850px; margin: 0 auto; background: white; padding: clamp(20px, 5vw, 45px); border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+.form_row { display: flex; gap: 20px; margin-bottom: 20px; }
+.cp__form_actual input, select, textarea { width: 100%; padding: 15px; border: 1px solid var(--border); border-radius: 10px; font-size: 15px; }
+.submit_btn { width: 100%; background: var(--blue); color: white; padding: 18px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; transition: 0.3s; }
+.submit_btn:hover { background: var(--navy); }
+
+/* 4 & 5. Yellow Areas Symmetry & Center Alignment */
+.cp__grid_4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cp__aligned_card { background: white; padding: 35px 20px; border-radius: 15px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; text-align: center; transition: 0.3s; }
+.hover_effect_card:hover { transform: translateY(-10px); border-color: var(--blue); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+.card_title { min-height: 55px; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--navy); margin-bottom: 15px; font-size: 18px; text-align: center; }
+
+/* THE FIX: Vertical and Horizontal Centering for Box Content */
+.center_desc_wrapper { width: 100%; min-height: 115px; display: flex; align-items: center; justify-content: center; }
+.card_desc_aligned { font-size: 14.5px; color: #64748b; line-height: 1.6; max-width: 240px; margin: 0 auto; text-align: center; }
+
+/* UI Nodes */
+.node_ui { position: relative; width: 100%; display: flex; justify-content: center; margin-bottom: 20px; }
+.circle { width: 45px; height: 45px; background: var(--blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; z-index: 2; border: 4px solid white; }
+.line { position: absolute; height: 2px; background: var(--border); width: 100%; left: 50%; top: 50%; z-index: 1; }
+.card_icon_real { font-size: 40px; margin-bottom: 15px; }
+
+/* 6. FAQ (Restored & Numbered) */
+.cp__faq_narrow_container { max-width: 800px; margin: 0 auto; }
+.faq_item { background: #fff; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; transition: 0.3s; }
+.faq_item summary { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; list-style: none; font-size: 17px; color: var(--navy); text-align: left; }
+.faq_item summary::-webkit-details-marker { display: none; }
+.faq_q_text span { color: var(--blue); margin-right: 5px; }
+.plus_icon { color: var(--blue); font-size: 24px; transition: 0.3s; }
+.faq_item[open] .plus_icon { transform: rotate(45deg); color: #ef4444; }
+.faq_ans { padding: 0 20px 20px 52px; color: #64748b; border-top: 1px solid #f1f5f9; background: #fafbfc; line-height: 1.6; text-align: left; }
+
+/* Success State & Resend */
+.success_container { text-align: center; padding: 20px; }
+.resend_btn { background: var(--navy); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 700; cursor: pointer; margin-top: 20px; }
+
+/* Slider */
+input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: var(--blue); border-radius: 50%; border: 3px solid white; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .cp__grid_4 { grid-template-columns: repeat(2, 1fr); }
+  .line { display: none; }
+}
+@media (max-width: 768px) {
+  .form_row { flex-direction: column; gap: 15px; }
+  .cp__bar_hero { padding: 40px 0 80px; }
+}
+@media (max-width: 600px) {
+  .cp__grid_4 { grid-template-columns: 1fr; }
+  .cp__form_box { padding: 25px 20px; }
+}

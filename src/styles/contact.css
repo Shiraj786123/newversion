@@ -1,0 +1,276 @@
+/* Container Setup */
+.contact-section {
+  background-color: #032b69; /* Exact deep corporate background navy */
+  color: #ffffff;
+  padding: 80px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contact-container {
+  max-width: 1240px;
+  width: 100%;
+  display: flex;
+  gap: 60px;
+  /* CRITICAL: Stretches both sides to have the exact same height */
+  align-items: stretch; 
+}
+
+/* Left Content Styles */
+.contact-left {
+  flex: 1.1;
+  display: flex;
+  align-items: center; /* Vertically centers the left content within its stretched height */
+}
+
+.left-inner-wrapper {
+  width: 100%;
+}
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  color: #ffffff;
+}
+
+.contact-title {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.highlight-text {
+  color: #23b2ee; /* Exact bright light blue shade from your photo */
+}
+
+.contact-subtitle {
+  font-size: 16px;
+  color: #dae4f0; /* Muted slate white text style */
+  line-height: 1.6;
+  margin-bottom: 48px;
+  max-width: 520px;
+}
+
+.steps-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #ffffff;
+}
+
+/* Timeline/Steps Styling */
+.contact-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.step-item {
+  display: flex;
+  gap: 20px;
+}
+
+.step-number-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step-number-box {
+  background-color: #23b2ee; /* Vivid light blue background */
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  z-index: 2;
+}
+
+.step-connector-line {
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex-grow: 1;
+  position: absolute;
+  top: 44px;
+  bottom: -28px;
+  z-index: 1;
+}
+
+.step-content {
+  padding-top: 4px;
+}
+
+.step-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: #adc2dd; /* Muted blue text for descriptions */
+  margin: 0;
+}
+
+/* Right Content Form Card */
+.contact-right {
+  flex: 0.9;
+  display: flex;
+}
+
+.form-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 48px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Keeps internal form contents balanced */
+}
+
+.form-title {
+  color: #002663; /* Deep navy text for the white card titles */
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.textarea-group {
+  margin-bottom: 28px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #708599; /* Greyish placeholder matching icon color */
+  font-size: 18px;
+}
+
+.textarea-icon {
+  top: 26px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  border: 1px solid #e1e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  color: #032b69;
+  background-color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #8fa0b3; /* Gray placeholder text */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #23b2ee;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+/* CTA Submit Button styling */
+.submit-btn {
+  width: 100%;
+  background-color: #0062df; /* Vibrant blue CTA button block color */
+  color: #ffffff;
+  border: none;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0050b8;
+}
+
+.submit-note {
+  color: #7c8e9f; /* Gray text note at footer base */
+  text-align: center;
+  font-size: 14px;
+  margin-top: 24px;
+  margin-bottom: 0;
+}
+
+/* Alerts rules styling */
+.alert {
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.alert-success { background: #e8f7f0; color: #107c41; }
+.alert-error { background: #fdebeb; color: #a80000; }
+
+/* Responsive break settings */
+@media (max-width: 1024px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px;
+  }
+  .contact-section {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 580px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    padding: 32px 20px;
+  }
+  .contact-title {
+    font-size: 32px;
+  }
+}

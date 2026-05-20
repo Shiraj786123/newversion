@@ -1,0 +1,51 @@
+
+
+
+
+
+.topbar {
+  background: #00336b;
+  color: #fff;
+  font-size: 13px;
+}
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.topbar-left,
+.topbar-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.topbar-left i { margin-right: 8px; }
+.topbar-link {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar-link:hover { opacity: 0.85; }
+
+@media (max-width: 768px) {
+  .topbar-inner { justify-content: center; text-align: center; gap: 6px 16px; padding: 8px 16px; }
+  .topbar-left, .topbar-right { justify-content: center; gap: 12px; }
+  .topbar { font-size: 12px; }
+}
+@media (max-width: 480px) {
+  .topbar-link span { display: none; } /* keep icons only on tiny screens */
+  .topbar-left span { font-size: 11px; }
+}
+
+
+
+
+
+
+
+
+
+
