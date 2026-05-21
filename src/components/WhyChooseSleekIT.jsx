@@ -193,7 +193,7 @@ const WhyChooseUs = () => {
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
-              <p className="trust-badge-text">Trusted by businesses across the UK, USA and Europe</p>
+              <p className="trust-badge-text" >Trusted by businesses across the <span className='skyblue'>UK,USA</span> and Europe</p>
             </div>
           </div>
 
@@ -205,3 +205,4 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
+

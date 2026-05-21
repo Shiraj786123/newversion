@@ -16,7 +16,7 @@ const ReviewsSection = () => {
         <div className="reviews-top-row">
           <div className="rating-box">
             <h1 className="rating-number">4.9</h1>
-            <div className="rating-stars">⭐⭐⭐⭐★</div>
+            <div className="rating-stars">⭐⭐⭐⭐⭐</div>
             <div className="reviews-count">50+ Reviews</div>
           </div>
           <div className="reviews-heading-box">

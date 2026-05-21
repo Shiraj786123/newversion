@@ -148,6 +148,7 @@
   flex-direction: column;
   gap: 5px;
   z-index: 10001;
+  font-size: 30px;
 }
 .hamburger span {
   display: block;
@@ -164,7 +165,19 @@
 
 /* TABLET / MOBILE */
 @media (max-width: 1024px) {
-  .hamburger { display: inline-flex; }
+  /* Scale up the hamburger lines & spacing on tablets and mobiles */
+  .hamburger { 
+    display: inline-flex; 
+    gap: 6px; 
+  }
+  .hamburger span {
+    width: 28px; /* Increased from 24px */
+    height: 3px;  /* Increased from 2px */
+  }
+  /* Adjusted open spacing to center the thicker hamburger lines during the animation */
+  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
   .desktop-cta { display: none; }
 
   .nav-container {
@@ -220,8 +233,13 @@
     gap: 16px;
     background: transparent;
   }
-  .mega-menu-rect.mobile-open { display: grid; }
-  .mega-heading { margin: 12px 0 8px; font-size: 13px; }
+ /* Forces the menu to show as a grid when active, mobile-open, or open is toggled */
+.mega-menu-rect.mobile-open,
+.mega-menu-rect.active,
+.mega-menu-rect.open { 
+  display: grid !important; 
+}
+  .mega-heading { margin: 12px 0 8px; font-size: 15px; }
   .mega-col a { padding: 10px 8px; font-size: 14px; }
 
   .mobile-cta {
@@ -238,15 +256,29 @@
   flex-shrink: 0;
 }
 .navbar-logo img {
-  width: 180px !important;
+  width: 200px !important;
   height: auto !important;
   display: block;
+  margin-left: -25px;
 }
 
 @media (max-width: 1024px) {
-  .navbar-logo img { width: 140px !important; }
+  /* Scaled up the logo width under 1024px viewports */
+  .navbar-logo img { width: 165px !important; } /* Increased from 140px */
 }
 @media (max-width: 480px) {
   .navbar-inner { padding: 0 16px; }
-  .navbar-logo img { width: 120px !important; }
+  /* Scaled up the logo width under 480px phone viewports */
+  .navbar-logo img { width: 145px !important; } /* Increased from 120px */
 }
+
+.sky-blue {
+   color: skyblue;
+}
+
+
+
+
+
+
+

@@ -12,9 +12,12 @@ export const metadata = {
   description:
     'ZonzocTech builds high-converting websites, drives targeted traffic, and automates businesses with AI. Serving UK and US clients.',
   metadataBase: new URL('https://zonzoctech.com'),
+  icons: {
+    icon: '/zonzotech-favicon.png', 
+  },
   openGraph: {
     siteName: 'ZonzocTech',
-    images: [{ url: '/og-image.jpg' }],
+    images: [{ url: '/zonzotech-favicon.png' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -25,6 +28,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* MANUAL FAVICON DECLARATION (using the correct single-n spelling) */}
+        <link rel="icon" href="/zonzotech-favicon.png?v=2" type="image/png" />
+        
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />

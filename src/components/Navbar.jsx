@@ -1,8 +1,10 @@
+
 'use client';
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ExpertPopup from "./ExpertPopup";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
@@ -50,30 +52,55 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="topbar">
-        <div className="topbar-inner">
-          <div className="topbar-left">
-            <FontAwesomeIcon icon={faEarthAmericas} style={{ marginRight: '8px' }} />
-            <span>Serving Businesses in UK &amp; USA | 150+ Projects Delivered</span>
-          </div>
-          <div className="topbar-right">
-            <a href="mailto:info@zonzoctech.com" className="topbar-link">
-              <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px' }} />
-              <span>info@zonzoctech.com</span>
-            </a>
-            <a href="tel:+94740309534" className="topbar-link">
-              <FontAwesomeIcon icon={faPhone} style={{ marginRight: '8px' }} />
-              <span>+94 74 030 9534</span>
-            </a>
-          </div>
-        </div>
-      </div>
+   <div className="topbar">
+  <div className="topbar-inner">
+    <div className="topbar-left">
+      <span>
+        {/* Added fixedWidth prop */}
+        <FontAwesomeIcon icon={faEarthAmericas} fixedWidth style={{ marginRight: '6px' }} />
+        Serving Businesses in <span className="sky-blue">UK & USA</span> | 150+ Projects Delivered
+      </span>
+     </div>
+    <div className="topbar-right">
+      
+      {/* Email Link with direct JS trigger */}
+      <a 
+        href="mailto:info@zonzoctech.com" 
+        className="topbar-link" 
+        title="Email Us"
+        onClick={(e) => {
+          e.stopPropagation(); // Prevents menu overlays from blocking the click
+          window.location.href = "mailto:info@zonzoctech.com";
+        }}
+      >
+        <FontAwesomeIcon icon={faEnvelope} />
+      </a>
+
+      {/* WhatsApp Link with direct JS trigger */}
+      <a 
+        href="https://wa.me/94740309534" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="topbar-link wa-btn"
+        onClick={(e) => {
+          e.stopPropagation(); // Prevents menu overlays from blocking the click
+          window.open("https://wa.me/94740309534", "_blank", "noopener,noreferrer");
+        }}
+      >
+        <FontAwesomeIcon icon={faWhatsapp} className="wa-icon" />
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+
 
       <nav className="navbar">
         <div className="navbar-inner">
           {/* LOGO - FIXED HOME LINK */}
           <Link href="/" className="navbar-logo" onClick={closeMobile} style={{ zIndex: 10001 }}>
-            <Image src="/logo/logo2.png" alt="Zonzoctech" width={180} height={60} priority />
+            <Image src="/logo/logo2.png" alt="Zonzoctech" width={100} height={60} priority />
           </Link>
 
           <div className={`nav-container ${mobileOpen ? 'active' : ''}`}>
