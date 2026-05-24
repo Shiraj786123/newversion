@@ -108,11 +108,11 @@ const Navbar = () => {
 
       <nav className="navbar">
         <div className="navbar-inner">
-          {/* LOGO - FIXED HOME LINK */}
-          <Link href="/" className="navbar-logo" onClick={closeMobile} style={{ zIndex: 10001 }}>
-            <Image src="/logo/logo2.png" alt="Zonzoctech" width={100} height={60} priority />
-          </Link>
-
+          {/* STATIC LOGO CONTAINER (Changed from Link to static div) */}
+         {/* STATIC LOGO CONTAINER (pointer-events: none allows clicks to pass through to the menu links below) */}
+<div className="navbar-logo" style={{ zIndex: 10001, pointerEvents: 'none' }}>
+  <Image src="/logo/logo2.png" alt="Zonzoctech" width={100} height={60} priority />
+</div>
           {/* NEW: Mobile Navbar Home Button with Text (Hides when mobile menu drawer is open) */}
           {!mobileOpen && (
             <Link href="/" className="mobile-navbar-home" onClick={closeMobile}>
@@ -153,14 +153,17 @@ const Navbar = () => {
             </ul>
 
             {/* Replaced Mobile Proposal CTA Button with a clean Direct Email Link bar */}
-            <a 
-              href="mailto:info@zonzoctech.com" 
-              className="mobile-email-bar" 
-              onClick={closeMobile}
-            >
-              <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px' }} />
-              info@zonzoctech.com
-            </a>
+           {/* Replaced Mobile Proposal CTA Button with a clean Direct Email Link bar */}
+                  <a 
+                 href="mailto:info@zonzoctech.com" 
+                 className="mobile-email-bar" 
+                 target="_blank"             /* Tells the browser to handle the mail protocol in a separate thread */
+                  rel="noopener noreferrer"   /* Security standard for external links */
+                    /* onClick={closeMobile} is removed to prevent React from blocking the mail app launch */
+                   >
+                    <FontAwesomeIcon icon={faEnvelope} style={{ marginRight: '8px' }} />
+                                info@zonzoctech.com
+                   </a>
           </div>
 
           {/* New Mobile Nav CTA - Visible in the header bar only on mobile/tablet viewports */}

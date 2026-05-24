@@ -53,7 +53,7 @@ const Footer = () => {
                 alt="ZonzocTech Logo"
                 className="footer-logo-img"
               />
-              <span className="footer-logo-text">ZonzocTech</span>
+            
             </div>
             
             <p className="footer-tagline">AI WEB DEVELOPMENT AGENCY</p>
