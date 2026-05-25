@@ -2,8 +2,8 @@
    GLOBAL VARIABLES & WRAPPERS
    ======================================================== */
 :root {
-  --svc-bg: #ffffff;                      /* White background for standard page sections */
-  --svc-card-bg: #0a1128;                 /* Ultra Premium Night Navy for Cards & CTA Box */
+  --svc-bg: #ffffff;                       /* White background for standard page sections */
+  --svc-card-bg: #0a1128;                  /* Ultra Premium Night Navy for Cards & CTA Box */
   --svc-card-border: rgba(56, 189, 248, 0.15); /* Soft sky blue border glow */
   --svc-text-primary: #0a1128;            /* Deep Night Navy for standard page text on white */
   --svc-text-muted: #475569;              /* Balanced Slate Gray for light section subtext */
@@ -105,7 +105,8 @@
 
 /* Typography & Accent Text */
 .svc__hero_title {
-  font-size: 64px !important;
+  /* FIXED: Replaced rigid 64px with a fluid clamp to eliminate click-based layout scaling shifts */
+  font-size: clamp(2.5rem, 5vw, 64px) !important; 
   font-weight: 800 !important;
   line-height: 1.15 !important;
   color: #ffffff !important;
@@ -213,13 +214,13 @@
 .svc__stat_number {
   font-size: 2.25rem;
   font-weight: 800;
-  color: #030f26 !important;                            /* Premium Night Navy Text */
+  color: #030f26 !important;                                    /* Premium Night Navy Text */
   line-height: 1.2;
 }
 
 .svc__stat_label {
   font-size: 0.875rem;
-  color: #475569 !important;                            /* Soft Slate / Navy Gray Text */
+  color: #475569 !important;                                    /* Soft Slate / Navy Gray Text */
   margin-top: 8px;
   font-weight: 500;
 }

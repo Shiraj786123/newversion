@@ -402,3 +402,53 @@ input[type="range"]::-moz-range-thumb:hover {
     text-align: center;
   }
 }
+
+
+
+
+/* ================= EXPERT POPUP MODAL WRAPPER ================= */
+
+/* The main outer black dimming background mask layer */
+.popup-overlay {
+  position: fixed !important; /* Forces it relative to screen viewport, not parent divs */
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: rgba(0, 15, 33, 0.85) !important; /* Premium semi-transparent backdrop */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 99999 !important; /* Elevated index so it sits on top of navbar and hero elements */
+  padding: 16px !important;
+  box-sizing: border-box !important;
+  overflow-y: auto !important; /* Enables scrolling inside the mask if small screens clip forms */
+}
+
+/* The actual white/dark content card context bubble */
+.popup-content-card {
+  position: relative !important;
+  background-color: #001b3a !important; /* Matches your premium dark theme structure */
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  width: 100% !important;
+  max-width: 500px !important; /* Clean, constrained desktop limit layout */
+  max-height: calc(100vh - 32px) !important; /* Restricts modal boundary from running off-screen */
+  border-radius: 16px !important;
+  padding: 28px 24px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+  overflow-y: auto !important; /* Internal card scrollbar fallback for extremely short mobile heights */
+  z-index: 100000 !important;
+}
+
+/* Mobile responsive padding balancing adjustments */
+@media (max-width: 640px) {
+  .popup-overlay {
+    align-items: flex-start !important; /* Pulls modal to top region on mobile for thumb accessibility */
+    padding-top: 40px !important;
+  }
+  
+  .popup-content-card {
+    padding: 20px 16px !important;
+    border-radius: 12px !important;
+  }
+}

@@ -1,6 +1,6 @@
 /* --- Base Topbar Styles (Desktop default) --- */
 .topbar {
-  background: #00336b;
+  background: linear-gradient(135deg, #003070 0%, #00448f 100%);
   color: #fff;
   font-size: 13px;
   width: 100%;

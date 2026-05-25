@@ -47,9 +47,7 @@ const ContactPage = () => {
       {/* 1. HERO SECTION - CENTERED */}
       <section className="cp__bar_hero">
         <div className="cp__container">
-          {/* Renders the updated 2-step 'Home › Contact Info' breadcrumb over the navy gradient */}
           <Breadcrumb />
-
           <h1 className="cp__heading">
             Let's Build Something <span className="text_light_blue">Great Together</span>
           </h1>
@@ -59,8 +57,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* 2. CONTACT BUTTONS */}
-      {/* ================= CONTACT & INFO SECTION ================= */}
+      {/* 2. CONTACT BUTTONS & FORM SECTION */}
       <section className="cp__contact_section grey_bar">
         <div className="cp__container">
           <div className="cp__contact_wrapper">
@@ -109,8 +106,11 @@ const ContactPage = () => {
                   
                   <textarea name="project" placeholder="Tell us about the project..." value={formData.project} onChange={handleInputChange} required></textarea>
                   
-                  <button type="submit" className="submit_btn">
-                    {isSubmitting ? "SENDING..." : "SUBMIT PROJECT DETAILS →"}
+                  {/* ==========================================================================
+                      UPDATED SUBMIT BUTTON TEXT: "submit" ONLY
+                      ========================================================================== */}
+                  <button type="submit" className="submit_btn" disabled={isSubmitting}>
+                    {isSubmitting ? "sending..." : "submit"}
                   </button>
                 </form>
               )}
@@ -147,7 +147,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* 4. PROCESS SECTION (Symmetric & Hover) */}
+      {/* 4. PROCESS SECTION */}
       <section className="cp__bar_process white_bar">
         <div className="cp__container">
           <h2 className="cp__title_dark">What Happens After You Contact Us</h2>
@@ -168,7 +168,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* 5. TRUST SECTION (Symmetric & Hover) */}
+      {/* 5. TRUST SECTION */}
       <section className="cp__bar_trust grey_bar">
         <div className="cp__container">
           <h2 className="cp__title_dark">Why Businesses Trust ZonzocTech</h2>
@@ -189,7 +189,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* 6. FAQ SECTION (Narrowed & Numbered) */}
+      {/* 6. FAQ SECTION */}
       <section className="cp__bar_faq white_bar">
         <div className="cp__container">
           <h2 className="cp__title_dark">Frequently Asked Questions</h2>

@@ -173,7 +173,7 @@ h6.footer-column-title {
    ========================================================================== */
 .footer-bottom {
   padding: 30px 24px !important;
-  background-color: rgb(1, 1, 56) !important; /* Premium dark navy base */
+  background-color:  #00336b;;/* Premium dark navy base */
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -323,4 +323,100 @@ h6.footer-column-title {
     justify-content: center !important;
     align-items: center !important;
   }
+}
+
+/* Container holding the buttons */
+.footer-contact-buttons {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 15px !important;
+}
+
+/* Base button styles - strictly static */
+.contact-icon-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background-color: #0047ab !important; /* Your branding blue */
+  color: #ffffff !important;
+  text-decoration: none !important;
+  
+  /* Disable any movement/transitions entirely */
+  transform: none !important;
+  transition: none !important;
+}
+
+/* Force static hover state */
+.contact-icon-btn:hover {
+  transform: none !important;
+  background-color: #0047ab !important; /* Retains static background color */
+}
+
+/* Force inner SVGs to remain static */
+.contact-icon-btn svg {
+  display: block !important;
+  transform: none !important;
+  transition: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Target WhatsApp class specifically to neutralize other animations */
+.wa-svg-icon {
+  transform: none !important;
+  transition: none !important;
+}
+
+
+
+
+
+
+
+
+
+/* Container holding the buttons */
+.footer-contact-buttons {
+  display: flex !important;
+  gap: 12px !important;
+  margin-top: 15px !important;
+}
+
+/* Base button styles */
+.contact-icon-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background-color: #0047ab !important; /* Your branding blue */
+  color: #ffffff !important;
+  text-decoration: none !important;
+  
+  /* Configure smooth scale animation */
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transform: scale(1) translate3d(0, 0, 0) !important;
+  transform-origin: center center !important;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Slight zoom on hover without altering the background color */
+.contact-icon-btn:hover {
+  transform: scale(1.08) translate3d(0, 0, 0) !important; /* Zooms up by 8% */
+  background-color: #0047ab !important; 
+}
+
+/* Ensure inner SVGs scale with the parent container smoothly */
+.contact-icon-btn svg {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none; /* Prevents cursor trigger jitter */
+  transform: translate3d(0, 0, 0) !important;
 }
