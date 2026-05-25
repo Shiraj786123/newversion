@@ -1,3 +1,19 @@
+/* ==========================================================================
+   TOPBAR UNIFORM FONT ENFORCEMENT
+   ========================================================================== */
+.topbar,
+.topbar *,
+.topbar-left,
+.topbar-left span,
+.topbar-right,
+.topbar-link {
+  font-family: 'Plus Jakarta Sans', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+
+
 /* --- Base Topbar Styles (Desktop default) --- */
 .topbar {
   background: linear-gradient(135deg, #003070 0%, #00448f 100%);

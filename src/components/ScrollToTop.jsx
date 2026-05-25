@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -40,24 +40,41 @@ const ScrollToTop = () => {
     });
   };
 
-  // Inline styles with increased bottom offsets to clear the WhatsApp elements
+  // Adjusted offsets to shift the button safely above the WhatsApp text box badge
   const buttonStyle = {
     position: "fixed",
-    bottom: isMobile ? "160px" : "180px",  /* Shifted up to clear the WhatsApp close button */
-    right: isMobile ? "20px" : "25px",
-    zIndex: 9999,
-    background: "none",
-    color: isHovered ? "#ffffff" : "#00bcff",
-    border: "none",
-    fontSize: isMobile ? "1.5rem" : "1.8rem",
+    bottom: isMobile ? "145px" : "155px", /* Safely clears the text popout module layer */
+    right: isMobile ? "24px" : "34px",   /* Perfectly aligns with the WhatsApp circle away from screen edges */
+    zIndex: 10000,                       /* Forces priority stacking rules above other container wrappers */
+    
+    /* Permanent White Background Box */
+    width: isMobile ? "40px" : "46px",
+    height: isMobile ? "40px" : "46px",
+    borderRadius: "50%",
+    background: "#ffffff", 
+    border: "1px solid rgba(56, 189, 248, 0.3)",
+    
+    /* Original Brand Blue Arrow Color Remains Static */
+    color: "#00bcff", 
+    
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
-    transition: "all 0.3s ease",
-    opacity: isHovered ? 1 : 0.8,
-    transform: isHovered ? "translateY(-5px)" : "translateY(0)",
     padding: 0,
+    
+    /* Elegant dropshadow for legibility on white site areas */
+    boxShadow: isHovered 
+      ? "0 10px 20px rgba(15, 23, 42, 0.15)" 
+      : "0 4px 12px rgba(15, 23, 42, 0.1)", 
+    
+    /* ONLY ZOOM EFFECT ON HOVER (No colors fluctuate) */
+    transform: isHovered ? "scale(1.12)" : "scale(1)",
+    transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease",
+  };
+
+  const iconStyle = {
+    fontSize: isMobile ? "1rem" : "1.15rem",
   };
 
   return (
@@ -70,7 +87,7 @@ const ScrollToTop = () => {
           style={buttonStyle}
           aria-label="Scroll to top"
         >
-          <FontAwesomeIcon icon={faArrowUp} />
+          <FontAwesomeIcon icon={faChevronUp} style={iconStyle} />
         </button>
       )}
     </>
