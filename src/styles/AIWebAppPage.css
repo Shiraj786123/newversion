@@ -418,18 +418,21 @@
 }
 
 
-
 /* =========================================================
    HERO SECTION
 ========================================================= */
-.aiwa__bar_hero {
+.aiwa__bar_hero,
+.aiwa__hero_section {
   background: linear-gradient(135deg, #001e3c 0%, #00448f 100%);
   padding: 110px 0 160px;
   text-align: center;
   position: relative;
+  /* Enforce variable font layout across the whole hero */
+  font-family: var(--font-b), sans-serif !important;
 }
 
 .aiwa__heading {
+  font-family: var(--font-b), sans-serif !important;
   font-size: clamp(36px, 6vw, 64px);
   font-weight: 800;
   line-height: 1.1;
@@ -440,10 +443,12 @@
 }
 
 .text_light_blue {
+  font-family: var(--font-b), sans-serif !important;
   color: #38bdf8;
 }
 
 .aiwa__hero_text_white {
+  font-family: var(--font-b), sans-serif !important;
   font-size: clamp(18px, 2vw, 22px);
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.92);
@@ -465,6 +470,7 @@
 
 .aiwa__btn_primary,
 .aiwa__btn_secondary {
+  font-family: var(--font-b), sans-serif !important;
   width: 230px;                 /* Equal width */
   min-height: 56px;             /* Equal height */
   display: inline-flex;
@@ -508,6 +514,7 @@
    HERO TRUST TEXT
 ========================================================= */
 .aiwa__hero_trust_text {
+  font-family: var(--font-b), sans-serif !important;
   margin: 0;
   font-size: 14px;
   font-weight: 500;
@@ -515,6 +522,12 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* =========================================================
+   PILL BADGE (Missed From Stylesheet)
+========================================================= */
+.aiwa__hero_badge_text {
+  font-family: var(--font-b), sans-serif !important;
+}
 /* =========================================================
    STATS SECTION
 ========================================================= */
@@ -2072,3 +2085,42 @@ section.process-section .step-description {
 }
 
 
+
+/* ==========================================================================
+   AI WEB APP HERO HEADING - VARIABLE FORCE
+   ========================================================================== */
+
+/* 1. Ensure the section inherits the custom variable framework */
+.aiwa__hero_section {
+  font-family: var(--font-b), var(--b), sans-serif !important;
+}
+
+/* 2. Direct assault on the hero heading and light blue span */
+h1.aiwa__heading,
+h1.aiwa__heading span.text_light_blue,
+.aiwa__hero_section h1.aiwa__heading {
+  font-family: var(--font-b), var(--b) !important;
+  font-weight: 800 !important; /* Ensures it grabs the extra bold weights of your custom font */
+}
+
+/* 3. Catch all other floating layout typographic items in the hero context */
+.aiwa__hero_section .aiwa__hero_badge_text,
+.aiwa__hero_section .aiwa__hero_text_white,
+.aiwa__hero_section .aiwa__hero_trust_text {
+  font-family: var(--font-b), var(--b) !important;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   AI WEB APP PAGE - HERO SECTION ONLY (USING var(--b--))
+   ========================================================================== */
+
+/* Force the typography token variable strictly on the hero and everything nested within it */
+.aiwa__wrapper .aiwa__hero_section,
+.aiwa__wrapper .aiwa__hero_section * {
+  font-family: var(--b--), sans-serif !important;
+}

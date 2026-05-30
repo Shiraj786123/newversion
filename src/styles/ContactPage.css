@@ -200,6 +200,7 @@ section.cp__contact_section .budget_wrap label {
 
 /* Container for the slider */
 input[type=range] {
+    appearance: none;
     -webkit-appearance: none;
     width: 100%;
     background: transparent;
@@ -216,6 +217,7 @@ input[type=range]::-webkit-slider-runnable-track {
 
 /* The thumb (The handle that is invisible) */
 input[type=range]::-webkit-slider-thumb {
+    appearance: none;
     -webkit-appearance: none;
     height: 22px;
     width: 22px;

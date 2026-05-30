@@ -182,9 +182,9 @@ const AISoftwareServices = () => {
                 Get Free AI Consultation →
               </a>
 
-              <a href="#aiss-work" className="btn-secondary">
-                See Our Work ↓
-              </a>
+             <a href="/case-studies" className="aiwd-btn-secondary">
+    View Our Works →
+  </a>
             </div>
 
             {/* Trust Text */}
@@ -541,9 +541,9 @@ const AISoftwareServices = () => {
                 <a href="/contact" className="btn-primary">
                   Get Free AI Consultation →
                 </a>
-                <a href="/#portfolio" className="btn-secondary">
-                  See Our Work
-                </a>
+                <a href="/case-studies" className="aiwd-btn-secondary">
+  See Our Works 
+</a>
               </div>
 
               <p className="aiss__cta-small-text">

@@ -6,6 +6,8 @@ import WhatsappFloat from '@/src/components/WhatsappFloat';
 import '@/src/index.css';
 import '@/src/App.css';
 import '@/src/styles/service-shared.css';
+import "@/src/styles/navbar.css"; // Navbar styles second (ensures these take priority)
+
 
 // Configure the font classes and weights
 const inter = Inter({
@@ -58,7 +60,8 @@ export default function RootLayout({ children }) {
         {/* Next.js automatically handles link preconnect and stylesheet optimization */}
         <link rel="icon" href="/zonzotech-favicon5.png?v=2" type="image/png" />
       </head>
-      <body>
+      {/* Applied inter.className here to keep the global typography context consistent across route changes */}
+      <body className={inter.className}>
         <AuthProvider>
           {children}
           <WhatsappFloat />

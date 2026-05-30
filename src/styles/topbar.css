@@ -7,12 +7,10 @@
 .topbar-left span,
 .topbar-right,
 .topbar-link {
-  font-family: 'Plus Jakarta Sans', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased !important;
   text-rendering: optimizeLegibility !important;
 }
-
-
 
 /* --- Base Topbar Styles (Desktop default) --- */
 .topbar {
@@ -21,7 +19,6 @@
   font-size: 13px;
   width: 100%;
 }
-
 
 .topbar-inner {
   max-width: 1440px; /* Matches navbar max-width */
@@ -35,13 +32,10 @@
   box-sizing: border-box;
 }
 
-
-
 .topbar-left { 
   display: flex; 
   align-items: center; 
   gap: 8px;
-  
   /* Use this to pull the text away from the very edge of the screen */
   /* Increase or decrease this number until it aligns perfectly with your logo */
   padding-left: 40px; 
@@ -82,7 +76,6 @@
   opacity: 0.85;
 }
 
-
 /* --- Tablet / Mobile Screens (768px and down) --- */
 @media (max-width: 768px) {
   .topbar {
@@ -91,9 +84,9 @@
 
   .topbar-inner {
     flex-direction: column; /* Stack text above icons to save horizontal space */
-    justify-content: center;
+    justify-content: center !important;
     align-items: center;
-    gap: 7px;               /* Vertical spacing between the text and icon groups */
+    gap: 15px;               /* Vertical spacing between the text and icon groups */
     padding: 8px 16px;
   }
 
@@ -101,6 +94,8 @@
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;        /* Allows text wrapping inline without breaking the icon flow */
+    padding-left: 0 !important; /* FIXED: Overrides desktop padding-left so text is centered */
+    width: 100%;
   }
 
   .topbar-right {
@@ -108,7 +103,6 @@
     gap: 25px;
   }
 }
-
 
 /* --- Tiny Mobile Screens (480px and down) --- */
 @media (max-width: 480px) {
@@ -118,12 +112,9 @@
   
   /* FIXED: Switched 20px to 11px so text scales down appropriately instead of getting larger */
   .topbar-left span {
-    font-size: 11px; 
+    font-size: 10px; 
   }
 }
-
-
-
 
 /* Target the FontAwesome SVGs in the topbar */
 .topbar-left svg,
@@ -134,11 +125,6 @@
   display: inline-block;
   vertical-align: middle;
 }
-
-
-
-
-
 
 /* --- Bulletproof Uniform Height Fix for Topbar Icons --- */
 .topbar-left svg.svg-inline--fa,
@@ -153,11 +139,6 @@
   display: inline-block !important;
   vertical-align: middle !important;
 }
-
-
-
-
-
 
 /* --- High-Priority Layer Controls for the Topbar --- */
 .topbar {
@@ -179,7 +160,7 @@
   align-items: center !important;
   justify-content: center !important;
   pointer-events: auto !important; /* Allows links to accept clicks */
-  padding: 8px !important;         /* Enlarges the touch target area for mobile users */
+  padding: 8px !important;          /* Enlarges the touch target area for mobile users */
   margin: -8px !important;         /* Offsets padding so adjacent layouts do not shift */
 }
 
@@ -188,20 +169,11 @@
   pointer-events: none !important;
 }
 
-
-
-
-
-@media (max-width: 768px) {
-  .topbar-inner {
-    /* This overrides the desktop space-between to center the content */
-    justify-content: center !important; 
-    gap: 15px; /* Adds a small space between the text and the icons on mobile */
-    padding: 8px 16px;
-  }
-
-  /* Optional: Hide the text on very small screens if it gets too crowded */
-  @media (max-width: 480px) {
-    .topbar-left span { font-size: 10px; }
-  }
+/* ==========================================================================
+   TOPBAR FONT BINDING (Forced inheritance via Next.js Document variables)
+   ========================================================================== */
+.topbar,
+.topbar * {
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
 }

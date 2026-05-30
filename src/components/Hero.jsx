@@ -35,7 +35,7 @@ const Hero = ({ onCtaClick }) => {
               href="/#our-work"
               className="hero-secondary-btn"
             >
-              See Our Work <span className="arrow">↓</span>
+              See Our Works <span className="arrow">↓</span>
             </a>
           </div>
         </div>

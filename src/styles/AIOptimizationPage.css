@@ -2803,3 +2803,25 @@ section.aiso__hero .aiso-hero-badge-text {
     opacity: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   AI SEARCH OPTIMIZATION - HERO SECTION ONLY (USING var(--b--))
+   ========================================================================== */
+
+/* Target the hero wrapper explicitly to isolate the custom token font styling */
+.aiso__wrapper .aiso__hero,
+.aiso__wrapper .aiso__hero * {
+  font-family: var(--b--), sans-serif !important;
+}

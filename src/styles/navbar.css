@@ -1,8 +1,55 @@
 
+/* Force all navigation text, buttons, and links to maintain your font choice */
+.navbar,
+.navbar * {
+  font-family: inherit !important;
+}
 
 /* ==========================================================================
-   GLOBAL RESET
+   1. GLOBAL RESET & FONT ENFORCEMENT
    ========================================================================== */
+
+/* Enforces your native Next.js 'Inter' font family (var(--font-b)) globally 
+   across all navbar elements and state transitions to prevent any flickering */
+.navbar, 
+.navbar *, 
+.navbar a,
+.navbar a:visited,
+.navbar a:active,
+.navbar a:focus,
+.nav-link,
+.nav-link a,
+.nav-links-list a,
+.nav-links-list a:visited,
+.nav-links-list a:active,
+.nav-links-list a:focus,
+.topbar, 
+.topbar *,
+.mega-menu-rect, 
+.mega-menu-rect *,
+.mega-menu-rect a,
+.get-proposal-button,
+.mobile-navbar-home,
+.mobile-drawer-item-row,
+.mobile-drawer-item-row:visited,
+.mobile-drawer-item-row:active,
+.mobile-drawer-item-row:focus {
+  font-family: var(--font-b), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+.navbar,
+.navbar *,
+.nav-link,
+.nav-link a,
+.nav-links-list a,
+.mobile-navbar-home,
+.get-proposal-button,
+.mobile-drawer-item-row {
+  font-weight: 500 !important;
+}
+
 .navbar a,
 .navbar a:hover,
 .navbar a:focus,
@@ -16,8 +63,31 @@
   text-decoration-line: none !important;
 }
 
+.nav-link a:focus,
+.nav-link a:active,
+.nav-link a:visited,
+.nav-link:focus,
+.nav-link:active,
+.nav-links-list a:focus,
+.nav-links-list a:active,
+.nav-links-list a.active,
+.mobile-navbar-home:focus,
+.mobile-navbar-home:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.nav-link,
+.nav-link a,
+.nav-links-list a {
+  transition: color 0.25s ease, background-color 0.25s ease !important;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+
 /* ==========================================================================
-   NAVBAR (DESKTOP STYLE SETTINGS)
+   2. NAVBAR BASE LAYOUT (DESKTOP)
    ========================================================================== */
 .navbar {
   background: transparent;
@@ -36,11 +106,8 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* ==========================================================================
-   NAVBAR CONTAINER ADJUSTMENTS (INCREASE MAX WIDTH BOUNDS)
-   ========================================================================== */
 .navbar-inner {
-  max-width: 1440px;          /* UPDATED from 1200px to expand layout edge-to-edge */
+  max-width: 1440px;          
   width: 100%;
   margin: 0 auto;
   padding: 0 24px;
@@ -55,20 +122,28 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  margin-left: 0px;           /* UPDATED from 24px to flush the logo further left */
+  margin-left: 0px;           
 }
 
-.navbar-logo img {
-  width: 200px !important;
-  height: auto !important;
-  display: block;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ==========================================================================
-   DESKTOP VIEW ELEMENT STRUCTURING
+   3. DESKTOP LINKS & BUTTONS
    ========================================================================== */
 .nav-container {
-  flex: 1;
+  flex: 1 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -86,7 +161,6 @@
 
 .nav-link {
   font-size: 15px;
-  font-weight: 500;
   color: #111827;
   cursor: pointer;
   position: relative;
@@ -101,8 +175,29 @@
   color: #00448f !important;
 }
 
+.get-proposal-button {
+  /* Aligned directly to Inter variable font */
+  font-family: var(--font-b), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  background: #00448f;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+.get-proposal-button:hover {
+  background: #00336b;
+  transform: translateY(-1px);
+}
+
+
 /* ==========================================================================
-   DROPDOWN MENUS (DESKTOP MODE)
+   4. DROPDOWN MENUS (MEGA MENU)
    ========================================================================== */
 .dropdown-parent {
   position: relative;
@@ -129,23 +224,15 @@
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  
-  /* Reduced width for better visual containment */
   width: 750px; 
   background: #ffffff;
   border-radius: 16px;
-  
-  /* Tightened padding */
   padding: 24px 20px; 
-  
-  /* Use Flexbox for better item distribution */
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   border: 1px solid #f1f5f9;
-  
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -153,35 +240,18 @@
   z-index: 9999;
 }
 
-.mega-col {
-  display: flex;
-  flex-direction: column;
-  flex: 1; /* Ensures equal column width */
+.mega-menu-rect::before {
+  content: "";
+  position: absolute;
+  top: -30px; 
+  left: 0;
+  right: 0;
+  height: 30px; 
+  background: transparent !important; 
+  pointer-events: auto !important;    
+  z-index: 99999;                     
 }
 
-.mega-heading {
-  font-size: 11px; /* Smaller, cleaner headers */
-  letter-spacing: 0.05em;
-  font-weight: 700;
-  color: #00448f;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-.mega-col a {
-  font-size: 13.5px; /* Slightly tighter text */
-  color: #475569;
-  padding: 5px 0;
-  line-height: 1.5;
-  transition: color 0.2s ease;
-}
-
-.mega-col a:hover {
-  color: #00448f !important;
-  transform: translateX(4px); /* Subtle interaction */
-}
 .dropdown-parent:hover .mega-menu-rect {
   opacity: 1;
   visibility: visible;
@@ -192,50 +262,41 @@
 .mega-col {
   display: flex;
   flex-direction: column;
+  flex: 1 1; 
 }
 
 .mega-heading {
-  font-size: 15px;
+  font-size: 13px; 
+  letter-spacing: 0.05em;
   font-weight: 700;
   color: #00448f;
   text-transform: uppercase;
-  margin-bottom: 10px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid #f1f5f9;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .mega-col a {
-  font-size: 14px;
+  font-size: 13.5px; 
   color: #475569;
-  padding: 6px 0;
-  line-height: 1.4;
+  display: block; 
+  padding: 8px 12px; 
+  margin: 0 -12px; 
+  border-radius: 6px;
+  line-height: 1.5;
+  transition: all 0.25s ease;
 }
 
 .mega-col a:hover {
   color: #00448f !important;
+  background-color: #f1f5f9; 
+  transform: translateX(4px); 
 }
+
 
 /* ==========================================================================
-   GLOBAL ACTION BUTTONS
+   5. MOBILE ENGINE (1024PX AND BELOW)
    ========================================================================== */
-.get-proposal-button {
-  background: #00448f;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s ease;
-  white-space: nowrap;
-}
-
-.get-proposal-button:hover {
-  background: #00336b;
-  transform: translateY(-1px);
-}
-
 .hamburger {
   display: none;
   background: none;
@@ -253,14 +314,10 @@
 }
 
 .sky-blue {
-  color: skyblue;
+  color: #00aeef;
+  font-weight: 600;
 }
 
-/* FIXED: Anti-breaking home links block completely removed to restore full routing action */
-
-/* ==========================================================================
-   MOBILE ISOLATION CONTAINER ENGINE (1024PX AND BELOW)
-   ========================================================================== */
 @media (max-width: 1024px) {
   .desktop-cta,
   .desktop-only-home-link,
@@ -331,7 +388,6 @@
     display: block !important;
   }
 
-  /* FIXED SCROLL CONTAINER DRAWER PANEL */
   .mobile-nav-drawer {
     display: block !important;
     position: absolute !important;
@@ -345,8 +401,6 @@
     border: 1px solid #f1f5f9;
     border-top: none;
     z-index: 99999;
-    
-    /* Animation settings */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -359,7 +413,6 @@
     transform: translateY(0) !important;
   }
 
-  /* INDEPENDENT INNER CONTAINER SCROLL ENGINE */
   .mobile-drawer-scroll-box {
     max-height: calc(100vh - 180px) !important;
     overflow-y: auto !important;
@@ -395,7 +448,6 @@
     transform: rotate(180deg);
   }
 
-  /* MOBILE SMOOTH ACCORDION */
   .mobile-accordion-body {
     max-height: 0;
     overflow: hidden;
@@ -453,7 +505,6 @@
     font-weight: 600;
   }
 
-  /* CUSTOM SCROLLBAR UTILITIES */
   .mobile-drawer-scroll-box::-webkit-scrollbar {
     width: 4px;
   }
@@ -463,9 +514,28 @@
   }
 }
 
+
 /* ==========================================================================
-   SMALL DEVICE ADAPTATION (480PX AND BELOW)
+   6. SMALL DEVICE ADAPTATIONS
    ========================================================================== */
+@media (max-width: 1024px) {
+  .mobile-navbar-home {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important; 
+  }
+
+  .navbar-mobile-controls div, 
+  .navbar-mobile-controls span,
+  [class*="home-wrapper"], 
+  [class*="home-container"] {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
 @media (max-width: 480px) {
   .navbar-inner {
     padding: 0 10px !important;
@@ -490,8 +560,9 @@
   }
 }
 
+
 /* ==========================================================================
-   HERO CALL-TO-ACTION BUTTON RESPONSIVENESS
+   7. HERO & CALL-TO-ACTION BUTTONS RESPONSIVENESS
    ========================================================================== */
 .hero-buttons {
   display: flex;
@@ -567,6 +638,51 @@
   }
 }
 
+
+/* ==========================================================================
+   8. TOPBAR LAYOUT - ALIGNED TO EDGES
+   ========================================================================== */
+.topbar {
+  background: linear-gradient(135deg, #003070 0%, #00448f 100%);
+  color: #fff;
+  font-size: 13px;
+  width: 100% !important;
+  z-index: 10005 !important;
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex !important;
+  justify-content: space-between !important; 
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.topbar-left { display: flex; align-items: center; gap: 8px; }
+.topbar-right { display: flex !important; align-items: center !important; gap: 18px; flex-shrink: 0; }
+
+.topbar-link {
+  color: #fff;
+  display: flex !important;
+  align-items: center;
+  cursor: pointer !important;
+  padding: 8px;
+  margin: -8px;
+}
+
+@media (max-width: 768px) {
+  .topbar-inner { padding: 8px 16px; }
+  .topbar-right { gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .topbar-left span { font-size: 11px; }
+  .topbar-link span { display: none; }
+}
+
 /* ==========================================================================
    FONTS & PERFORMANCE ANTI-FLICKER RENDERING
    ========================================================================== */
@@ -578,7 +694,8 @@
 .mobile-navbar-home,
 .get-proposal-button,
 .mobile-drawer-item-row {
-  font-family: 'Plus Jakarta Sans', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
+  /* Enforces our native Next.js variable font (Inter) */
+  font-family: var(--font-b), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif !important;
   font-weight: 500 !important;
   -webkit-font-smoothing: antialiased !important;
   text-rendering: optimizeLegibility !important;
@@ -608,26 +725,15 @@
   backface-visibility: hidden;
 }
 
-
-
-
-
-
-
-
-
 @media (max-width: 1024px) {
-  
-  /* 1. Remove the background from the link itself */
   .mobile-navbar-home {
     background: transparent !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: none !important;
-    padding: 0 !important; /* Clear extra box offsets */
+    padding: 0 !important; 
   }
 
-  /* 2. Target the outer structural parent container to clear the wrapper box */
   .navbar-mobile-controls div, 
   .navbar-mobile-controls span,
   [class*="home-wrapper"], 
@@ -637,91 +743,112 @@
     box-shadow: none !important;
     border: none !important;
   }
-  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   TOPBAR LAYOUT - ALIGNED TO EDGES
-   ========================================================================== */
-.topbar {
-  background: linear-gradient(135deg, #003070 0%, #00448f 100%);
-  color: #fff;
-  font-size: 13px;
-  width: 100% !important;
-  z-index: 10005 !important;
-}
-
-.topbar-inner {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 8px 24px;
-  display: flex !important;
-  justify-content: space-between !important; /* Force Left & Right alignment */
-  align-items: center;
-  box-sizing: border-box;
-}
-
-.topbar-left { display: flex; align-items: center; gap: 8px; }
-.topbar-right { display: flex !important; align-items: center !important; gap: 18px; flex-shrink: 0; }
-
-.sky-blue { color: #00aeef; font-weight: 600; }
-
-.topbar-link {
-  color: #fff;
-  display: flex !important;
-  align-items: center;
-  cursor: pointer !important;
-  padding: 8px;
-  margin: -8px;
-}
-
-@media (max-width: 768px) {
-  .topbar-inner { padding: 8px 16px; }
-  .topbar-right { gap: 12px; }
-}
-
-@media (max-width: 480px) {
-  .topbar-left span { font-size: 11px; }
-  .topbar-link span { display: none; }
-}
-
-
-
-
-
-
 
 .mega-col a {
   font-size: 13.5px;
   color: #475569;
-  
-  /* Make the link behave like a box */
   display: block; 
   padding: 8px 12px; 
-  margin: 0 -12px; /* Pulls the background box to the edge of the column */
+  margin: 0 -12px; 
   border-radius: 6px;
-  
   line-height: 1.5;
   transition: all 0.25s ease;
 }
 
 .mega-col a:hover {
   color: #00448f !important;
-  background-color: #f1f5f9; /* The "hover box" background color */
+  background-color: #f1f5f9; 
   text-decoration: none !important;
-  transform: translateX(4px); /* Slight movement adds responsiveness */
+  transform: translateX(4px); 
+}
+
+/* ==========================================================================
+   SURGICAL HOVER FIX (DOES NOT AFFECT THE LAYOUT STRUCTURE)
+   ========================================================================== */
+
+.mega-menu-rect {
+  position: absolute;
+}
+
+.mega-menu-rect::before {
+  content: "";
+  position: absolute;
+  top: -30px; 
+  left: 0;
+  right: 0;
+  height: 30px; 
+  background: transparent !important; 
+  pointer-events: auto !important;    
+  z-index: 99999;                     
+}
+
+/* ==========================================================================
+   DESKTOP NAVBAR & DROPDOWN FONT BINDING
+   ========================================================================== */
+
+/* Forces the navbar, links, and mega-menu dropdowns to use our loaded Inter font */
+.navbar, 
+.navbar *, 
+.mega-menu-rect, 
+.mega-menu-rect *,
+.mega-menu-rect a {
+  font-family: var(--font-b), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* ==========================================================================
+   FORCE FONT ENFORCEMENT ON ALL LINK STATES (FIXES CLICK-FLICKER)
+   ========================================================================== */
+.navbar a:visited,
+.navbar a:active,
+.navbar a:focus,
+.nav-links-list a:visited,
+.nav-links-list a:active,
+.nav-links-list a:focus,
+.mobile-drawer-item-row:visited,
+.mobile-drawer-item-row:active,
+.mobile-drawer-item-row:focus {
+  font-family: var(--font-b), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Find your .dropdown-parent or .nav-link container */
+.dropdown-parent {
+  position: relative;
+  /* Add explicit padding to the bottom so the hover zone extends down */
+  padding-bottom: 15px; 
+  margin-bottom: -15px;
+}
+
+/* Adjust your mega menu placement */
+.mega-menu-rect {
+  position: absolute;
+  top: 100%; /* Positions right at the bottom edge of the parent padding */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Smooth visibility toggle */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  
+  z-index: 999;
+}
+
+/* Keep it open when hovering either the trigger text OR the dropdown itself */
+.dropdown-parent:hover .mega-menu-rect {
+  opacity: 1;
+  visibility: visible;
 }

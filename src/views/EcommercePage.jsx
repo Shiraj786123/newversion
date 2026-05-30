@@ -100,9 +100,9 @@ const EcommerceDev = () => {
                 Get Free Ecommerce Audit →
               </a>
 
-              <a href="#ecd-work" className="btn-secondary">
-                See Our Work ↓
-              </a>
+              <a href="/case-studies" className="btn-secondary">
+  See Our Works →
+</a>
             </div>
 
             <p className="ecd__hero_trust">
@@ -429,10 +429,9 @@ const EcommerceDev = () => {
                 Get Free Ecommerce Audit →
               </a>
 
-              <a href="/#portfolio" className="ecd__cta_secondary">
-                View Our Work
-              </a>
-
+              <a href="/case-studies" className="ecd__cta_secondary">
+  View Our Work
+</a>
             </div>
 
             <p className="ecd__cta_note">

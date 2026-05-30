@@ -1,11 +1,21 @@
 'use client';
+
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faEarthAmericas, 
+  faUsers, 
+  faBolt, 
+  faChartLine,
+  faBrain 
+} from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Monitor, Rocket, Zap, Search, Layout, Smartphone, 
   BarChart3, ShieldCheck, Globe, ArrowRight, CheckCircle2,
   Users, Star, MousePointer2, RefreshCw, Lightbulb, Code, 
-  Palette, Microscope, Plus, Minus 
+  Palette, Microscope, Plus, Minus, Cpu, Activity, Sparkles, 
+  Bot, Settings, BarChart, Layers, HelpCircle
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -20,14 +30,6 @@ const AIWebsiteDesign = () => {
     { number: "120+", label: "Clients Served", icon: <Users color="#a855f7" /> },
     { number: "35%", label: "Conversion Lift", icon: <BarChart3 color="#10b981" /> },
     { number: "4.9★", label: "Client Rating", icon: <Star color="#fbbf24" /> },
-  ];
-
-  const whatItNeeds = [
-    { title: "Clear Messaging", icon: <Lightbulb color="#3b82f6" />, description: "Visitors decide within 3 seconds. Your site must communicate value immediately." },
-    { title: "Fast Load Speed", icon: <Zap color="#eab308" />, description: "Build sites that score 90+ on Google PageSpeed to keep visitors engaged." },
-    { title: "Conversion UX", icon: <MousePointer2 color="#f43f5e" />, description: "Strategic layouts that guide visitors naturally toward taking action." },
-    { title: "Mobile-First", icon: <Smartphone color="#a855f7" />, description: "60% of traffic is mobile. We design perfectly for every screen size." },
-    { title: "SEO Built In", icon: <Search color="#06b6d4" />, description: "Technical SEO, Schema markup and AI search optimisation from the start." },
   ];
 
   const services = [
@@ -69,15 +71,16 @@ const AIWebsiteDesign = () => {
     },
   };
 
-  const examples = [
-    "Intelligent dashboards & reporting",
-    "AI-powered SaaS platforms",
-    "GPT-powered customer tools",
-    "Automated lead qualification",
-    "AI recommendation engines",
-    "Internal workflow automation",
-    "Predictive analytics platforms",
-    "AI chatbots & virtual assistants",
+  // Structured array replacing the basic string examples with unique icons and context
+  const aiSolutions = [
+    { title: "Intelligent Dashboards", description: "Real-time analytics pipelines and visually interactive reporting systems.", icon: <BarChart size={22} className="ai-sol-icon-cyan" /> },
+    { title: "AI-Powered SaaS", description: "Scalable product foundations integrated with modern machine learning logic.", icon: <Layers size={22} className="ai-sol-icon-purple" /> },
+    { title: "GPT Customer Tools", description: "Tailored text generation models assisting users throughout workflows.", icon: <Sparkles size={22} className="ai-sol-icon-rose" /> },
+    { title: "Lead Qualification", description: "Automated scoring funnels that accurately isolate ready-to-buy profiles.", icon: <CheckCircle2 size={22} className="ai-sol-icon-emerald" /> },
+    { title: "Recommendation Engines", description: "Dynamic content delivery systems matched directly to visitor profiles.", icon: <Cpu size={22} className="ai-sol-icon-blue" /> },
+    { title: "Workflow Automation", description: "Background processing and scripts eliminating repetitive administrative actions.", icon: <Settings size={22} className="ai-sol-icon-amber" /> },
+    { title: "Predictive Analytics", description: "Forecasting layouts translating raw interaction data into clear strategies.", icon: <Activity size={22} className="ai-sol-icon-indigo" /> },
+    { title: "Virtual Assistants", description: "Context-aware AI conversational models managing support 24/7.", icon: <Bot size={22} className="ai-sol-icon-teal" /> },
   ];
 
   return (
@@ -88,36 +91,30 @@ const AIWebsiteDesign = () => {
       <section className="aiwd-hero">
         <div className="aiwd-container">
           <div className="aiwd-hero-content">
-            {/* MOVED BREADCRUMB HERE: Centers inside the dark hero wrapper above everything else */}
             <Breadcrumb />
 
-            {/* Badge */}
             <span className="aiwd-hero-badge">
               AI Web Design & Development Agency
             </span>
 
-            {/* Heading split specifically at 'Visitors Into Customers' */}
             <h1 className="aiwd-hero-title">
               AI Website Design That Turns <span className="aiwd-hero-title-accent">Visitors Into Customers</span>
             </h1>
 
-            {/* Subtext */}
             <p className="aiwd-hero-subtext">
               We build high-converting AI-powered websites for UK & USA businesses —
               combining modern UI, conversion psychology, and performance engineering.
             </p>
 
-            {/* CTA Buttons */}
             <div className="aiwd-hero-actions">
               <a href="/contact" className="aiwd-btn-primary">
                 Get Free Consultation
               </a>
-              <a href="#work" className="aiwd-btn-secondary">
-                View Our Work →
-              </a>
+             <a href="/case-studies" className="aiwd-btn-secondary">
+  View Our Works →
+</a>
             </div>
 
-            {/* Trust Text */}
             <p className="aiwd-hero-trust">
               Trusted by 120+ businesses across the UK, USA & Europe
             </p>
@@ -140,25 +137,23 @@ const AIWebsiteDesign = () => {
         </div>
       </section>
 
-      {/* SECTION 3 - INTRO / AI EXPLANATION */}
+      {/* SECTION 3 - INTRO / REDESIGNED EXPERT AI EXPLANATION */}
       <section className="aiwd-intro-section">
         <div className="aiwd-container">
 
-          {/* Title */}
           <div className="aiwd-section-head">
+            <span className="aiwd-section-pill">Core Framework</span>
             <h2 className="aiwd-section-title">
               What Is AI Web Application Development?
             </h2>
-
             <p className="aiwd-section-subtext">
               AI web applications combine modern web systems with machine learning and LLMs to automate tasks, improve decisions, and deliver smarter user experiences.
             </p>
           </div>
 
-          {/* AI EXPLAINER BLOCK */}
           <div className="aiwd-ai-explainer">
-
             <div className="aiwd-ai-badge">
+              <span className="aiwd-ai-badge-pulse"></span>
               <span>AI</span>
             </div>
 
@@ -168,23 +163,36 @@ const AIWebsiteDesign = () => {
                 Unlike static applications, AI-powered systems learn from user behavior,
                 adapt in real-time, and continuously improve performance without manual updates.
               </p>
-
               <p>
                 This gives UK & USA businesses a major competitive advantage in automation,
                 customer experience, and data-driven decision making.
               </p>
             </div>
-
           </div>
 
-          {/* EXAMPLES GRID */}
-          <div className="aiwd-example-grid">
-            {examples.map((item, index) => (
-              <div key={index} className="aiwd-example-card">
-                <span className="aiwd-check">✔</span>
-                <span>{item}</span>
-              </div>
-            ))}
+          {/* Fully Responsive & Redesigned Grid Section */}
+          <div className="aiwd-solutions-container">
+            <div className="aiwd-solutions-header">
+              <h4>Advanced Capabilities & Functional Implementations</h4>
+              <p>Explore the functional building blocks we deploy within our premium AI web integrations.</p>
+            </div>
+            
+            <div className="aiwd-solutions-grid">
+              {aiSolutions.map((item, index) => (
+                <div key={index} className="aiwd-solution-card">
+                  <div className="aiwd-solution-card-top">
+                    <div className="aiwd-solution-icon-wrapper">
+                      {item.icon}
+                    </div>
+                    <span className="aiwd-solution-arrow">→</span>
+                  </div>
+                  <div className="aiwd-solution-card-body">
+                    <h5>{item.title}</h5>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
@@ -208,21 +216,35 @@ const AIWebsiteDesign = () => {
         </div>
       </section>
 
-      {/* --- MOVING WHY CHOOSE --- */}
+      {/* --- HORIZONTAL SCROLLABLE TIMELINE WHY CHOOSE SECTION --- */}
       <section className="aiwd-section aiwd-navy-bg">
         <div className="aiwd-container">
-          <h2 className="aiwd-section-title aiwd-moving-gradient-white">Why Businesses Choose Us</h2>
-        </div>
-        <div className="aiwd-marquee-container">
-          <motion.div className="aiwd-marquee-track" variants={marqueeVariants} animate="animate">
-            {[...whyChoose, ...whyChoose].map((item, i) => (
-              <div key={i} className="aiwd-row-card-white">
-                <div className="aiwd-card-icon-glass"><CheckCircle2 color="#38bdf8" /></div>
-                <h3 className="white-txt">{item.title}</h3>
-                <p className="white-txt-muted">{item.description}</p>
-              </div>
-            ))}
-          </motion.div>
+          <h2 className="aiwd-section-title aiwd-moving-gradient-white">
+            Why Businesses Choose Us
+          </h2>
+          
+          <div className="aiwd-horizontal-container">
+            <div className="aiwd-horizontal-track">
+              {whyChoose.map((item, i) => (
+                <div key={i} className="aiwd-horizontal-item">
+                  <div className="aiwd-node-wrapper">
+                    <div className={`aiwd-icon-node node-color-${i}`}>
+                      {i === 0 && <FontAwesomeIcon icon={faChartLine} style={{ color: "#ffffff" }} />}
+                      {i === 1 && <FontAwesomeIcon icon={faBrain} style={{ color: "#ffffff" }} />}
+                      {i === 2 && <FontAwesomeIcon icon={faEarthAmericas} style={{ color: "#ffffff" }} />}
+                      {i === 3 && <FontAwesomeIcon icon={faUsers} style={{ color: "#ffffff" }} />}
+                      {i === 4 && <FontAwesomeIcon icon={faBolt} style={{ color: "#ffffff" }} />}
+                    </div>
+                  </div>
+                  
+                  <div className="aiwd-row-card">
+                    <h3 className="white-txt">{item.title}</h3>
+                    <p className="white-txt-muted">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -304,9 +326,9 @@ const AIWebsiteDesign = () => {
                 Get Free Consultation
               </a>
 
-              <a href="#work" className="aiwd-btn-secondary">
-                View Our Work →
-              </a>
+              <a href="/case-studies" className="aiwd-btn-secondary">
+  View Our Works →
+</a>
             </div>
           </div>
         </div>

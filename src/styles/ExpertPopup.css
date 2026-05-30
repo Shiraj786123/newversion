@@ -1,14 +1,13 @@
 /* ==========================================================================
-   PREMIUM WHITE & BRAND NAVY POPUP MODULE
+   PREMIUM LIGHT VERSION POPUP MODULE
    ========================================================================== */
 
-/* Overlay */
 .popup-overlay {
   position: fixed !important;
   inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  background: rgba(1, 15, 33, 0.4) !important; /* Softened dark mask to complement the clean white modal */
+  background: rgba(0, 15, 40, 0.4) !important; 
   z-index: 99999 !important;
   display: flex !important;
   justify-content: center !important;
@@ -18,59 +17,51 @@
   box-sizing: border-box !important;
 }
 
-/* Container */
+/* RESTORED original container height and scrolling behavior for desktop */
 .popup-container {
   width: 100% !important;
   max-width: 980px !important;
-  background: #ffffff !important; /* Clean White Canvas Background */
-  border: 1px solid rgba(0, 51, 107, 0.3) !important; /* UPDATED: Brand Navy Frame Border */
-  border-radius: 18px !important;
+  background: #ffffff !important; 
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 20px !important;
   display: grid !important;
-  grid-template-columns: 1fr 1.4fr !important;
+  grid-template-columns: 1fr 1.35fr !important;
   position: relative !important;
-  box-shadow: 0 30px 90px rgba(0, 15, 33, 0.15) !important; /* Softened shadow depth for light background */
-  overflow: hidden !important;
+  box-shadow: 0 25px 70px rgba(0, 44, 143, 0.08) !important;
+  overflow: hidden !important; 
   animation: popupFade 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 @keyframes popupFade {
-  from {
-    transform: scale(0.96);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.97); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-/* Close Button */
 .popup-close {
   position: absolute !important;
-  top: 14px !important;
-  right: 16px !important;
+  top: 16px !important;
+  right: 18px !important;
   background: none !important;
   border: none !important;
-  font-size: 22px !important;
+  font-size: 24px !important;
   cursor: pointer !important;
-  color: #64748b !important; /* Darker slate-gray close cross for white backdrop legibility */
+  color: #94a3b8 !important;
   z-index: 10 !important;
   transition: color 0.2s ease !important;
 }
 
 .popup-close:hover {
-  color: #00336b !important; /* UPDATED: Brand Navy close hover effect */
+  color: #00448f !important;
 }
 
-/* LEFT PANEL (Light Gray to White Subtle Gradient) */
+/* LEFT PANEL */
 .popup-left {
-  background: linear-gradient(145deg, #f8fafc, #ffffff) !important; /* Light slate to pure white gradient */
-  color: #0f172a !important; /* Swapped to dark slate text for perfect contrast */
-  padding: 36px !important;
+  background: linear-gradient(145deg, rgba(56, 189, 248, 0.08) 0%, rgba(255, 255, 255, 1) 100%) !important;
+  padding: 40px 36px !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
-  border-right: 1px solid rgba(0, 51, 107, 0.15) !important; /* UPDATED: Brand Navy structural divider */
+  border-right: 1px solid rgba(56, 189, 248, 0.2) !important;
 }
 
 .popup-left-top {
@@ -78,343 +69,261 @@
 }
 
 .popup-left h3 {
-  font-size: 22px !important;
+  font-size: 24px !important;
   margin-bottom: 8px !important;
-  color: #00336b !important; /* UPDATED: "Speak to Our Experts" Heading Text */
+  color: #00448f !important;
+  font-weight: 700 !important;
 }
 
 .popup-left p {
-  font-size: 14px !important;
-  color: #334155 !important;
-  opacity: 0.95 !important;
+  font-size: 14.5px !important;
+  color: #475569 !important;
 }
 
-/* Review Block Container */
 .popup-review {
-  margin: 28px 0 !important;
-  background: rgba(0, 51, 107, 0.05) !important; /* UPDATED: Light tint background variant for review panel */
-  border: 1px solid rgba(0, 51, 107, 0.15) !important; /* UPDATED: Thin Navy boundary track line */
-  padding: 16px !important;
-  border-radius: 10px !important;
-  font-size: 13px !important;
-  color: #334155 !important; /* Clear dark text inside quote block */
+  margin: 32px 0 !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-left: 4px solid #38bdf8 !important; 
+  padding: 18px !important;
+  border-radius: 12px;
+  font-size: 13.5px !important;
+  color: #475569 !important;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.03) !important;
 }
 
 .popup-review strong {
   display: block !important;
   margin-bottom: 6px !important;
   font-size: 14px !important;
-  color: #00336b !important; /* UPDATED: Bold review text color */
+  color: #00448f !important;
 }
 
-/* Social Media/Contact Icons */
 .contactmedia {
-  margin-bottom: 20px !important;
+  margin: 24px 0 !important;
+  display: flex !important;
+  gap: 16px !important;
 }
 
 .contactmedia i {
-  margin-right: 12px !important;
   font-size: 20px !important;
-  cursor: pointer !important;
-  color: #00336b !important; /* UPDATED: Left column social links color */
-  transition: all 0.3s !important;
+  transition: transform 0.2s ease !important;
 }
 
 .contactmedia i:hover {
   transform: scale(1.15) !important;
-  color: #0f172a !important; /* Darkens on hover to fit light theme balance */
 }
 
-/* Contact information wrapper at bottom */
 .popup-contact {
   margin-top: auto !important;
-  padding-top: 20px !important;
-  border-top: 1px solid rgba(0, 51, 107, 0.15) !important; /* UPDATED: Structural border */
+  padding-top: 24px !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.2) !important;
 }
 
 .popup-contact span {
   display: flex !important;
   align-items: center !important;
-  font-size: 13px !important;
-  margin-bottom: 10px !important;
-  color: #334155 !important;
+  font-size: 13.5px !important;
+  margin-bottom: 12px !important;
+  color: #475569 !important;
 }
 
 .popup-contact span i {
-  margin-right: 10px !important;
-  font-size: 16px !important;
-  min-width: 18px !important;
-  color: #00336b !important; /* UPDATED: Left column icons tint */
+  margin-right: 12px !important;
+  font-size: 15px !important;
+  color: #00448f !important; 
 }
 
-/* RIGHT PANEL (Main Form Region) */
+/* RIGHT PANEL - Full desktop paddings preserved */
 .popup-right {
-  padding: 36px !important;
-  background: #ffffff !important; /* Pure White Form Background Panel */
+  padding: 40px !important;
+  background: #ffffff !important; 
 }
 
 .popup-right h2 {
   font-size: 26px !important;
   margin-bottom: 8px !important;
-  color: #00336b !important; /* UPDATED: "Let's Build Something Incredible Together" Form Title */
+  color: #00448f !important;
+  font-weight: 700 !important;
 }
 
 .popup-subtext {
-  font-size: 14px !important;
-  color: #475569 !important; /* Clear dark-slate explanation layout labels */
-  margin-bottom: 22px !important;
+  font-size: 14.5px !important;
+  color: #475569 !important;
+  margin-bottom: 28px !important;
 }
 
-/* Forms & Inputs fields layout formatting */
+/* RESTORED standard dimensions for your input layout on desktop screens */
 .popup-form input,
 .popup-form select,
 .popup-form textarea {
   width: 100% !important;
-  padding: 12px 14px !important;
-  border-radius: 8px !important;
-  background: #f8fafc !important; /* Soft white-gray input canvas beds */
-  border: 1px solid rgba(0, 51, 107, 0.15) !important; /* UPDATED: Input borders */
-  color: #0f172a !important; /* Input text changes to dark navy/slate */
-  font-size: 14px !important;
-  margin-bottom: 14px !important;
+  padding: 13px 16px !important;
+  border-radius: 10px !important;
+  background: #f8fafc !important; 
+  border: 1px solid rgba(0, 68, 143, 0.12) !important;
+  color: #0f172a !important; 
+  font-size: 14.5px !important;
+  margin-bottom: 16px !important;
   outline: none !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease-in-out !important;
 }
 
 .popup-form input::placeholder,
 .popup-form textarea::placeholder {
-  color: #94a3b8 !important; /* Standard placeholder gray color tone alignment */
+  color: #94a3b8 !important; 
 }
 
 .popup-form input:focus,
 .popup-form select:focus,
 .popup-form textarea:focus {
-  border-color: #00336b !important; /* UPDATED: Input focus outline border color */
-  background: #ffffff !important; /* Glows to plain white when actively selected */
-  box-shadow: 0 0 0 3px rgba(0, 51, 107, 0.1) !important; /* UPDATED: Soft navy outer glow ring */
-}
-
-/* Option element overrides inside browser select */
-.popup-form select option {
-  background: #ffffff !important;
-  color: #0f172a !important;
-}
-
-.popup-form textarea {
-  min-height: 100px !important;
-  resize: none !important;
+  border-color: #38bdf8 !important;
+  background: #ffffff !important; 
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12) !important;
 }
 
 .form-grid {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important;
-  gap: 12px !important;
+  gap: 14px !important;
 }
 
-/* Label text color adjustments */
+.popup-form textarea {
+  min-height: 110px !important;
+  resize: none !important;
+}
+
 .budget-label {
-  font-size: 13px !important;
-  margin: 10px 0 6px !important;
+  font-size: 14px !important;
+  margin: 12px 0 8px !important;
   display: block !important;
-  color: #00336b !important; /* UPDATED: "Estimated Budget (USD):" Tracker Text color */
+  color: #475569 !important;
   font-weight: 600 !important;
 }
 
-/* Premium Range Bar Slider UI */
+.budget-value {
+  color: #00448f !important;
+  font-weight: 700 !important;
+}
+
 input[type="range"] {
   -webkit-appearance: none !important;
   appearance: none !important;
   width: 100% !important;
   height: 6px !important;
-  border-radius: 5px !important;
-  background: #e2e8f0 !important; /* Light tracking track channel line */
-  border: 1px solid rgba(0, 51, 107, 0.1) !important;
+  border-radius: 10px !important;
   outline: none !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 24px !important;
 }
 
-/* Webkit Slider Knob Controls */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
   appearance: none !important;
   width: 20px !important;
   height: 20px !important;
-  border-radius: 100% !important;
-  background: #00336b !important; /* UPDATED: Blue Slideline handle node */
+  border-radius: 50% !important;
+  background: #00448f !important; 
   cursor: pointer !important;
   border: 2px solid #ffffff !important;
-  box-shadow: 0 2px 6px rgba(0, 51, 107, 0.3) !important;
-  transition: transform 0.1s !important;
+  box-shadow: 0 3px 10px rgba(0, 68, 143, 0.3) !important;
+  transition: transform 0.15s ease !important;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15) !important;
+  transform: scale(1.2) !important;
 }
 
-/* Firefox Slider Knob Controls */
-input[type="range"]::-moz-range-thumb {
-  width: 20px !important;
-  height: 20px !important;
-  border-radius: 100% !important;
-  background: #00336b !important; /* UPDATED: Firefox Slider handle point */
-  cursor: pointer !important;
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 2px 6px rgba(0, 51, 107, 0.3) !important;
-  transition: transform 0.1s !important;
-}
-
-input[type="range"]::-moz-range-thumb:hover {
-  transform: scale(1.15) !important;
-}
-
-/* ACTION CONTROLS BUTTON FOOTER */
+/* ACTIONS FOOTER SYSTEM - Exact original sizing preserved */
 .popup-actions {
   display: flex !important;
   align-items: center !important;
+  justify-content: flex-end !important;
   gap: 14px !important;
-  margin-top: 22px !important;
-}
-.popup-actions::before {
-  content: "" !important;
-  flex: 1 !important;
+  margin-top: 24px !important;
+  width: 100% !important;
 }
 
-/* Base interactive custom action buttons layouts */
 .popup-actions button {
-  width: 150px !important;
-  height: 48px !important;
-  padding: 0 !important;
-  border-radius: 40px !important;
+  padding: 13px 28px !important;
+  border-radius: 10px !important;
   font-weight: 600 !important;
-  font-family: Poppins, sans-serif !important;
   font-size: 15px !important;
   cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  transition: all 0.25s ease-in-out !important;
   box-sizing: border-box !important;
-  transition: all 0.3s ease !important;
 }
 
-/* Submit Form Interactive Button */
 .popup-actions .submit-btn {
-  background-color: #00336b !important; /* UPDATED: Brand Dark Navy color block for Submit Button */
-  color: #ffffff !important; /* White contrast typography inside submission CTA node */
+  background: linear-gradient(135deg, #00448f 0%, #002d62 100%) !important;
+  color: #ffffff !important; 
   border: none !important;
-  box-shadow: 0 4px 12px rgba(0, 51, 107, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(0, 68, 143, 0.2) !important;
 }
 
 .popup-actions .submit-btn:hover {
-  background-color: #002247 !important; /* Slightly darker shift for cleaner hover definition */
   transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(0, 51, 107, 0.35) !important;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.3) !important;
 }
 
-/* Cancel Action Button styles */
 .popup-actions .cancel-btn {
-  background-color: transparent !important;
-  margin-top: 0px !important;
-  color: #64748b !important;
-  border: 1.5px solid rgba(100, 116, 139, 0.4) !important;
+  background: transparent !important;
+  color: #475569 !important;
+  border: 1px solid rgba(71, 85, 105, 0.2) !important;
 }
 
 .popup-actions .cancel-btn:hover {
-  background-color: #f1f5f9 !important;
-  color: #0f172a !important;
-  border-color: #0f172a !important;
-  transform: translateY(-2px) !important;
+  background: rgba(0, 68, 143, 0.03) !important;
+  color: #00448f !important;
+  border-color: #00448f !important;
 }
 
-/* Notification & Toast Alert Boxes */
 .popup-right .alert {
-  padding: 15px 20px !important;
+  padding: 14px 18px !important;
   border-radius: 8px !important;
   margin-bottom: 20px !important;
   font-weight: 500 !important;
-  animation: slideIn 0.3s ease !important;
+  font-size: 14px !important;
 }
 
 .popup-right .alert-success {
-  background-color: rgba(16, 185, 129, 0.1) !important;
-  color: #059669 !important; /* Slightly deeper green variant safe for light canvases */
+  background: rgba(16, 185, 129, 0.08) !important;
+  color: #059669 !important; 
   border: 1px solid rgba(16, 185, 129, 0.2) !important;
 }
 
-.popup-right .alert-error {
-  background-color: rgba(239, 68, 68, 0.1) !important;
-  color: #dc2626 !important; /* Slightly deeper red variant safe for light canvases */
-  border: 1px solid rgba(239, 68, 68, 0.2) !important;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Disabled states */
-.popup-form input:disabled,
-.popup-form select:disabled,
-.popup-form textarea:disabled,
-.popup-actions button:disabled {
-  opacity: 0.5 !important;
-  background: #f1f5f9 !important;
-  border-color: #e2e8f0 !important;
-  color: #94a3b8 !important;
-  cursor: not-allowed !important;
-}
-
-/* RESPONSIVE MOBILE HANDSET LAYOUT CONFIGURATIONS */
+/* RESPONSIVE MEDIA BREAKPOINTS - Keeps your original button sizing intact on small screens */
 @media (max-width: 768px) {
-  .popup-overlay {
-    align-items: flex-start !important;
-    padding-top: 24px !important;
-    overflow-y: auto !important;
-  }
-
   .popup-container {
     grid-template-columns: 1fr !important;
-    max-width: 100% !important;
-    max-height: none !important;
-    overflow-y: visible !important;
+    overflow-y: auto !important;
+    max-height: 95vh !important;
   }
-
   .popup-left {
-    padding: 24px !important;
-    min-height: auto !important;
     border-right: none !important;
-    border-bottom: 1px solid rgba(0, 51, 107, 0.15) !important;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2) !important;
+    padding: 30px 24px !important;
   }
-
   .popup-right {
-    padding: 24px !important;
+    padding: 30px 24px !important;
   }
-
   .form-grid {
     grid-template-columns: 1fr !important;
-  }
-
-  .popup-actions {
-    flex-direction: column-reverse !important;
-    gap: 12px !important;
+    gap: 0 !important;
   }
   
-  .popup-actions .cancel-btn {
-    text-align: center !important;
-    margin-top: 0px !important;
+  /* Restores the side-by-side horizontal actions container without breaking widths */
+  .popup-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    width: 100% !important;
   }
   
   .popup-actions button {
-    width: 100% !important;
-    min-width: unset !important;
-    height: 50px !important;
-    justify-content: center !important;
-    text-align: center !important;
+    width: auto !important;
+    flex: none !important;
   }
 }
 
@@ -425,47 +334,47 @@ input[type="range"]::-moz-range-thumb:hover {
 
 
 
-/* RESPONSIVE MOBILE HANDSET LAYOUT CONFIGURATIONS */
-@media (max-width: 768px) {
-  
-  /* ... keep your other layout properties the same ... */
 
-  /* UPDATED: Clear layout behavior to stack buttons cleanly */
-  .popup-actions {
-    display: flex !important;
-    flex-direction: column !important; /* Stack buttons vertically */
-    align-items: center !important;    /* Center them horizontally */
-    justify-content: center !important;
-    gap: 12px !important;              /* Clean layout spacing gap */
-    margin-top: 24px !important;
-    width: 100% !important;
-  }
 
-  /* CRITICAL: Neutralize the desktop spacer so it doesn't push mobile buttons off-center */
-  .popup-actions::before {
-    display: none !important;
-    content: none !important;
-  }
-  
-  /* UPDATED: Forces both buttons to look uniform and stretch cleanly on mobile viewports */
-  .popup-actions button,
-  .popup-actions .submit-btn,
-  .popup-actions .cancel-btn {
-    width: 100% !important;            /* Make buttons span edge-to-edge inside the form padding */
-    max-width: 340px !important;       /* Prevents buttons from looking awkwardly wide on tablets */
-    min-width: unset !important;
-    height: 48px !important;           
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    margin: 0 auto !important;         /* Final fallback alignment center anchor */
-  }
+/* Container holding the buttons */
+.popup-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 14px !important; /* Space between buttons */
+  margin-top: 24px !important;
+  width: 100% !important;
+}
 
-  /* Keep cancel button underneath submit button without extra spacing anomalies */
-  .popup-actions .cancel-btn {
-    margin-top: 0px !important;
-  }
+/* Unified Button Base Styles */
+.popup-actions button {
+  padding: 13px 40px !important; /* Forces identical internal size */
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease-in-out !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 140px !important; /* Prevents text length from changing width */
+  border: 1px solid transparent !important; /* Ensures border thickness matches */
+}
+
+/* Cancel Button: Specific styling */
+.popup-actions .cancel-btn {
+  background: transparent !important;
+  color: #475569 !important;
+  border-color: rgba(71, 85, 105, 0.2) !important;
+}
+
+/* Submit Button: Specific styling (Now matched to Cancel size) */
+.popup-actions .submit-btn {
+  background: linear-gradient(135deg, #00448f 0%, #002d62 100%) !important;
+  color: #ffffff !important; 
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(0, 68, 143, 0.2) !important;
 }
 
 
@@ -474,3 +383,33 @@ input[type="range"]::-moz-range-thumb:hover {
 
 
 
+
+
+
+
+
+
+
+
+/* Force override button sizes */
+.popup-actions .cancel-btn, 
+.popup-actions .submit-btn {
+  padding: 13px 40px !important;
+  width: auto !important;
+  min-width: 140px !important;
+  height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure the Submit button specifically follows the size defined above */
+.popup-form .popup-actions .submit-btn {
+  background: linear-gradient(135deg, #00448f 0%, #002d62 100%) !important;
+  border: none !important;
+  color: #ffffff !important;
+}

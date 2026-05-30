@@ -1,7 +1,6 @@
 /* ==========================================================================
    Case Studies Page Base Layout
    ========================================================================== */
-
 .cs__wrapper {
   min-height: 100vh;
   display: flex;
@@ -21,13 +20,14 @@ section.cs__hero,
   color: #ffffff !important;
   width: 100% !important;
   
-  /* UNIFIED STRUCTURAL ALIGNMENT MATRIX */
-  min-height: 95vh !important;           
+  /* REBALANCED VERTICAL HEIGHT MATRIX */
+  min-height: 55vh !important;           
   display: flex !important;              
   align-items: center !important;        
   justify-content: center !important;     
   box-sizing: border-box !important;
   overflow: hidden !important;
+  padding: 100px 24px 80px 24px !important;
 }
 
 /* Background resets */
@@ -397,14 +397,12 @@ section.cs__hero .cs__hero_description,
   margin: 0 auto;
 }
 
-.cs__cta_section h2,
-.cs__hero_cta_title {
+.cs__cta_section h2 {
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 100;
 }
 
-.cs__cta_subtitle,
-.cs__hero_cta_subtitle {
+.cs__cta_subtitle {
   color: #b0c4de;
   margin-left: auto;
   margin-right: auto;
@@ -513,8 +511,8 @@ section.cs__hero .cs__hero_description,
   
   .cs__cta_section { padding: 100px 0; }
   .cs__cta_container { max-width: 950px; }
-  .cs__cta_section h2, .cs__hero_cta_title { font-size: 2.5rem; margin-bottom: 24px; }
-  .cs__cta_subtitle, .cs__hero_cta_subtitle { font-size: 1.2rem; line-height: 1.65; margin-bottom: 44px; }
+  .cs__cta_section h2 { font-size: 2.5rem; margin-bottom: 24px; }
+  .cs__cta_subtitle { font-size: 1.2rem; line-height: 1.65; margin-bottom: 44px; }
   .cs__btn_filled, .cs__btn_outlined { padding: 15px 36px; font-size: 1.05rem; }
   .cs__cta_trust_text, .cs__hero_trust_text { font-size: 1rem; }
 }
@@ -555,8 +553,8 @@ section.cs__hero .cs__hero_description,
   
   .cs__cta_section { padding: 80px 24px; }
   .cs__cta_container { max-width: 900px; }
-  .cs__cta_section h2, .cs__hero_cta_title { font-size: 2.2rem; margin-bottom: 20px; }
-  .cs__cta_subtitle, .cs__hero_cta_subtitle { font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px; }
+  .cs__cta_section h2 { font-size: 2.2rem; margin-bottom: 20px; }
+  .cs__cta_subtitle { font-size: 1.15rem; line-height: 1.6; margin-bottom: 40px; }
   .cs__btn_filled, .cs__btn_outlined { padding: 14px 32px; font-size: 1rem; }
   .cs__cta_trust_text, .cs__hero_trust_text { font-size: 0.95rem; }
 }
@@ -589,8 +587,8 @@ section.cs__hero .cs__hero_description,
   .cs__projects_grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
   
   .cs__cta_section { padding: 70px 32px; }
-  .cs__cta_section h2, .cs__hero_cta_title { font-size: 2rem; }
-  .cs__cta_subtitle, .cs__hero_cta_subtitle { font-size: 1.1rem; margin-bottom: 32px; }
+  .cs__cta_section h2 { font-size: 2rem; }
+  .cs__cta_subtitle { font-size: 1.1rem; margin-bottom: 32px; }
   .cs__btn_filled, .cs__btn_outlined { padding: 13px 28px; font-size: 0.95rem; }
 }
 
@@ -600,7 +598,6 @@ section.cs__hero .cs__hero_description,
   .cs__container { padding: 0 1.5rem; }
   
   section.cs__hero .cs__hero_title, .cs__hero_merged .cs__hero_title { font-size: 40px !important; line-height: 1.2 !important; letter-spacing: -0.02em; padding-top: 0.5rem; }
-  section.cs__hero .cs__hero_subtitle, .cs__hero_merged .cs__hero_subtitle { font-size: 1.4rem; }
   section.cs__hero .cs__hero_description, .cs__hero_merged .cs__hero_description { font-size: 1.05rem !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 32px !important; }
   
   .cs__heading { font-size: 2.2rem; }
@@ -615,8 +612,8 @@ section.cs__hero .cs__hero_description,
   
   .cs__projects_grid { grid-template-columns: 1fr; gap: 24px; }
   
-  .cs__cta_section h2, .cs__hero_cta_title { font-size: 1.8rem; }
-  .cs__cta_subtitle, .cs__hero_cta_subtitle { font-size: 1.05rem; margin-bottom: 28px; }
+  .cs__cta_section h2 { font-size: 1.8rem; }
+  .cs__cta_subtitle { font-size: 1.05rem; margin-bottom: 28px; }
   
   .cs__cta_buttons, .cs__hero_buttons { flex-direction: column; align-items: stretch; width: 100%; gap: 12px; }
   .cs__btn_filled, .cs__btn_outlined { width: 100%; padding: 14px 20px; font-size: 1rem; box-shadow: none; }
@@ -652,8 +649,8 @@ section.cs__hero .cs__hero_description,
   .cs__project_title { font-size: 16px; margin-bottom: 8px; }
   
   .cs__cta_section { padding: 50px 16px; }
-  .cs__cta_section h2, .cs__hero_cta_title { font-size: 1.5rem; margin-bottom: 12px; }
-  .cs__cta_subtitle, .cs__hero_cta_subtitle { font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
+  .cs__cta_section h2 { font-size: 1.5rem; margin-bottom: 12px; }
+  .cs__cta_subtitle { font-size: 0.95rem; line-height: 1.5; margin-bottom: 24px; }
   .cs__cta_buttons, .cs__hero_buttons { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; margin-bottom: 24px; }
   .cs__btn_filled, .cs__btn_outlined { width: 100%; padding: 12px 16px; font-size: 0.95rem; }
   .cs__cta_trust_text, .cs__hero_trust_text { font-size: 0.85rem; }
@@ -672,7 +669,7 @@ section.cs__hero .cs__hero_description,
   .cs__study_card { padding: 1.5rem 1rem; }
   .cs__study_title { font-size: 1.25rem; }
   
-  .cs__cta_section h2, .cs__hero_cta_title { font-size: 1.35rem; }
-  .cs__cta_subtitle, .cs__hero_cta_subtitle { font-size: 0.9rem; }
+  .cs__cta_section h2 { font-size: 1.35rem; }
+  .cs__cta_subtitle { font-size: 0.9rem; }
   .cs__btn_filled, .cs__btn_outlined { padding: 11px 14px; font-size: 0.9rem; }
 }

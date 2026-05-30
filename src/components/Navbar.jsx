@@ -1,5 +1,3 @@
-
-
 'use client';
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -120,34 +118,23 @@ const Navbar = () => {
               onClick={closeMobile}
             >
               <Image
-                src="/logo/logo2.png"
-                alt="Zonzoctech"
-                width={200}
-                height={60}
-                priority
-              />
+  src="/logo/logo2.png"
+  alt="Zonzoctech"
+  width={200}
+  height={60}
+  priority
+  style={{
+    width: "200px",
+    height: "auto",
+    display: "block"
+  }}
+/>
             </Link>
           )}
 
           {/* COMPACT MOBILE ACTIONS HEADER ROW */}
           <div className="navbar-mobile-controls">
-            {!mobileOpen && (
-              isHomePage ? (
-                <div className="mobile-navbar-home" style={{ cursor: 'default' }}>
-                  <FontAwesomeIcon icon={faHome} />
-                  <span>Home</span>
-                </div>
-              ) : (
-                <Link
-                  href="/"
-                  className="mobile-navbar-home"
-                  onClick={closeMobile}
-                >
-                  <FontAwesomeIcon icon={faHome} />
-                  <span>Home</span>
-                </Link>
-              )
-            )}
+            {/* REMOVED HOME BUTTON FROM HERE TO CLEAN UP THE ROW VIEW */}
 
             {!mobileOpen && (
               <button
@@ -252,6 +239,19 @@ const Navbar = () => {
           <div className={`mobile-nav-drawer ${mobileOpen ? "active" : ""}`}>
             <div className="mobile-drawer-scroll-box">
               
+              {/* HOME LINK ADDED INSIDE THE MOBILE DRAWER MENU */}
+              {isHomePage ? (
+                <div className="mobile-drawer-item-row link-redirect" style={{ cursor: 'default', opacity: 0.7 }}>
+                  <FontAwesomeIcon icon={faHome} style={{ marginRight: "10px" }} />
+                  Home
+                </div>
+              ) : (
+                <Link href="/" className="mobile-drawer-item-row link-redirect" onClick={closeMobile}>
+                  <FontAwesomeIcon icon={faHome} style={{ marginRight: "10px" }} />
+                  Home
+                </Link>
+              )}
+              
               <div 
                 className="mobile-drawer-item-row" 
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
@@ -316,5 +316,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

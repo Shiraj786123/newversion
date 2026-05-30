@@ -1,3 +1,6 @@
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
 :root {
@@ -784,4 +787,784 @@
   font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.5); /* Muted gray-blue */
   margin: 0;
+}
+
+
+
+
+
+
+/* ==========================================================================
+   WHY CHOOSE US - HORIZONTAL SCROLLABLE TIMELINE LAYOUT
+   ========================================================================== */
+.aiwd-section.aiwd-navy-bg {
+  background: radial-gradient(circle at 50% 100%, #001f3a 0%, #000f21 100%) !important;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.aiwd-container {
+  max-width: 1440px; /* Expands to full screen width to eliminate horizontal gaps */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; 
+}
+
+/* Gradient Title Styling */
+.aiwd-section-title.aiwd-moving-gradient-white {
+  font-size: 42px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 54px; 
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   SCROLLABLE TIMELINE TRAIL
+   ========================================================================== */
+.aiwd-horizontal-container {
+  width: 100%;
+  overflow-x: auto; /* ENABLES HORIZONTAL SIDE-SCROLLING */
+  scroll-behavior: smooth;
+  padding-bottom: 24px; /* Space for the custom scrollbar without clipping shadows */
+  box-sizing: border-box;
+  
+  /* Subtle Firefox Scrollbar Styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.25) transparent;
+}
+
+/* Webkit Scrollbar Customization (Chrome, Safari, Edge, Opera) */
+.aiwd-horizontal-container::-webkit-scrollbar {
+  height: 6px; /* Thin, elegant bar */
+}
+.aiwd-horizontal-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.aiwd-horizontal-container::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 10px;
+}
+.aiwd-horizontal-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.45);
+}
+
+/* Tracks content dynamically. Ensures horizontal line stretches with scrollWidth */
+.aiwd-horizontal-track {
+  position: relative;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start;
+  gap: 32px;
+  width: max-content; /* Expands to hold all 5 cards side-by-side */
+  min-width: 100%; /* Spans full width on large screens */
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* The horizontal dashed connecting line that scrolls dynamically with the track */
+.aiwd-horizontal-track::before {
+  content: "";
+  position: absolute;
+  top: 32px; /* Centers vertically on the 44px icon nodes (44px/2 + 10px padding) */
+  left: 140px; /* Starts exactly at the center of the first card (280px / 2 = 140px) */
+  right: 140px; /* Ends exactly at the center of the last card */
+  height: 2px;
+  border-top: 2px dashed rgba(56, 189, 248, 0.35);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.aiwd-horizontal-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  gap: 16px;
+  flex: 0 0 280px; /* FIXED WIDTH: Prevents squishing and forces smooth horizontal scrolling */
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.aiwd-node-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   COLORFUL NEON ICON NODES
+   ========================================================================== */
+.aiwd-icon-node {
+  width: 44px; 
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.aiwd-horizontal-item:hover .aiwd-icon-node {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Ensure FontAwesome SVGs scale perfectly inside the timeline nodes */
+.aiwd-icon-node svg {
+  font-size: 17px !important; 
+  width: auto !important;
+  height: 1.1em !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Node Gradients and Glowing Shadows */
+.node-color-0 {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+}
+
+.node-color-1 {
+  background: linear-gradient(135deg, #8a5cf5 0%, #6366f1 100%);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
+}
+
+.node-color-2 {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+}
+
+.node-color-3 {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+}
+
+.node-color-4 {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================================================
+   RIGHT SIDE GLASSMORPHISM CARD (EQUAL HEIGHT HEIGHT ALIGNMENT)
+   ========================================================================== */
+.aiwd-row-card {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 12px !important; 
+  padding: 20px !important; 
+  flex-grow: 1;
+  width: 100%;
+  height: 100%; /* Keeps cards perfectly equal in height horizontally */
+  box-sizing: border-box;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center; /* Center aligned text for desktop layout cards */
+  gap: 6px; 
+}
+
+/* Hover lift effect */
+.aiwd-row-card:hover {
+  transform: translateY(-5px); 
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.12);
+}
+
+/* Card Typography */
+.white-txt {
+  font-size: 18px; 
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.white-txt-muted {
+  font-size: 13.5px; 
+  line-height: 1.55;
+  color: #94a3b8;
+  margin: 0;
+}
+
+
+
+
+
+/* ==========================================================================
+   SCROLLABLE TIMELINE TRAIL (SCROLLBAR HIDDEN)
+   ========================================================================== */
+.aiwd-horizontal-container {
+  width: 100%;
+  overflow-x: auto !important;   /* Keeps horizontal side-scrolling active */
+  overflow-y: hidden !important; /* Prevents any vertical scrollbar glitches */
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  
+  /* Hides scrollbar for Firefox */
+  scrollbar-width: none !important;
+  /* Hides scrollbar for IE/Edge */
+  -ms-overflow-style: none !important;
+}
+
+/* Hides scrollbar for Chrome, Safari, and newer Edge/Opera */
+.aiwd-horizontal-container::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+/* ==========================================================================
+   MOBILE & TABLET COMPACT ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .aiwd-section.aiwd-navy-bg {
+    padding: 60px 0;
+  }
+  
+  .aiwd-section-title.aiwd-moving-gradient-white {
+    font-size: 30px;
+    margin-bottom: 36px;
+  }
+  
+  .aiwd-horizontal-container {
+    padding-bottom: 16px;
+  }
+  
+  .aiwd-horizontal-track {
+    gap: 20px;
+    padding: 0 16px;
+  }
+  
+  /* Dashed connecting line adjusts to narrower mobile spacing */
+  .aiwd-horizontal-track::before {
+    top: 28px;
+    left: 110px; /* Aligns with the center of 220px cards */
+    right: 110px;
+  }
+  
+  .aiwd-horizontal-item {
+    flex: 0 0 220px; /* Compressed card widths for mobile touch screens */
+    gap: 12px;
+  }
+  
+  .aiwd-icon-node {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .aiwd-icon-node svg {
+    font-size: 14px !important;
+  }
+  
+  .aiwd-row-card {
+    padding: 16px !important;
+  }
+  
+  .white-txt {
+    font-size: 16px;
+  }
+  
+  .white-txt-muted {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aiwd-section-title.aiwd-moving-gradient-white {
+    font-size: 26px;
+  }
+  
+  .aiwd-horizontal-container {
+    padding: 0 12px;
+  }
+}
+
+
+
+
+
+/* ==========================================================================
+   1. RESTORE GLOBAL CONTAINER (FIXES STATS & METRICS PANEL)
+   ========================================================================== */
+.aiwd-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  
+  /* REMOVED: display: flex, flex-direction, and align-items overrides */
+}
+
+/* ==========================================================================
+   2. SCOPE CENTERING ONLY TO THE "WHY CHOOSE US" SECTION
+   ========================================================================== */
+
+/* Scopes centering specifically to this section so it doesn't break other pages */
+.aiwd-section.aiwd-navy-bg .aiwd-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important; 
+}
+
+/* Timeline Stack - Centered and restricted to 680px */
+.aiwd-timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  width: 100%;
+  max-width: 680px; 
+  margin: 48px auto 0 auto !important; 
+  align-self: center !important; 
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   STATS BAR / METRICS PANEL ROW-WISE GRID
+   ========================================================================== */
+
+/* 1. Main outer white card container */
+.analytics-metrics-panel {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 20px !important;
+  padding: 32px !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04) !important;
+  width: 100% !important;
+  max-width: 1200px !important; /* Spans across the page */
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Grid container forced to be horizontal on desktop */
+.stats-quad-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important; /* 4 columns horizontally side-by-side */
+  gap: 20px !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Individual stat cell structure */
+.stat-grid-cell {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  flex-direction: row !important; /* Keeps icon on the left, text on the right */
+  align-items: center !important;
+  gap: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES FOR STATS
+   ========================================================================== */
+
+/* Tablet viewports: Splits into a clean 2x2 grid to prevent card squishing */
+@media (max-width: 1024px) {
+  .analytics-metrics-panel {
+    padding: 24px !important;
+  }
+  
+  .stats-quad-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2x2 Grid */
+    gap: 16px !important;
+  }
+}
+
+/* Mobile viewports: Stacks vertically on small phone screens */
+@media (max-width: 640px) {
+  .analytics-metrics-panel {
+    padding: 20px 16px !important;
+  }
+  
+  .stats-quad-grid {
+    grid-template-columns: 1fr !important; /* Vertical stack */
+    gap: 12px !important;
+  }
+  
+  .stat-grid-cell {
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   STATS BAR (FULLY ROW-WISE RESPONSIVE GRID)
+   ========================================================================== */
+.aiwd-stats-bar { 
+  margin-top: -60px; 
+  position: relative; 
+  z-index: 10; 
+}
+
+/* Forces all 4 stat items to align horizontally side-by-side on desktop */
+.aiwd-stats-row { 
+  display: grid !important; 
+  grid-template-columns: repeat(4, 1fr) !important; /* 4 columns on desktop */
+  background: white !important; 
+  padding: 40px !important; 
+  border-radius: 24px !important; 
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important; 
+  gap: 24px !important; 
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Individual stat item content styling */
+.aiwd-stat-item { 
+  display: flex !important; 
+  flex-direction: row !important; /* Icon on the left, text block on the right */
+  align-items: center !important; 
+  gap: 15px !important; 
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.aiwd-stat-icon-circle { 
+  width: 55px; 
+  height: 50px; 
+  background: var(--bg-soft); 
+  border-radius: 12px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-shrink: 0;
+}
+
+.aiwd-stat-num { 
+  display: block; 
+  font-size: 28px; 
+  font-weight: 800; 
+  color: var(--blue); 
+  margin-bottom: 2px;
+}
+
+.aiwd-stat-lab { 
+  font-size: 13px; 
+  font-weight: 600; 
+  color: var(--navy); 
+  line-height: 1.3;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   AI WEBPAGE DESIGN HERO - TYPOGRAPHY FIX
+   ========================================================================== */
+
+/* Target the entire hero section wrapper */
+section.aiwd-hero {
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* FORCED: Directly overrides the main page heading font */
+section.aiwd-hero .aiwd-hero-title,
+section.aiwd-hero .aiwd-hero-title-accent {
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Force consistency on the subtext and badge structures */
+section.aiwd-hero .aiwd-hero-badge,
+section.aiwd-hero .aiwd-hero-subtext,
+section.aiwd-hero .aiwd-hero-trust {
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Force consistency on the CTA actions inside the hero box */
+section.aiwd-hero .aiwd-hero-actions a {
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   REDESIGNED INTRO & SOLUTIONS GRID SECTION
+   ========================================================================== */
+
+.aiwd-intro-section {
+  padding: 80px 0;
+  background-color: var(--bg-grey, #f8fafc);
+}
+
+.aiwd-section-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  background-color: rgba(0, 43, 98, 0.06);
+  color: var(--navy, #002d62);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Enhancements to the existing Explainer card */
+.aiwd-ai-explainer {
+  background: #ffffff;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  margin-bottom: 60px;
+}
+
+.aiwd-ai-badge {
+  position: relative;
+  background: linear-gradient(135deg, #3b82f6, #002d62);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 20px;
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.25);
+}
+
+.aiwd-ai-badge-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: inherit;
+  z-index: 1;
+  opacity: 0.4;
+  animation: badgePulse 2.5s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes badgePulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+.aiwd-ai-text h3 {
+  font-size: 22px;
+  color: var(--navy, #002d62);
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.aiwd-ai-text p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 12px 0;
+}
+
+.aiwd-ai-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Solutions Sub-Header */
+.aiwd-solutions-header {
+  margin-bottom: 32px;
+  border-left: 4px solid var(--navy, #002d62);
+  padding-left: 16px;
+}
+
+.aiwd-solutions-header h4 {
+  font-size: 20px;
+  color: var(--navy, #002d62);
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.aiwd-solutions-header p {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Solutions Grid Construction */
+.aiwd-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.aiwd-solution-card {
+  background: #ffffff;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  top: 0;
+}
+
+.aiwd-solution-card:hover {
+  top: -4px;
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 24px rgba(0, 43, 98, 0.04);
+}
+
+.aiwd-solution-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.aiwd-solution-icon-wrapper {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Soft Variable Icon Palettes */
+.ai-sol-icon-cyan { color: #06b6d4; }
+.ai-sol-icon-purple { color: #a855f7; }
+.ai-sol-icon-rose { color: #f43f5e; }
+.ai-sol-icon-emerald { color: #10b981; }
+.ai-sol-icon-blue { color: #3b82f6; }
+.ai-sol-icon-amber { color: #f59e0b; }
+.ai-sol-icon-indigo { color: #6366f1; }
+.ai-sol-icon-teal { color: #14b8a6; }
+
+.aiwd-solution-arrow {
+  font-size: 16px;
+  color: #94a3b8;
+  transition: transform 0.2s ease;
+}
+
+.aiwd-solution-card:hover {
+  border-color: var(--navy, #002d62);
+}
+
+.aiwd-solution-card:hover .aiwd-solution-arrow {
+  transform: translateX(3px);
+  color: var(--navy, #002d62);
+}
+
+.aiwd-solution-card-body h5 {
+  font-size: 16px;
+  color: var(--navy, #002d62);
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.aiwd-solution-card-body p {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA BREAKPOINTS
+   ========================================================================== */
+
+/* Large Tablets & Desktop Scalings */
+@media (max-width: 1140px) {
+  .aiwd-solutions-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Standard Medium Tablets */
+@media (max-width: 860px) {
+  .aiwd-solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .aiwd-ai-explainer {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+  }
+}
+
+/* Mobile Devices & Small Screens */
+@media (max-width: 580px) {
+  .aiwd-solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .aiwd-intro-section {
+    padding: 50px 0;
+  }
+
+  .aiwd-solutions-header h4 {
+    font-size: 18px;
+  }
+
+  .aiwd-ai-text h3 {
+    font-size: 19px;
+  }
 }

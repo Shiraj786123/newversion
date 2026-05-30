@@ -2356,3 +2356,24 @@ section.wm__hero .wm-hero-badge-text {
     opacity: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   WEBSITE MAINTENANCE - HERO SECTION ONLY (USING var(--b--))
+   ========================================================================== */
+
+/* Strictly force the custom typography token variable on the hero and its subcomponents */
+.wm__wrapper .wm__hero,
+.wm__wrapper .wm__hero * {
+  font-family: var(--b--), sans-serif !important;
+}

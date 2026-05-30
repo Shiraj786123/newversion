@@ -2286,3 +2286,103 @@ section.stats-bar .stat-label {
     display: none !important;
   }
 }
+
+
+
+/* ==========================================================================
+   AI SOFTWARE SERVICES - HERO SECTION ONLY (USING var(--b--))
+   ========================================================================== */
+
+/* Force the custom variable font strictly on the hero and everything inside it */
+.aiss__wrapper .aiss__hero,
+.aiss__wrapper .aiss__hero * {
+  font-family: var(--b--), sans-serif !important;
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   HERO & CTA BUTTON CONTAINER SYSTEM (MATCHED SIZES)
+   ========================================================================== */
+
+.aiwd-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+/* Base button properties shared by BOTH to guarantee identical height/size */
+.aiwd-btn-primary,
+.aiwd-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Height & structure rules */
+  height: 54px; /* Hard-locks vertical size regardless of font differences */
+  padding: 0 32px; /* Smooth horizontal breathing room */
+  border-radius: 12px; /* Premium curved styling from screenshot */
+  
+  /* Font styling */
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: all 0.25s ease-in-out;
+  box-sizing: border-box; /* Includes border thickness in height calculation */
+}
+
+/* Primary Specific Button Styles */
+.aiwd-btn-primary {
+  background: #38bdf8; /* Vibrant cyan styling from your image */
+  color: #002d62 !important; /* Deep navy text for contrast */
+  border: 1px solid transparent; /* Keeps sizing identical to bordered secondary */
+}
+
+.aiwd-btn-primary:hover {
+  transform: translateY(-2px);
+  background: #0ea5e9;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.3);
+}
+
+/* Secondary Specific Button Styles */
+.aiwd-btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Sleek outline format */
+}
+
+.aiwd-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE MOBILE BREAKPOINT
+   ========================================================================== */
+
+@media (max-width: 580px) {
+  .aiwd-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 0 20px;
+  }
+
+  .aiwd-btn-primary,
+  .aiwd-btn-secondary {
+    width: 100%;
+    height: 56px; /* Slightly enhanced touch targets for mobile */
+  }
+}

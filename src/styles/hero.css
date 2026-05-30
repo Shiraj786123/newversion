@@ -1,15 +1,17 @@
 /* ================= HERO WRAPPER ================= */
 section.hero-section {
   position: relative !important;
-  /* UPDATED: Matches the premium background color, radial-distribution, and brightness configuration precisely */
   background: radial-gradient(circle at 70% 60%, #003d73 0%, #001b3a 60%, #000f21 100%) !important;
   color: #ffffff !important;
-  padding: 105px 24px 95px 24px !important; /* Balanced standard vertical padding */
+  padding: 105px 24px 95px 24px !important;
   text-align: center !important;
   overflow: hidden !important;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  /* UPDATED: Unified font enforcement stack to match your site identity */
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   width: 100% !important;
   display: block !important;
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility !important;
 }
 
 section.hero-section .hero-inner {
@@ -31,24 +33,23 @@ section.hero-section .hero-copy {
 section.hero-section .hero-badge {
   display: inline-flex !important;
   align-items: center !important;
-  gap: 8px !important; /* Space between dot and text */
+  gap: 8px !important;
   padding: 6px 14px !important;
-  background-color: rgba(56, 189, 248, 0.08) !important; /* Soft sky-blue background tint */
-  border: 1px solid rgba(56, 189, 248, 0.25) !important; /* Muted border edge */
-  border-radius: 9999px !important; /* Pill shape */
-  margin-bottom: 18px !important; /* Reduced from 28px to pull heading closer */
+  background-color: rgba(56, 189, 248, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 9999px !important;
+  margin-bottom: 18px !important;
 }
 
 section.hero-section .hero-badge-dot {
   width: 8px !important;
   height: 8px !important;
-  background-color: #38bdf8 !important; /* Active sky-blue color */
+  background-color: #38bdf8 !important;
   border-radius: 50% !important;
   display: inline-block !important;
   position: relative !important;
 }
 
-/* Glowing outer pulse ring */
 section.hero-section .hero-badge-dot::after {
   content: "" !important;
   position: absolute !important;
@@ -72,30 +73,30 @@ section.hero-section .hero-badge-text {
 
 /* ================= TYPOGRAPHY ================= */
 section.hero-section .hero-main-title {
-  font-size: 64px !important; /* Solid desktop heading size */
-  font-weight: 800 !important; /* Extra bold */
-  line-height: 1.15 !important; /* Tight line height */
-  color: #ffffff !important; /* Forces white text so it is visible */
-  margin-bottom: 16px !important; /* Reduced from 28px to close the gap */
-  letter-spacing: -0.03em !important; /* Tight letter spacing */
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 64px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  color: #ffffff !important;
+  margin-bottom: 16px !important;
+  letter-spacing: -0.03em !important;
   margin-top: 0 !important;
   text-align: center !important;
 }
 
-/* Sky-Blue Accent Text */
 section.hero-section .text-highlight {
-  color: #38bdf8 !important; /* Sky Blue accent */
+  color: #38bdf8 !important;
   background-color: transparent !important;
   display: inline !important;
 }
 
-/* Supporting Hero Text */
 section.hero-section .hero-description {
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   font-size: 1.15rem !important;
   line-height: 1.65 !important;
-  color: rgba(255, 255, 255, 0.85) !important; /* Premium soft white */
+  color: rgba(255, 255, 255, 0.85) !important;
   max-width: 800px !important;
-  margin: 0 auto 24px auto !important; /* Reduced bottom margin from 36px to 24px */
+  margin: 0 auto 24px auto !important;
   text-align: center !important;
   display: block !important;
 }
@@ -109,17 +110,16 @@ section.hero-section .hero-actions {
   flex-wrap: wrap !important;
 }
 
-/* Base style for both buttons to ensure they are identical */
 section.hero-section .hero-contact-btn, 
 section.hero-section .hero-secondary-btn {
-  /* Dimensions - This makes them identical */
   width: 240px !important; 
   height: 56px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  gap: 8px !important;
   
-  /* Typography */
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   font-size: 16px !important;
   font-weight: 700 !important;
   text-decoration: none !important;
@@ -127,13 +127,12 @@ section.hero-section .hero-secondary-btn {
   cursor: pointer !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   box-shadow: none;
-  box-sizing: border-box !important; /* Ensures border doesn't add to the size */
+  box-sizing: border-box !important;
 }
 
-/* Primary Button (Solid Sky Blue with Dark Navy text) */
 section.hero-section .hero-contact-btn {
   background-color: #38bdf8 !important;
-  color: #001f3f !important; /* Force high-contrast text color */
+  color: #001f3f !important;
   border: none !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
@@ -144,11 +143,10 @@ section.hero-section .hero-contact-btn:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Secondary Button (Outlined) */
 section.hero-section .hero-secondary-btn {
   background-color: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
-  border: 1.5px solid rgba(73, 188, 244, 0.5) !important; /* Semi-transparent blue border */
+  border: 1.5px solid rgba(73, 188, 244, 0.5) !important;
 }
 
 section.hero-section .hero-secondary-btn:hover {
@@ -157,39 +155,30 @@ section.hero-section .hero-secondary-btn:hover {
   transform: translateY(-2px) !important;
 }
 
-/* Animated downward arrow symbol */
 section.hero-section .hero-secondary-btn .arrow {
   display: inline-block !important;
   transition: transform 0.2s ease !important;
+  font-size: 16px !important;
 }
 
 section.hero-section .hero-secondary-btn:hover .arrow {
-  transform: translateY(2px) !important; /* Moves down on hover matching downward arrow symbol direction */
+  transform: translateY(2px) !important;
 }
 
 /* ================= ANIMATION KEYFRAMES ================= */
 @keyframes heroBadgePulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(2.5);
-    opacity: 0;
-  }
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
 }
 
-/* ================= RESPONSIVE DESIGN (MEDIA QUERIES) ================= */
-
-/* Tablet Sizing (Max-width: 1024px) */
+/* ================= RESPONSIVE DESIGN ================= */
 @media (max-width: 1024px) {
   section.hero-section {
-    min-height: auto !important; /* Disables vertical stretching to pull content up */
-    padding-top: 50px !important; /* Reduced from 130px to eliminate the empty gap */
+    padding-top: 50px !important;
     padding-bottom: 80px !important;
   }
   section.hero-section .hero-main-title {
-    font-size: 44px !important; /* Balanced tablet size */
+    font-size: 44px !important;
     margin-bottom: 14px !important;
   }
   section.hero-section .hero-description {
@@ -198,10 +187,8 @@ section.hero-section .hero-secondary-btn:hover .arrow {
   }
 }
 
-/* FIXED Mobile Sizing (Max-width: 640px) */
 @media (max-width: 640px) {
   section.hero-section {
-    min-height: auto !important;
     padding-top: 35px !important;
     padding-bottom: 60px !important;
   }
@@ -216,7 +203,6 @@ section.hero-section .hero-secondary-btn:hover .arrow {
     margin-bottom: 20px !important;
   }
   
-  /* FIXED: Arranges buttons side-by-side in the same row, perfectly centered */
   section.hero-section .hero-actions {
     flex-direction: row !important;
     justify-content: center !important;
@@ -225,25 +211,24 @@ section.hero-section .hero-secondary-btn:hover .arrow {
     max-width: 480px !important;
     margin: 0 auto !important;
     gap: 10px !important;
-    flex-wrap: nowrap !important; /* Prevents wrapping down on narrow screens */
+    flex-wrap: nowrap !important;
   }
   
-  /* FIXED: Resizes individual tracking buttons to dynamically share row widths evenly */
   section.hero-section .hero-contact-btn, 
   section.hero-section .hero-secondary-btn {
     flex: 1 !important;
     width: 50% !important;
     max-width: 220px !important;
-    height: 48px !important; /* Slightly more compact for smaller viewpoint ratios */
-    font-size: 13px !important; /* Responsive down-scale to secure single line labels */
+    height: 48px !important;
+    font-size: 13px !important;
     padding: 0 8px !important;
     white-space: nowrap !important;
   }
 }
 
-/* ================= HERO TYPOGRAPHY - PREMIUM ================= */
+/* ================= SERVICE SECTION INTEGRATIONS ================= */
 .svc__hero_title {
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   font-size: clamp(54px, 7vw, 88px) !important;
   font-weight: 800 !important;
   line-height: 1.05 !important;
@@ -254,21 +239,16 @@ section.hero-section .hero-secondary-btn:hover .arrow {
   text-align: center !important;
 }
 
-/* Gradient Highlight Text */
 .svc__hero_title_highlight {
-  background: linear-gradient(
-    90deg,
-    #38bdf8 0%,
-    #00d4ff 100%
-  ) !important;
+  background: linear-gradient(90deg, #38bdf8 0%, #00d4ff 100%) !important;
+  background-clip: text !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   display: inline-block !important;
 }
 
-/* Hero Description */
 .svc__hero_text {
-  font-family: 'Inter', sans-serif !important;
+  font-family: var(--font-b), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   font-size: 20px !important;
   font-weight: 400 !important;
   line-height: 1.7 !important;
@@ -278,27 +258,12 @@ section.hero-section .hero-secondary-btn:hover .arrow {
   text-align: center !important;
 }
 
-/* ================= TABLET ================= */
 @media (max-width: 1024px) {
-  .svc__hero_title {
-    font-size: 58px !important;
-    line-height: 1.08 !important;
-  }
-  .svc__hero_text {
-    font-size: 18px !important;
-  }
+  .svc__hero_title { font-size: 58px !important; }
+  .svc__hero_text { font-size: 18px !important; }
 }
 
-/* ================= MOBILE ================= */
 @media (max-width: 640px) {
-  .svc__hero_title {
-    font-size: 38px !important;
-    line-height: 1.12 !important;
-    letter-spacing: -0.04em !important;
-  }
-  .svc__hero_text {
-    font-size: 16px !important;
-    line-height: 1.65 !important;
-    margin-bottom: 28px !important;
-  }
+  .svc__hero_title { font-size: 38px !important; }
+  .svc__hero_text { font-size: 16px !important; margin-bottom: 28px !important; }
 }

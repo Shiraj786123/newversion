@@ -13,6 +13,7 @@ import ReviewSection from '../components/ReviewSection';
 import TrustBar from '../components/TrustBar';
 import ExpertPopup from '../components/ExpertPopup';
 
+
 const HomePage = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 

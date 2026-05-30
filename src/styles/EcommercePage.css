@@ -2799,3 +2799,21 @@ section.ecd__hero .ecd__hero_badge_text {
     opacity: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ECOMMERCE PAGE - HERO SECTION ONLY (USING var(--b--))
+   ========================================================================== */
+
+/* Force the typography variable token strictly on the hero and everything nested within it */
+.ecd__wrapper .ecd__hero,
+.ecd__wrapper .ecd__hero * {
+  font-family: var(--b--), sans-serif !important;
+}

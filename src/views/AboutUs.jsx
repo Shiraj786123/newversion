@@ -60,7 +60,6 @@ const AboutUs = () => {
       {/* 1. HERO SECTION - High Contrast (White/Light Blue) */}
       <section className="abt__bar_hero">
         <div className="abt__container">
-          {/* MOVED BREADCRUMB HERE: Renders inside the dark container above the title */}
           <Breadcrumb />
 
           <h1 className="abt__heading">We Build Digital Systems That <span className="text_light_blue">Generate Real Growth</span></h1>
@@ -186,7 +185,8 @@ const AboutUs = () => {
              <p>Tell us about your project and we'll put together a free growth plan — no commitment required.</p>
              <div className="abt__cta_btn_row">
                 <a href="/contact" className="abt__cta_btn_solid">Get Free Proposal →</a>
-                <a href="/#portfolio" className="abt__cta_btn_outline">See Our Work</a>
+                {/* UPDATED: Changed href from "/#portfolio" to "/case-studies" */}
+                <a href="/case-studies" className="abt__cta_btn_outline">See Our Work</a>
              </div>
              <span className="abt__cta_small_text">No commitment. No spam. Just results.</span>
           </div>

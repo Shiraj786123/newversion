@@ -185,45 +185,6 @@ const WhyChooseUs = () => {
                 </div>
               ))}
             </div>
-
-            {/* NEW: 3-Column Business Commitments Grid Footer */}
-            <div className="business-commitments-grid">
-              <div className="commitment-item">
-                <div className="commitment-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div className="commitment-text">
-                  <strong>Enterprise Security</strong>
-                  <p>Data protection and secure infrastructure.</p>
-                </div>
-              </div>
-
-              <div className="commitment-item">
-                <div className="commitment-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div className="commitment-text">
-                  <strong>Flexible Scaling</strong>
-                  <p>Solutions built to grow as your business grows.</p>
-                </div>
-              </div>
-
-              <div className="commitment-item">
-                <div className="commitment-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <div className="commitment-text">
-                  <strong>100% Transparency</strong>
-                  <p>Clear project updates with zero hidden fees.</p>
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -234,9 +195,4 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
-
-
-
-
-
 

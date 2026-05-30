@@ -50,7 +50,7 @@ const CaseStudies = () => {
       <div className="cs__wrapper">
         <Navbar />
 
-        {/* Integrated Ultra-Premium Hero Section */}
+        {/* Integrated Premium Hero Section */}
         <section className="cs__hero_merged">
           <div className="cs__hero_container">
             {/* Breadcrumb path */}
@@ -71,15 +71,6 @@ const CaseStudies = () => {
             
             <p className="cs__hero_description">
               Case studies from our work with businesses across the UK, USA and Europe.
-            </p>
-
-            {/* Sub-heading CTA Statement */}
-            <h2 className="cs__hero_cta_title">
-              Ready to Become Our Next Success Story?
-            </h2>
-            
-            <p className="cs__hero_cta_subtitle">
-              ZonzocTech builds custom AI-powered web applications. From intelligent dashboards to GPT-powered tools — we scale your business growth.
             </p>
             
             {/* Interactive Brand Actions */}
