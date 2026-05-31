@@ -1,33 +1,34 @@
-import ScrollToTop from "@/src/components/ScrollToTop"; // Import the scroll component
+import ScrollToTop from "@/src/components/ScrollToTop"; 
 
-import { Inter, Syne, DM_Sans } from 'next/font/google'; // Import the fonts natively
+// 1. IMPORT YOUR NEW FONT (e.g., Plus_Jakarta_Sans instead of Inter)
+import { Plus_Jakarta_Sans, Syne, DM_Sans } from 'next/font/google'; 
 import { AuthProvider } from '@/src/context/AuthContext';
 import WhatsappFloat from '@/src/components/WhatsappFloat';
 import '@/src/index.css';
 import '@/src/App.css';
 import '@/src/styles/service-shared.css';
-import "@/src/styles/navbar.css"; // Navbar styles second (ensures these take priority)
+import "@/src/styles/navbar.css";
 
-
-// Configure the font classes and weights
-const inter = Inter({
+// 2. CONFIGURE THE NEW FONT
+// Keep the variable as '--font-b' so any CSS relying on your old body variable won't break
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-b', // Maps Inter to your body font variable if desired
+  variable: '--font-b', 
   display: 'swap',
 });
 
 const syne = Syne({
   subsets: ['latin'],
   weight: ['400', '600', '700', '800'],
-  variable: '--font-h', // Maps Syne to your heading font variable
+  variable: '--font-h', 
   display: 'swap',
 });
 
 const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500'],
-  variable: '--font-dm', // Auxiliary variable
+  variable: '--font-dm', 
   display: 'swap',
 });
 
@@ -41,8 +42,8 @@ export const metadata = {
   metadataBase: new URL('https://zonzoctech.com'),
   icons: {
     icon: '/zonzotech-favicon5.png?v=2', 
-    shortcut: '/zonzotech-favicon5.png?v=2', // Added to support older browsers & pin layouts
-    apple: '/zonzotech-favicon5.png?v=2',    // Added to support iOS bookmarks
+    shortcut: '/zonzotech-favicon5.png?v=2', 
+    apple: '/zonzotech-favicon5.png?v=2',    
   },
   openGraph: {
     siteName: 'ZonzocTech',
@@ -55,18 +56,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable} ${dmSans.variable}`}>
+    // 3. INJECT THE NEW FONT'S VARIABLE
+    <html lang="en" className={`${plusJakartaSans.variable} ${syne.variable} ${dmSans.variable}`}>
       <head>
-        {/* Next.js automatically handles link preconnect and stylesheet optimization */}
         <link rel="icon" href="/zonzotech-favicon5.png?v=2" type="image/png" />
       </head>
-      {/* Applied inter.className here to keep the global typography context consistent across route changes */}
-      <body className={inter.className}>
+      {/* 4. APPLY THE NEW FONT CLASS TO THE BODY */}
+      <body className={plusJakartaSans.className}>
         <AuthProvider>
           {children}
           <WhatsappFloat />
-          
-          {/* ScrollToTop component positioned globally */}
           <ScrollToTop /> 
         </AuthProvider>
       </body>
