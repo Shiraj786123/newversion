@@ -98,8 +98,11 @@ const FullStackWebDev = () => {
                 Get Free Consultation
               </a>
 
+              {/* Updated Portfolio Button */}
               <a
-                href="/#portfolio"
+                href="https://zonzoc-tech.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="fswd__hero_btn fswd__hero_btn--secondary"
               >
                 View Portfolio→
@@ -250,7 +253,13 @@ const FullStackWebDev = () => {
                 Get Free Consultation →
               </a>
 
-              <a href="/#portfolio" className="fswd__hero_btn fswd__hero_btn--secondary">
+              {/* Updated Portfolio Button in Mid CTA */}
+              <a 
+                href="https://zonzoc-tech.netlify.app/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="fswd__hero_btn fswd__hero_btn--secondary"
+              >
                 View Work →
               </a>
             </div>

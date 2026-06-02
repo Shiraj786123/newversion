@@ -70,7 +70,14 @@ const AIWebAppDev = () => {
             <a href="/contact" className="aiwa__btn_primary" style={{ fontFamily: forcedFontFamily }}>
               Get Free Consultation
             </a>
-            <a href="/#portfolio" className="aiwa__btn_secondary" style={{ fontFamily: forcedFontFamily }}>
+            {/* Updated Portfolio Button */}
+            <a 
+              href="https://zonzoc-tech.netlify.app/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="aiwa__btn_secondary" 
+              style={{ fontFamily: forcedFontFamily }}
+            >
               View Portfolio →
             </a>
           </div>
@@ -88,6 +95,7 @@ const AIWebAppDev = () => {
           <div className="aiwa__stats_border_box">
             {stats.map((s, i) => (
               <div key={i} className="stat_item">
+                <span className="stat_num">{s.number}</span>
                 <span className="stat_num">{s.number}</span>
                 <span className="stat_lbl">{s.label}</span>
               </div>
@@ -208,7 +216,15 @@ const AIWebAppDev = () => {
             </p>
             <div className="aiwd-hero-actions">
               <a href="/contact" className="aiwd-btn-primary">Get Free Consultation →</a>
-              <a href="#work" className="aiwd-btn-secondary">View Portfolio →</a>
+              {/* Updated Portfolio Button in Final CTA */}
+              <a 
+                href="https://zonzoc-tech.netlify.app/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="aiwd-btn-secondary"
+              >
+                View Portfolio →
+              </a>
             </div>
           </div>
         </div>
