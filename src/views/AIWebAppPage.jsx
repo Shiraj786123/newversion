@@ -96,7 +96,6 @@ const AIWebAppDev = () => {
             {stats.map((s, i) => (
               <div key={i} className="stat_item">
                 <span className="stat_num">{s.number}</span>
-                <span className="stat_num">{s.number}</span>
                 <span className="stat_lbl">{s.label}</span>
               </div>
             ))}
