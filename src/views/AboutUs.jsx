@@ -182,7 +182,7 @@ const AboutUs = () => {
         <div className="abt__container">
           <div className="abt__cta_content_box">
              <h2>Ready to Work Together?</h2>
-             <p>Tell us about your project and we'll put together a free growth plan — no commitment required.</p>
+             <p> and we'll put together a free growth plan — no commitment required.</p>
              <div className="abt__cta_btn_row">
                 <a href="/contact" className="abt__cta_btn_solid">Get Free Proposal →</a>
                 {/* UPDATED: Changed href from "/#portfolio" to "/case-studies" */}

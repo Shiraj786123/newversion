@@ -95,8 +95,8 @@ const ContactSection = () => {
         </div>
 
         {/* Right Side Card Container - 50% Width & Auto-Stretched */}
-        <div className="contact-right">
-          <div className="form-card">
+        <div className="contact-right" style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className="form-card" style={{ display: 'flex', flexDirection: 'column', height: '100%', flexGrow: 1 }}>
             <h3 className="form-title">Send Us a Message</h3>
 
             {submitStatus === 'success' && (
@@ -106,7 +106,7 @@ const ContactSection = () => {
               <div className="alert alert-error">✗ Error. Please try again.</div>
             )}
 
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} className="contact-form" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <div className="form-grid">
                 
                 {/* Name Input */}
@@ -179,8 +179,8 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              {/* Message Textarea */}
-              <div className="form-group textarea-group">
+              {/* Message Textarea stretched to absorb space */}
+              <div className="form-group textarea-group" style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                 <svg className="input-icon textarea-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
@@ -192,6 +192,7 @@ const ContactSection = () => {
                   rows="6"
                   required
                   disabled={isSubmitting}
+                  style={{ flexGrow: 1, resize: 'none', minHeight: '120px' }}
                 ></textarea>
               </div>
 
@@ -204,30 +205,7 @@ const ContactSection = () => {
               </button>
             </form>
 
-            {/* Premium WhatsApp Card Bridge Link */}
-            <div className="contact-whatsapp-bridge">
-              <div className="whatsapp-divider">
-                <span>OR CHAT DIRECTLY</span>
-              </div>
-              <a 
-                href="https://wa.me/94740309534" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="whatsapp-card-link"
-              >
-                <div className="whatsapp-icon-bubble">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.488 1.449 5.412 1.451 5.428 0 9.845-4.414 9.848-9.843.002-2.631-1.022-5.102-2.884-6.964a9.774 9.774 0 0 0-6.963-2.88c-5.43 0-9.849 4.415-9.853 9.845-.002 1.983.513 3.919 1.494 5.641l-.988 3.605 3.692-.969zm11.332-6.84c-.313-.156-1.854-.915-2.131-1.016-.277-.1-.478-.156-.68.156-.201.312-.779.982-.955 1.183-.177.201-.353.226-.667.069a8.411 8.411 0 0 1-2.481-1.53 9.273 9.273 0 0 1-1.715-2.137c-.176-.312-.019-.481.137-.636.141-.14.313-.365.47-.547.156-.182.208-.312.313-.52.104-.208.052-.39-.026-.547-.078-.156-.68-1.638-.932-2.247-.247-.592-.497-.512-.68-.522-.176-.009-.377-.01-.578-.011-.201 0-.529.075-.806.377-.277.312-1.058 1.035-1.058 2.524 0 1.49 1.084 2.928 1.235 3.13.151.201 2.134 3.26 5.172 4.57 1.377.594 2.451.95 3.284 1.214.693.22 1.325.19 1.824.115.556-.083 1.854-.758 2.117-1.455.264-.698.264-1.299.186-1.425-.078-.126-.278-.201-.591-.357z"/>
-                  </svg>
-                </div>
-                <div className="whatsapp-card-content">
-                  <span className="wa-label">WHATSAPP</span>
-                  <span className="wa-number">+94 74 030 9534</span>
-                </div>
-              </a>
-            </div>
-
-            <p className="submit-note">No commitment. No spam. Just results.</p>
+            <p className="submit-note" style={{ marginTop: 'auto', paddingTop: '16px' }}>No commitment. No spam. Just results.</p>
           </div>
         </div>
 
