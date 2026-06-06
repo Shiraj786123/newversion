@@ -257,7 +257,7 @@ h6.footer-column-title {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background-color: #2563eb;
+  background-color: #0f2d6d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,7 +283,7 @@ h6.footer-column-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: #2563eb;
+  background-color: #0f2d6d;
   color: #ffffff;
   padding: 12px 24px;
   border-radius: 8px;
@@ -295,7 +295,7 @@ h6.footer-column-title {
 }
 
 .cta-book-btn:hover {
-  background-color: #1d4ed8;
+ 
   transform: translateY(-1px);
 }
 
@@ -342,7 +342,7 @@ h6.footer-column-title {
 }
 
 .serving-globe-icon {
-  color: #3b82f6;
+  color: #ffffff;
   font-size: 14px;
 }
 
