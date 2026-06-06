@@ -320,7 +320,7 @@ const Navbar = () => {
                 <Link href="/about">About</Link>
               </li>
               <li className="nav-link">
-                <Link href="/blog">Blog</Link>
+                <a href="https://zonzoctech-ai-blog.netlify.app/blog">Blog</a>
               </li>
               <li className="nav-link">
                 <Link href="/contact">Contact</Link>
@@ -499,12 +499,12 @@ const Navbar = () => {
                 <span className="drawer-row-text">About</span>
               </Link>
               
-              <Link href="/blog" className={`mobile-drawer-item-row ${isActive('/blog') ? 'is-active' : ''}`} onClick={closeMobile}>
+              <a href="https://zonzoctech-ai-blog.netlify.app/blog" className="mobile-drawer-item-row" onClick={closeMobile}>
                 <div className="drawer-row-icon-box">
                   <FontAwesomeIcon icon={faNewspaper} />
                 </div>
                 <span className="drawer-row-text">Blog</span>
-              </Link>
+              </a>
               
               <Link href="/contact" className={`mobile-drawer-item-row ${isActive('/contact') ? 'is-active' : ''}`} onClick={closeMobile}>
                 <div className="drawer-row-icon-box">
