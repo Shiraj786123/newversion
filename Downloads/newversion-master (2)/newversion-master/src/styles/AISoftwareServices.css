@@ -1033,3 +1033,187 @@
   .aiss-process-row   { grid-template-columns: 1fr; gap: 28px; }
   .aiss-cta-title     { font-size: 28px; }
 }
+
+
+
+
+
+/* ==========================================================================
+   AI SOFTWARE HERO SECTION STYLES
+   ========================================================================== */
+
+section.aiss__hero {
+  position: relative;
+  background: radial-gradient(circle at 50% 90%, #003d73 0%, #001b3a 60%, #000f21 100%) !important;
+  color: #ffffff;
+  padding: 100px 24px 80px 24px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Hide overlapping decorative structures to let the radial gradient define the tone */
+.aiss__hero_gradient {
+  display: none !important;
+}
+
+.aiss__hero_container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Centered Breadcrumbs spacing */
+.aiss__hero_container .breadcrumb-wrapper,
+.aiss__hero_container .breadcrumb {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Premium Rounded Pill Badge Layout */
+.aiss__hero_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+  padding: 8px 20px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+
+/* Simulated blue-teal active status dot inside badge */
+.aiss__hero_badge::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Bold Main Title Typography */
+.aiss__hero_title {
+  font-size: clamp(2.2rem, 5vw, 4rem); /* Responsive typography base */
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 980px;
+  margin: 0 auto 24px auto;
+  text-align: center;
+}
+
+/* Sky-Blue accent span */
+.aiss__hero_title_accent {
+  color: #38bdf8;
+  display: inline;
+}
+
+/* Soft-white descriptive text */
+.aiss__hero_text {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 840px;
+  margin: 0 auto 36px auto;
+  text-align: center;
+}
+
+/* Centered Action Button Block */
+.aiss-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Primary Button (Solid Sky Blue / High Contrast Dark Text) */
+.aiss-btn-primary {
+  display: inline-block;
+  background-color: #38bdf8;
+  color: #001b3a;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+}
+
+.aiss-btn-primary:hover {
+  background-color: #25aff2;
+  transform: translateY(-1px);
+}
+
+/* Secondary Button (Outlined White) */
+.aiss-btn-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.aiss-btn-secondary:hover {
+  border-color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Footer Trust Note */
+.aiss__hero_trust {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN ADAPTATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  section.aiss__hero {
+    padding: 80px 20px 60px 20px;
+  }
+  
+  .aiss-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 340px;
+    margin: 0 auto 24px auto;
+  }
+  
+  .aiss-btn-primary, 
+  .aiss-btn-secondary {
+    text-align: center;
+  }
+}

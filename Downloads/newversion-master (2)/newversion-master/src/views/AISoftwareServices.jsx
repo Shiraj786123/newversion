@@ -142,7 +142,7 @@ const AISoftwareServices = () => {
     <div className="aiss__wrapper">
       <Navbar />
 
-      {/* ═══════════════════════════════════════
+      {    /* ═══════════════════════════════════════
           HERO — UNCHANGED
       ═══════════════════════════════════════ */}
       <section className="aiss__hero">

@@ -988,3 +988,368 @@ font-size: 18px;
     font-size: 32px !important; /* Adjust this value for mobile size */
   }
 }
+
+
+
+
+/* ==========================================================================
+   FULLY RESPONSIVE MEDIA QUERIES FOR FULLSTACKWEBDEV
+   ========================================================================== */
+
+/* ---------------------------------------------------------
+   1. Laptop Viewports (max-width: 1200px)
+   - Scales down the stats layout from 6 to 3 columns.
+   - Adjusts tech grid and case study grids to 2 columns.
+   - Tweaks horizontal process connectors.
+   --------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .fswd-stats-box {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .fswd-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fswd-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fswd-process-track {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 24px;
+  }
+
+  /* Adjust/hide specific connectors as rows wrap on desktop scale */
+  .fswd-process-connector {
+    right: -24px;
+  }
+  
+  .fswd-process-step:nth-child(3) .fswd-process-connector,
+  .fswd-process-step:nth-child(6) .fswd-process-connector {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------
+   2. Medium Tablet Viewports (max-width: 992px)
+   - Stacks split grid structures (Why Us block & FAQ/Code block)
+     to single vertical columns.
+   --------------------------------------------------------- */
+@media (max-width: 992px) {
+  .fswd-why-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .fswd-faq-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ---------------------------------------------------------
+   3. Portrait Tablet & Phablet Viewports (max-width: 768px)
+   - Automatically reflows the process tracking elements from 
+     horizontal boxes into a perfectly aligned vertical timeline [1].
+   - Restructures hero buttons to stack vertically.
+   - Scales down clamp headers and reduces grid cells.
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  section.fswd__bar_hero {
+    padding: 80px 0 60px 0;
+  }
+
+  /* Centered stacking on hero buttons */
+  .fswd__hero_actions {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 340px;
+    margin: 0 auto 24px auto;
+  }
+
+  .fswd__hero_btn {
+    text-align: center;
+  }
+
+  /* Stack main services list */
+  .fswd-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reflow statistics to 2 columns */
+  .fswd-stats-box {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Stack case cards to full width */
+  .fswd-cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reflow horizontal timeline dynamically to a vertical track [1] */
+  .fswd-process-track {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .fswd-process-step {
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .fswd-process-node-wrap {
+    width: auto;
+    margin-bottom: 0;
+  }
+
+  /* Pivots the pointer connector to align vertically [1] */
+  .fswd-process-connector {
+    top: 44px;
+    left: 21px;
+    width: 2px;
+    height: 48px;
+    border-left: 2px dotted rgba(255, 255, 255, 0.15);
+    border-top: none;
+    right: auto;
+  }
+}
+
+/* ---------------------------------------------------------
+   4. Portrait Small Mobiles (max-width: 480px)
+   - Minimizes metrics, tech cells, and container paddings
+     to prevent horizontal overflow on tiny screens.
+   --------------------------------------------------------- */
+@media (max-width: 480px) {
+  .fswd-stats-box {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .fswd-tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fswd-cta-inner {
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+}
+
+
+/* 1. Global Box-Sizing Safety Check
+   Ensures borders and padding are calculated within widths rather than expanding them */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Container Mobile Optimization
+   Tighter padding on small devices to prevent content squishing */
+.fswd__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px; /* Generous 16px padding inside mobile viewports */
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .fswd__container {
+    padding: 0 24px;
+  }
+}
+
+/* 3. The Grid Shrinkage Bug Fix
+   Explicitly use minmax(0, ...) instead of 1fr. This tells CSS Grid to allow 
+   the columns to shrink to 0 when space is constrained, instead of expanding to fit code content */
+.fswd-faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 60px;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .fswd-faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    width: 100%;
+  }
+}
+
+/* 4. Column Safety Limits
+   Forces both grid child containers to respect maximum widths */
+.fswd-faq-left,
+.fswd-code-card {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fswd-faq-list,
+.fswd-faq-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 5. Safe Code Card Wrapping & Scroll behavior
+   Limits the <pre> block size to prevent horizontal container blowing on smaller devices */
+.fswd-code-block {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.fswd-code-pre {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: auto; /* Restricts overflow to scroll internally within the card */
+  white-space: pre; /* Keeps code structure formatted, but scroll-contained */
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Track Container */
+  .fswd-process-track {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px; /* Consistent gap between steps */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 2. Step Container Grid Reflow
+     Replaces flexbox with a grid. Column 1 hosts the circle icon (56px wide), 
+     and Column 2 hosts the vertical stack of text elements */
+  .fswd-process-step {
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) !important;
+    grid-template-rows: auto auto auto;
+    gap: 4px 16px !important;
+    text-align: left;
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 3. Icon Node Wrap (Col 1)
+     Spans all 3 rows on the left side to sit next to the stacked text */
+  .fswd-process-node-wrap {
+    grid-column: 1 !important;
+    grid-row: 1 / span 3 !important;
+    height: 100% !important;
+    width: auto !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    position: relative !important;
+  }
+
+  /* 4. Content Placements (Col 2) */
+  .fswd-process-num {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    margin-bottom: 0 !important;
+    display: inline-block !important;
+  }
+
+  .fswd-process-title {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+  }
+
+  .fswd-process-desc {
+    grid-column: 2 !important;
+    grid-row: 3 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    line-height: 1.6 !important;
+    word-wrap: break-word !important;
+  }
+
+  /* 5. Vertical Connector Line
+     Spans from under the active circle down to meet the top of the next circle */
+  .fswd-process-connector {
+    position: absolute !important;
+    top: 44px !important; /* Starts below the 44px circle */
+    bottom: -40px !important; /* Matches the track container gap */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 2px !important;
+    height: auto !important; /* Auto-height calculated from grid-span */
+    border-left: 2px dotted rgba(255, 255, 255, 0.15) !important;
+    border-top: none !important;
+    right: auto !important;
+  }
+}
+
+
+
+
+/* ==========================================================================
+   STATS BAR MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  /* 1. Pull the container snugly over the hero and align paddings */
+  .fswd-stats-section {
+    padding: 0 16px !important;
+    margin-top: -30px !important; /* Subtle float offset matching desktop design */
+    background: transparent !important; /* Let container handle the white background card look */
+  }
+
+  /* 2. Responsive 2-Column Grid Card
+     Pivots the layout to 3 rows of 2 columns, preventing massive vertical height stretching */
+  .fswd-stats-box {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px 12px !important; /* Tighter spacing (row-gap column-gap) */
+    padding: 24px 16px !important; /* Compact internal card margins */
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    height: auto !important; /* Resets inherited heights to auto-wrap content naturally */
+    min-height: 0 !important;
+    align-content: start !important; /* Keeps grid rows packed tightly */
+  }
+
+  /* 3. Stat Cell Layout
+     Forces cells to shrink-wrap tight around their content elements */
+  .fswd-stat-cell {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 6px !important; /* Compact cell margins */
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 4. Text and Icon Sizing adjustments for small screens */
+  .fswd-stat-icon {
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+    line-height: 1 !important;
+  }
+
+  .fswd-stat-num {
+    font-size: 22px !important; /* Snugger, highly readable numerical text */
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    margin-bottom: 2px !important;
+    line-height: 1.1 !important;
+  }
+
+  .fswd-stat-lbl {
+    font-size: 11px !important; /* Snugger labeled description */
+    color: #64748b !important;
+    line-height: 1.3 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}

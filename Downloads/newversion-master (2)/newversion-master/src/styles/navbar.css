@@ -790,4 +790,6 @@ body.menu-open-scroll-lock .mobile-nav-drawer {
 
 
 
-
+body .subcard-text-box h6 {
+    color: #00448f !important;
+}
