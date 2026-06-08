@@ -1372,3 +1372,282 @@
 .wm__hero_title {
   font-size: clamp(2rem, 4.5vw, 3.5rem) !important; /* Min 32px, scales dynamically, Max 56px */
 }
+
+
+
+
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. HERO BUTTONS ONLY (No text changes) */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 25px !important;
+  }
+
+  .btn-primary, 
+  .btn-secondary,
+  .wm-plan-btn,
+  .wm-btn-primary,
+  .wm-btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+  }
+
+  /* 2. STATS BAR - 2 Column Grid */
+  .wm-stats-inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    padding: 30px 15px !important;
+  }
+
+  .wm-stat-cell {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* 3. WHY SECTION - Stacked Layout */
+  .wm-why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .wm-why-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .wm-checklist {
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 20px auto 0;
+  }
+
+  .wm-why-right {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .wm-device-wrap {
+    transform: scale(0.9); /* Scales down the visual to fit mobile */
+  }
+
+  /* 4. SERVICES GRID - Single Column */
+  .wm-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .wm-service-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 5. CARE PLANS - Single Column */
+  .wm-plans-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  /* 6. PROCESS SECTION - Side-by-Side (Icon Left, Text Right) */
+  .wm-process-track {
+    flex-direction: column !important;
+    gap: 35px !important;
+  }
+
+  .wm-process-step {
+    display: grid !important;
+    grid-template-columns: 70px 1fr !important; /* Icon stays left, Text right */
+    text-align: left !important;
+    align-items: start !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+
+  .wm-process-node {
+    grid-column: 1;
+    grid-row: 1 / 4; /* Spans number, title, and desc */
+    margin: 0 !important;
+    justify-self: center;
+  }
+
+  .wm-process-num, 
+  .wm-process-title, 
+  .wm-process-desc {
+    grid-column: 2;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .wm-process-connector {
+    display: none !important; /* Hide horizontal lines */
+  }
+
+  /* 7. WHO FOR - 2 Column Grid */
+  .wm-who-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  /* 8. FAQ - Stacked Layout */
+  .wm-faq-layout {
+    flex-direction: column !important;
+    gap: 40px;
+  }
+
+  .wm-faq-visual {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .wm-faq-right {
+    width: 100%;
+  }
+
+  /* 9. FINAL CTA - Stacked and Centered */
+  .wm-cta-section {
+    padding: 40px 0 !important;
+  }
+
+  .wm-cta-inner {
+    flex-direction: column !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .wm-cta-left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wm-cta-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .wm-cta-trust {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    text-align: left;
+  }
+
+  .wm-cta-visual {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Global section header centering */
+  .wm-section-head {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  /* 1. THE HEADING - Increased to 48px for a massive, bold look */
+  .wm__hero_title {
+    font-size: 48px !important;    /* Power size for mobile */
+    font-weight: 900 !important;    /* Maximum boldness */
+    line-height: 1.0 !important;    /* Tight spacing to keep it solid */
+    letter-spacing: -0.05em !important; /* Premium character squeeze */
+    text-align: center !important;
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    width: 100%;
+    display: block;
+  }
+
+  /* Target the highlight part specifically if needed */
+  .wm__hero_title_highlight {
+    display: block; /* Forces secondary part of title to new line */
+    font-size: 0.75em; /* Scaled slightly for rhythm */
+  }
+
+  /* 2. THE DESCRIPTION - Reduced to 14px for better contrast */
+  .wm__hero_text {
+    font-size: 14px !important;     /* Smaller and cleaner */
+    line-height: 1.6 !important;    /* Breathing room for readability */
+    text-align: center !important;
+    max-content: 90% !important;
+    margin: 0 auto 30px auto !important;
+    opacity: 0.85 !important;        /* Slightly faded to focus attention on title */
+  }
+
+  /* 3. BREADCRUMB & BADGE CENTERING */
+  .wm__hero_container > :first-child {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 5px !important;
+  }
+
+  .wm-hero-badge-wrapper {
+    margin: 0 auto 10px auto !important;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. THE HEADING - Unified massive font size for the entire block */
+  .wm__hero_title {
+    font-size: 46px !important;    /* Massive uniform size */
+    font-weight: 900 !important;    /* Maximum thickness */
+    line-height: 1.0 !important;    /* Ultra-tight line spacing */
+    letter-spacing: -0.05em !important; 
+    text-align: center !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+    width: 100%;
+    display: block;
+    word-break: break-word;        /* Prevents long words from breaking layout */
+  }
+
+  /* 2. THE HIGHLIGHT SPAN - Force it to inherit the same size */
+  .wm__hero_title_highlight {
+    font-size: 1em !important;      /* Force to match the parent 46px exactly */
+    display: inline !important;    /* Allows text to flow as one continuous block */
+    color: inherit;                /* Keeps your blue color but matches size */
+  }
+
+  /* 3. THE DESCRIPTION - Kept smaller for clear contrast */
+  .wm__hero_text {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    margin: 0 auto 30px auto !important;
+    opacity: 0.85;
+  }
+}
