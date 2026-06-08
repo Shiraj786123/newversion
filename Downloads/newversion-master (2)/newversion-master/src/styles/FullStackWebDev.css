@@ -1674,3 +1674,97 @@ font-size: 18px;
     gap: 8px !important;
   }
 }
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Reduce top/bottom gaps and center the hero section */
+  .fswd__bar_hero {
+    padding-top: 30px !important; /* Reduces space under the Navbar */
+    padding-bottom: 40px !important;
+    text-align: center;
+    min-height: auto !important; /* Prevents unwanted empty vertical space */
+  }
+
+  /* 2. Center the container and internal content */
+  .fswd__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .fswd__hero_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* 3. Center Breadcrumbs */
+  .fswd__hero_content > :first-child {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  /* 4. Center the Label (the "Agency" tag) */
+  .fswd__hero_label {
+    margin: 0 auto 15px auto !important;
+    display: inline-block;
+    text-align: center;
+  }
+
+  /* 5. MAINTAIN LARGE FONT SIZE for the Heading */
+  .fswd__heading {
+    font-size: 32px !important; /* Large and bold as requested */
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    text-align: center;
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    letter-spacing: -0.02em;
+  }
+
+  /* 6. Center the Description Text */
+  .fswd__hero_text_white {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+    max-width: 100% !important;
+    margin: 0 auto 25px auto !important;
+  }
+
+  /* 7. Center and Stack the Buttons (Same Width & Height) */
+  .fswd__hero_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .fswd__hero_btn {
+    width: 100% !important;
+    max-width: 320px; /* Perfect width for mobile screens */
+    height: 55px; /* Consistent height for both buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    font-size: 16px;
+  }
+
+  /* 8. Center the "Trusted by" text at the bottom */
+  .fswd__hero_trust {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
