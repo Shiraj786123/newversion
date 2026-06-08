@@ -1,12 +1,18 @@
 'use client';
 import React, { useState } from 'react';
+import { Plus, Minus } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ServicePageHero from '../components/ServicePageHero';
+import ServiceIntroSection from '../components/ServiceIntroSection';
+import ServiceCtaForm from '../components/ServiceCtaForm';
+import { serviceImages } from '../data/serviceImages';
 import '../styles/WebsiteMaintenance.css';
-import Breadcrumb from "../components/Breadcrumb";
+
+const imgs = serviceImages['website-maintenance'];
 
 const WebsiteMaintenance = () => {
-  const [openFaq, setOpenFaq] = useState(null);
+  const [activeFaq, setActiveFaq] = useState(null);
 
   const stats = [
     { icon: "🖥️", number: "150+", label: "Websites Maintained" },
@@ -22,13 +28,6 @@ const WebsiteMaintenance = () => {
     "Avoid downtime and unexpected issues",
     "Protect SEO rankings and online visibility",
     "Keep your website updated and compatible",
-  ];
-
-  const floatingCards = [
-    { icon: "⚡", title: "Speed Optimised", sub: "1.2s Load Time", pos: "fc1" },
-    { icon: "🛡️", title: "Secure & Protected", sub: "No Malware Found", pos: "fc2" },
-    { icon: "📡", title: "Uptime Monitoring", sub: "99.9% Uptime", pos: "fc3" },
-    { icon: "💾", title: "Regular Backups", sub: "Automatic. Daily.", pos: "fc4" },
   ];
 
   const services = [
@@ -131,29 +130,17 @@ const WebsiteMaintenance = () => {
       <div className="wm__wrapper">
         <Navbar />
 
-        {/* ── HERO — UNTOUCHED ───────────────────────── */}
-        <section className="wm__hero">
-          <div className="wm__hero_pattern"></div>
-          <div className="wm__hero_container">
-            <Breadcrumb />
-            <span className="wm-hero-badge-wrapper">
-              <span className="wm-hero-badge-dot"></span>
-              <span className="wm-hero-badge-text">Website Maintenance & Security Agency</span>
-            </span>
-            <h1 className="wm__hero_title">
-              Website Maintenance Services UK{' '}
-              <span className="wm__hero_title_highlight">— Keep Your Website Fast, Secure and Always Online</span>
-            </h1>
-            <p className="wm__hero_text">
-              ZonzocTech provides professional website maintenance, performance and security services for businesses across the UK and USA. We monitor, protect and optimise your website around the clock — so you can focus on running your business while we make sure your website never lets you down.
-            </p>
-            <div className="hero-buttons">
-              <a href="/contact" className="btn-primary">Get Free Website Health Check →</a>
-              <a href="#wm-services" className="btn-secondary">See Our Services ↓</a>
-            </div>
-            <p className="wm__hero_trust">Trusted by 120+ businesses across UK, USA & Europe</p>
-          </div>
-        </section>
+        <ServicePageHero
+          badge="WEBSITE MAINTENANCE & SECURITY"
+          title="Website Maintenance, Performance &"
+          titleAccent="Security Services for UK, USA & UAE Businesses"
+          subtitle="ZonzocTech provides professional website maintenance, performance and security services for businesses across the UK, USA and UAE. We monitor, protect and optimise your website around the clock — so you can focus on running your business."
+          features={["Speed Optimized", "Secure & Protected", "24/7 Monitoring"]}
+          primaryCta={{ href: '/contact', label: 'Get Free Website Health Check →' }}
+          secondaryCta={{ href: '#wm-services', label: 'See Our Services ↓' }}
+          heroImage={imgs.hero}
+          heroAlt={imgs.heroAlt}
+        />
 
         {/* ── STATS BAR ─────────────────────────────── */}
         <section className="wm-stats-bar" id="wm-services">
@@ -168,60 +155,16 @@ const WebsiteMaintenance = () => {
           </div>
         </section>
 
-        {/* ── SECTION 1 — WHY MAINTENANCE ───────────── */}
-        <section className="wm-why-section">
-          <div className="wm-container">
-            <div className="wm-why-grid">
-
-              {/* Left — text + checklist */}
-              <div className="wm-why-left">
-                <span className="wm-eyebrow">Why Website Maintenance Matters</span>
-                <h2 className="wm-section-title">
-                  Why Website Maintenance Is Essential for Your Business
-                </h2>
-                <p className="wm-body-text">
-                  A well-maintained website is faster, more secure, and more reliable. Without regular maintenance, your site can face security risks, downtime, slow performance, and lost customers.
-                </p>
-                <ul className="wm-checklist">
-                  {whyChecklist.map((item, i) => (
-                    <li key={i} className="wm-check-item">
-                      <span className="wm-check-icon">✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Right — device visual */}
-              <div className="wm-why-right">
-                <div className="wm-device-wrap">
-                  <div className="wm-device">
-                    <div className="wm-device-bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div className="wm-device-body">
-                      <div className="wm-device-shield">
-                        <span className="wm-shield-emoji">🛡️</span>
-                        <span className="wm-shield-check">✓</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {floatingCards.map((card, i) => (
-                    <div key={i} className={`wm-float-card ${card.pos}`}>
-                      <div className="wm-float-icon">{card.icon}</div>
-                      <div>
-                        <strong>{card.title}</strong>
-                        <span>{card.sub}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
+        <ServiceIntroSection
+          label="WHY WEBSITE MAINTENANCE MATTERS"
+          title="Why Website Maintenance Is Essential for"
+          titleAccent="Your Business"
+          description="A well-maintained website is faster, more secure, and more reliable. Without regular maintenance, your site can face security risks, downtime, slow performance, and lost customers."
+          checklist={whyChecklist}
+          chipLabel="Security"
+          introImage={imgs.intro}
+          introAlt={imgs.introAlt}
+        />
 
         {/* ── SECTION 2 — SERVICES ──────────────────── */}
         <section className="wm-services-section">
@@ -336,76 +279,48 @@ const WebsiteMaintenance = () => {
               <h2 className="wm-section-title">Frequently Asked Questions</h2>
             </div>
 
-            <div className="wm-faq-layout">
-              {/* Left — 3D bubble visual */}
-              <div className="wm-faq-visual">
-                <div className="wm-faq-bubble">
-                  <span className="wm-faq-qmark">?</span>
-                </div>
-                <p className="wm-faq-visual-text">
-                  Have more questions? <span>We're here to help.</span>
-                </p>
-                <a href="/contact" className="wm-faq-cta-link">Talk to an expert →</a>
-              </div>
-
-              {/* Right — accordion */}
-              <div className="wm-faq-right">
-                {faqs.map((faq, i) => (
-                  <div
-                    key={i}
-                    className={`wm-faq-item ${openFaq === i ? 'wm-faq-item--open' : ''}`}
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  >
-                    <div className="wm-faq-q">
-                      <span>{faq.question}</span>
-                      <span className="wm-faq-chevron">{openFaq === i ? '−' : '+'}</span>
+            <div className="sp-faq-box-grid">
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className={`sp-faq-box-item ${activeFaq === i ? 'active' : ''}`}
+                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                >
+                  <div className="sp-faq-box-q">
+                    <span>{faq.question}</span>
+                    {activeFaq === i ? <Minus size={17} /> : <Plus size={17} />}
+                  </div>
+                  {activeFaq === i && (
+                    <div className="sp-faq-box-a">
+                      <p>{faq.answer}</p>
                     </div>
-                    {openFaq === i && (
-                      <div className="wm-faq-a">
-                        <p>{faq.answer}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ── CTA ───────────────────────────────────── */}
-        <section className="wm-cta-section">
-          <div className="wm-container">
-            <div className="wm-cta-inner">
-              <div className="wm-cta-left">
-                <h2 className="wm-cta-title">Ready to Protect, Optimise &amp; Maintain Your Website?</h2>
-                <p className="wm-cta-desc">
-                  Let our experts handle your website maintenance, security and performance — while you focus on growing your business.
-                </p>
-                <div className="wm-cta-actions">
-                  <a href="/contact" className="wm-btn-primary">Get Free Consultation →</a>
-                  <a href="/#services" className="wm-btn-secondary">See Our Services</a>
-                </div>
-                <div className="wm-cta-trust">
-                  <span className="wm-trust-pill">✓ No Obligation</span>
-                  <span className="wm-trust-pill">✓ Quick Response (1-3 hours)</span>
-                  <span className="wm-trust-pill">✓ 100% Confidential</span>
-                  <span className="wm-trust-pill">✓ UK, USA & UAE Support</span>
-                </div>
-              </div>
-
-              <div className="wm-cta-visual">
-                <div className="wm-cta-shield-wrap">
-                  <div className="wm-cta-ring wm-cta-ring1"></div>
-                  <div className="wm-cta-ring wm-cta-ring2"></div>
-                  <div className="wm-cta-shield-core">
-                    <span className="wm-cta-shield-icon">🛡️</span>
-                    <span className="wm-cta-shield-check">✓</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ServiceCtaForm
+          title="Ready to Protect, Optimise &"
+          titleAccent="Maintain Your Website?"
+          description="Let our experts handle your website maintenance, security and performance — while you focus on growing your business."
+          checks={[
+            "No Obligation",
+            "Quick Response (1–3 hours)",
+            "100% Confidential",
+            "UK, USA & UAE Support",
+          ]}
+          serviceOptions={[
+            "Website Security Monitoring",
+            "Performance Optimization",
+            "WordPress Maintenance",
+            "Malware Protection & Removal",
+            "Website Backups",
+          ]}
+          ctaImage={imgs.cta}
+          ctaAlt={imgs.ctaAlt}
+        />
 
         <Footer />
       </div>

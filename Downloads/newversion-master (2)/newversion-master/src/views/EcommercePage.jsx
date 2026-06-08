@@ -1,13 +1,17 @@
 'use client';
 import React, { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServicePageHero from "../components/ServicePageHero";
+import ServiceCtaForm from "../components/ServiceCtaForm";
+import { serviceImages } from "../data/serviceImages";
 import "../styles/EcommercePage.css";
-import Breadcrumb from "../components/Breadcrumb";
+
+const imgs = serviceImages['ecommerce'];
 
 const EcommerceDev = () => {
   const [openFaq, setOpenFaq] = useState(null);
-  const [form, setForm] = useState({ name: '', email: '', website: '', message: '' });
 
   const stats = [
     { icon: "🛒", number: "150+", label: "Stores Launched" },
@@ -108,30 +112,17 @@ const EcommerceDev = () => {
       <div className="ecd__wrapper">
         <Navbar />
 
-        {/* ── HERO — UNTOUCHED ──────────────────────────── */}
-        <section className="ecd__hero">
-          <div className="ecd__hero_pattern"></div>
-          <div className="ecd__hero_container">
-            <Breadcrumb />
-            <span className="ecd__hero_badge_wrapper">
-              <span className="ecd__hero_badge_dot"></span>
-              <span className="ecd__hero_badge_text">Ecommerce Design & Development Agency</span>
-            </span>
-            <h1 className="ecd__hero_title">
-              High-Performance Ecommerce Development Agency{' '}
-              <span className="ecd__hero_title_highlight">for UK & USA Brands</span>
-            </h1>
-            <p className="ecd__hero_text">
-              We design and develop conversion-focused ecommerce stores that turn traffic into revenue.
-              From Shopify and WooCommerce to fully custom platforms — we build scalable, fast, and sales-driven online stores engineered for growth.
-            </p>
-            <div className="hero-buttons">
-              <a href="/contact" className="btn-primary">Get Free Ecommerce Audit →</a>
-              <a href="/case-studies" className="btn-secondary">See Our Works →</a>
-            </div>
-            <p className="ecd__hero_trust">Trusted by 120+ businesses across UK, USA & Europe</p>
-          </div>
-        </section>
+        <ServicePageHero
+          badge="ECOMMERCE DEVELOPMENT & OPTIMIZATION"
+          title="High-Converting Ecommerce Stores Built for"
+          titleAccent="Performance, Scalability & Revenue Growth"
+          subtitle="We design and develop conversion-focused ecommerce stores that turn traffic into revenue. From Shopify and WooCommerce to fully custom platforms — we build scalable, fast, and sales-driven online stores engineered for growth."
+          features={["Conversion-Focused Design", "Shopify & WooCommerce Experts", "Speed & SEO Optimized"]}
+          primaryCta={{ href: "/contact", label: "Get Free Ecommerce Audit →" }}
+          secondaryCta={{ href: "/case-studies", label: "See Our Works →" }}
+          heroImage={imgs.hero}
+          heroAlt={imgs.heroAlt}
+        />
 
         {/* ── STATS BAR — 6 items with icons ──────────── */}
         <section className="ecd-stats-bar" id="ecd-work">
@@ -331,19 +322,19 @@ const EcommerceDev = () => {
               <span className="ecd-eyebrow">FAQ</span>
               <h2 className="ecd__heading">Frequently Asked Questions</h2>
             </div>
-            <div className="ecd-faq-list">
+            <div className="sp-faq-box-grid">
               {faqs.map((faq, i) => (
                 <div
                   key={i}
-                  className={`ecd-faq-item ${openFaq === i ? 'ecd-faq-item--open' : ''}`}
+                  className={`sp-faq-box-item ${openFaq === i ? "active" : ""}`}
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <div className="ecd-faq-q">
+                  <div className="sp-faq-box-q">
                     <span>{faq.question}</span>
-                    <span className="ecd-faq-chevron">{openFaq === i ? '−' : '+'}</span>
+                    {openFaq === i ? <Minus size={17} /> : <Plus size={17} />}
                   </div>
                   {openFaq === i && (
-                    <div className="ecd-faq-a"><p>{faq.answer}</p></div>
+                    <div className="sp-faq-box-a"><p>{faq.answer}</p></div>
                   )}
                 </div>
               ))}
@@ -351,68 +342,27 @@ const EcommerceDev = () => {
           </div>
         </section>
 
-        {/* ── CTA — Split: left text + right contact form ── */}
-        <section className="ecd-cta-section">
-          <div className="ecd__container">
-            <div className="ecd-cta-inner">
-
-              {/* Left */}
-              <div className="ecd-cta-left">
-                <h2 className="ecd-cta-title">
-                  Ready to Build a High-Converting Ecommerce Store?
-                </h2>
-                <p className="ecd-cta-desc">
-                  Let's create an ecommerce experience that converts visitors into customers and helps your business grow online.
-                </p>
-                <div className="ecd-cta-pills">
-                  <span>✓ Free Consultation</span>
-                  <span>✓ No Obligation</span>
-                  <span>✓ Quick Response (1-3 hours)</span>
-                  <span>✓ 100% Confidential</span>
-                </div>
-              </div>
-
-              {/* Right — contact form */}
-              <div className="ecd-cta-form-card">
-                <h3 className="ecd-form-heading">Get Free Consultation</h3>
-                <div className="ecd-form-row">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="ecd-form-input"
-                    value={form.name}
-                    onChange={e => setForm({ ...form, name: e.target.value })}
-                  />
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    className="ecd-form-input"
-                    value={form.email}
-                    onChange={e => setForm({ ...form, email: e.target.value })}
-                  />
-                </div>
-                <div className="ecd-form-row">
-                  <input
-                    type="text"
-                    placeholder="Website (if any)"
-                    className="ecd-form-input"
-                    value={form.website}
-                    onChange={e => setForm({ ...form, website: e.target.value })}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Your Message"
-                    className="ecd-form-input"
-                    value={form.message}
-                    onChange={e => setForm({ ...form, message: e.target.value })}
-                  />
-                </div>
-                <button className="ecd-form-btn">Send Message →</button>
-              </div>
-
-            </div>
-          </div>
-        </section>
+        <ServiceCtaForm
+          title="Ready to Build a"
+          titleAccent="High-Converting Ecommerce Store?"
+          description="Let's create an ecommerce experience that converts visitors into customers and helps your business grow online."
+          checks={[
+            "Free Consultation",
+            "No Obligation",
+            "Quick Response (1–3 hours)",
+            "100% Confidential",
+          ]}
+          serviceOptions={[
+            "Shopify Development",
+            "WooCommerce Development",
+            "Ecommerce Design",
+            "Conversion Optimization",
+            "Ecommerce SEO",
+            "Speed Optimization",
+          ]}
+          ctaImage={imgs.cta}
+          ctaAlt={imgs.ctaAlt}
+        />
 
         <Footer />
       </div>

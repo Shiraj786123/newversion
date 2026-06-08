@@ -1,9 +1,15 @@
 'use client';
 import React, { useState } from "react";
+import Image from "next/image";
+import { Plus, Minus } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServicePageHero from "../components/ServicePageHero";
+import ServiceCtaForm from "../components/ServiceCtaForm";
+import { serviceImages } from "../data/serviceImages";
 import "../styles/SEOServices.css";
-import Breadcrumb from "../components/Breadcrumb";
+
+const imgs = serviceImages['seo'];
 
 const SEOServices = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -95,32 +101,17 @@ const SEOServices = () => {
       <div className="seo-page">
         <Navbar />
 
-        {/* ── HERO (completely unchanged) ──────────────────────── */}
-        <section className="seo-hero">
-          <div className="seo-container">
-            <Breadcrumb />
-            <span className="seo-hero-badge-wrapper">
-              <span className="seo-hero-badge-dot"></span>
-              <span className="seo-hero-badge-text">AI Search Engine Optimization Agency</span>
-            </span>
-            <h1 className="seo-hero-title">
-              SEO Agency for Small Business UK{" "}
-              <span className="seo_title_sky_blue">— Built to Generate Leads, Not Just Rankings</span>
-            </h1>
-            <p className="seo-desc">
-              ZonzocTech is an AI SEO agency helping small businesses and startups across the UK and USA
-              grow their organic traffic, attract qualified leads and turn search visibility into real
-              revenue — without the price tag of a big London agency.
-            </p>
-            <div className="hero-buttons">
-              <a href="/contact" className="btn-primary">Get Your Free SEO Audit →</a>
-              <a href="#seo-results" className="btn-secondary">See Our Results ↓</a>
-            </div>
-            <p className="seo-sub" style={{ marginTop: "24px" }}>
-              Trusted by 120+ businesses across UK, USA &amp; Europe
-            </p>
-          </div>
-        </section>
+        <ServicePageHero
+          badge="SEO SERVICES"
+          title="SEO Built for Rankings, Traffic &"
+          titleAccent="Sustainable Growth"
+          subtitle="ZonzocTech is an AI SEO agency helping small businesses and startups across the UK and USA grow their organic traffic, attract qualified leads and turn search visibility into real revenue — without the price tag of a big London agency."
+          primaryCta={{ href: "/contact", label: "Get Your Free SEO Audit →" }}
+          secondaryCta={{ href: "#seo-results", label: "See Our Results ↓" }}
+          features={["Higher Rankings", "Qualified Organic Traffic", "Transparent Reporting"]}
+          heroImage={imgs.hero}
+          heroAlt={imgs.heroAlt}
+        />
 
         {/* ── STATS BAR ──────────────────────────────────────────── */}
         <div className="ss-stats-bar" id="seo-results">
@@ -168,38 +159,16 @@ const SEOServices = () => {
                 </ul>
               </div>
 
-              {/* Right — Google ranking visual */}
+              {/* Right — SEO analytics visual */}
               <div className="ss-why-right">
-                <div className="ss-google-card">
-                  <div className="ss-google-logo">
-                    <span style={{ color: "#4285f4" }}>G</span>
-                    <span style={{ color: "#ea4335" }}>o</span>
-                    <span style={{ color: "#fbbc04" }}>o</span>
-                    <span style={{ color: "#4285f4" }}>g</span>
-                    <span style={{ color: "#34a853" }}>l</span>
-                    <span style={{ color: "#ea4335" }}>e</span>
-                  </div>
-                  <div className="ss-google-search">
-                    <span className="ss-google-search-icon">🔍</span>
-                    <span className="ss-google-search-text">Your Business</span>
-                  </div>
-                  <div className="ss-google-result">
-                    <div className="ss-google-result-site">
-                      <span className="ss-result-favicon">🌐</span>
-                      <div>
-                        <div className="ss-result-url">yourwebsite.com</div>
-                        <div className="ss-result-title">Your Website</div>
-                      </div>
-                    </div>
-                    <div className="ss-result-badge">Position #1</div>
-                  </div>
-                  <div className="ss-google-chart">
-                    {[40, 55, 50, 65, 60, 80, 75, 95].map((h, i) => (
-                      <div key={i} className="ss-chart-bar" style={{ height: `${h}%`, animationDelay: `${i * 0.1}s` }} />
-                    ))}
-                    <div className="ss-chart-arrow">↗</div>
-                  </div>
-                </div>
+                <Image
+                  src={imgs.intro}
+                  alt={imgs.introAlt}
+                  width={480}
+                  height={360}
+                  className="sp-intro-image"
+                  style={{ borderRadius: 16, width: '100%', height: 'auto' }}
+                />
               </div>
             </div>
           </div>
@@ -293,47 +262,6 @@ const SEOServices = () => {
           </div>
         </section>
 
-        {/* ── CTA ─────────────────────────────────────────────────── */}
-        <section className="ss-cta-section">
-          <div className="ss-container">
-            <div className="ss-cta-box">
-              <div className="ss-cta-left">
-                <span className="ss-badge ss-badge--light">Get Started</span>
-                <h2 className="ss-cta-h2">
-                  Ready to Improve Your Rankings and Grow Your Business?
-                </h2>
-                <p className="ss-cta-p">
-                  Get a free SEO audit and discover how we can help you rank higher,
-                  get more traffic and grow your business.
-                </p>
-                <a href="/contact" className="ss-cta-btn">Get Free Consultation →</a>
-                <ul className="ss-cta-trust">
-                  <li>✓ Free SEO Audit</li>
-                  <li>✓ Actionable Insights</li>
-                  <li>✓ No Obligation</li>
-                  <li>✓ Quick Response</li>
-                </ul>
-              </div>
-              <div className="ss-cta-right">
-                <div className="ss-rocket-visual">
-                  <div className="ss-rocket-stars">
-                    {[...Array(8)].map((_, i) => (
-                      <div key={i} className={`ss-star ss-star--${i}`}>✦</div>
-                    ))}
-                  </div>
-                  <div className="ss-rocket">🚀</div>
-                  <div className="ss-rocket-clouds">
-                    <div className="ss-cloud ss-cloud--1">☁️</div>
-                    <div className="ss-cloud ss-cloud--2">☁️</div>
-                    <div className="ss-cloud ss-cloud--3">☁️</div>
-                  </div>
-                  <div className="ss-rocket-glow" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* ── FAQ ─────────────────────────────────────────────────── */}
         <section className="ss-section ss-section--white">
           <div className="ss-container">
@@ -343,23 +271,47 @@ const SEOServices = () => {
                 SEO Services — <span>Frequently Asked Questions</span>
               </h2>
             </div>
-            <div className="ss-faq-grid">
+            <div className="sp-faq-box-grid">
               {faqs.map((f, i) => (
                 <div
                   key={i}
-                  className={`ss-faq-item ${openFaq === i ? "ss-faq-item--open" : ""}`}
+                  className={`sp-faq-box-item ${openFaq === i ? "active" : ""}`}
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <div className="ss-faq-q">
+                  <div className="sp-faq-box-q">
                     <span>{f.q}</span>
-                    <span className="ss-faq-tog">{openFaq === i ? "−" : "+"}</span>
+                    {openFaq === i ? <Minus size={17} /> : <Plus size={17} />}
                   </div>
-                  {openFaq === i && <p className="ss-faq-a">{f.a}</p>}
+                  {openFaq === i && (
+                    <div className="sp-faq-box-a"><p>{f.a}</p></div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+        <ServiceCtaForm
+          label="Get Started"
+          title="Ready to Improve Your Rankings and"
+          titleAccent="Grow Your Business?"
+          description="Get a free SEO audit and discover how we can help you rank higher, get more traffic and grow your business."
+          checks={[
+            "Free SEO Audit",
+            "Actionable Insights",
+            "No Obligation",
+            "Quick Response",
+          ]}
+          serviceOptions={[
+            "Technical SEO",
+            "On-Page SEO",
+            "Local SEO",
+            "Ecommerce SEO",
+            "Content SEO",
+          ]}
+          ctaImage={imgs.cta}
+          ctaAlt={imgs.ctaAlt}
+        />
 
         <Footer />
       </div>

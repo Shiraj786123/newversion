@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   Monitor, Rocket, Zap, RefreshCw, ShieldCheck,
   Search, Layout, Code, Palette, Microscope,
@@ -12,19 +11,24 @@ import {
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Breadcrumb from "../components/Breadcrumb";
+import ServicePageHero from "../components/ServicePageHero";
+import ServiceIntroSection from "../components/ServiceIntroSection";
+import ServiceCtaForm from "../components/ServiceCtaForm";
+import { serviceImages } from "../data/serviceImages";
 import "../styles/AIWebsiteDesign.css";
+
+const imgs = serviceImages['ai-website-design'];
 
 const AIWebsiteDesign = () => {
   const [activeFaq, setActiveFaq] = useState(null);
 
   const aiDifferences = [
-    { title: "Personalized Content",   description: "Show the right content to the right audience.",                        icon: <Target size={22} />        },
-    { title: "Automate Interactions",  description: "AI chatbots and automation improve customer support.",                 icon: <MessageSquare size={22} />  },
-    { title: "Generate More Leads",    description: "Smart forms and AI tools capture more qualified leads.",               icon: <TrendingUp size={22} />     },
-    { title: "Analyze Behavior",       description: "Track and understand visitor behavior in real-time.",                  icon: <BarChart3 size={22} />      },
-    { title: "Enhance Experience",     description: "AI improves usability and creates smoother user journeys.",            icon: <Sparkles size={22} />       },
-    { title: "Boost Conversions",      description: "Smart features that encourage more actions & sales.",                  icon: <Zap size={22} />            },
+    { title: "Personalized Content",   description: "Show the right content to the right audience.",                        icon: <Target size={20} strokeWidth={1.75} />        },
+    { title: "Automate Interactions",  description: "AI chatbots and automation improve customer support.",                 icon: <MessageSquare size={20} strokeWidth={1.75} />  },
+    { title: "Generate More Leads",    description: "Smart forms and AI tools capture more qualified leads.",               icon: <TrendingUp size={20} strokeWidth={1.75} />     },
+    { title: "Analyze Behavior",       description: "Track and understand visitor behavior in real-time.",                  icon: <BarChart3 size={20} strokeWidth={1.75} />      },
+    { title: "Enhance Experience",     description: "AI improves usability and creates smoother user journeys.",            icon: <Sparkles size={20} strokeWidth={1.75} />       },
+    { title: "Boost Conversions",      description: "Smart features that encourage more actions & sales.",                  icon: <Zap size={20} strokeWidth={1.75} />            },
   ];
 
   const services = [
@@ -75,56 +79,68 @@ const AIWebsiteDesign = () => {
     { question: "How long does it take to design a website?",              answer: "A standard business website takes 4 to 6 weeks. Landing pages can be delivered in 1 to 2 weeks." },
   ];
 
+  const heroFeatures = [
+    "Modern Design",
+    "SEO Friendly",
+    "AI Integration",
+    "High Converting",
+  ];
+
   return (
     <div className="aiwd-master-wrapper">
       <Navbar />
 
-      {/* ═══ HERO — UNCHANGED ═══ */}
-      <section className="aiwd-hero">
-        <div className="aiwd-container">
-          <div className="aiwd-hero-content">
-            <Breadcrumb />
-            <span className="aiwd-hero-badge">AI Web Design & Development Agency</span>
-            <h1 className="aiwd-hero-title">
-              AI Website Design That Turns{" "}
-              <span className="aiwd-hero-title-accent">Visitors Into Customers</span>
-            </h1>
-            <p className="aiwd-hero-subtext">
-              We build high-converting AI-powered websites for UK &amp; USA businesses —
-              combining modern UI, conversion psychology, and performance engineering.
-            </p>
-            <div className="aiwd-hero-actions">
-              <a href="/contact" className="aiwd-btn-primary">Get Free Consultation</a>
-              <a href="/case-studies" className="aiwd-btn-secondary">View Our Works →</a>
-            </div>
-            <p className="aiwd-hero-trust">Trusted by 120+ businesses across the UK, USA &amp; Europe</p>
-          </div>
-        </div>
-      </section>
+      <ServicePageHero
+        badge="AI Website Design & Development Services"
+        title="AI-Powered Website Design That"
+        titleAccent="Converts Visitors Into Customers"
+        subtitle="We build high-performing AI-powered websites for businesses in the UK, USA, and worldwide — combining modern design, smart automation, and conversion-focused development to turn traffic into real results."
+        features={heroFeatures}
+        heroImage={imgs.hero}
+        heroAlt={imgs.heroAlt}
+      />
+
+      <ServiceIntroSection
+        label="What Is AI Website Design?"
+        title="Modern Websites Powered by"
+        titleAccent="AI Technology"
+        description="AI website design combines intelligent automation, personalization, and conversion-focused development to create websites that engage visitors and turn them into customers."
+        checklist={[
+          "Personalized user experiences",
+          "AI chatbots and smart automation",
+          "SEO-friendly modern design",
+          "High-converting landing pages",
+          "Scalable for long-term growth",
+        ]}
+        introImage={imgs.intro}
+        introAlt={imgs.introAlt}
+      />
 
       {/* ═══ SECTION 1 — What Makes AI-Powered Websites Different? ═══ */}
       <section className="aiwd-diff-section">
         <div className="aiwd-container">
           <div className="aiwd-diff-layout">
             <div className="aiwd-diff-left">
-              <span className="aiwd-section-pill">Why AI Websites?</span>
+              <span className="aiwd-diff-label">Why AI Websites?</span>
               <h2 className="aiwd-diff-title">
                 What Makes{" "}
-                <span className="aiwd-text-blue">AI-Powered Websites</span>{" "}
+                <span className="aiwd-diff-title-accent">AI-Powered Websites</span>{" "}
                 Different?
               </h2>
               <p className="aiwd-diff-desc">
                 AI-powered websites use smart automation, personalization, and intelligent
                 user experiences to improve customer engagement and increase conversions.
               </p>
-              <a href="#" className="aiwd-diff-link">Explore the Benefits →</a>
+              <a href="#aiwd-services" className="aiwd-diff-link">Explore the Benefits →</a>
             </div>
             <div className="aiwd-diff-right">
               <div className="aiwd-diff-grid">
                 {aiDifferences.map((item, i) => (
                   <div key={i} className="aiwd-diff-card">
-                    <div className="aiwd-diff-card-icon">{item.icon}</div>
-                    <h4>{item.title}</h4>
+                    <div className="aiwd-diff-card-head">
+                      <div className="aiwd-diff-card-icon">{item.icon}</div>
+                      <h4>{item.title}</h4>
+                    </div>
                     <p>{item.description}</p>
                   </div>
                 ))}
@@ -135,7 +151,7 @@ const AIWebsiteDesign = () => {
       </section>
 
       {/* ═══ SECTION 2 — Services 4-column grid ═══ */}
-      <section className="aiwd-services-section">
+      <section className="aiwd-services-section" id="aiwd-services">
         <div className="aiwd-container">
           <div className="aiwd-section-head">
             <span className="aiwd-section-pill">Our Services</span>
@@ -158,15 +174,13 @@ const AIWebsiteDesign = () => {
       </section>
 
       {/* ═══ SECTION 3 — Why Businesses Choose Us (dark) ═══ */}
-      <section className="aiwd-why-section">
+      <section className="sp-why-banner">
         <div className="aiwd-container">
-          <div className="aiwd-section-head">
-            <span className="aiwd-section-pill-white">Why Businesses Choose Us</span>
-          </div>
-          <div className="aiwd-why-grid">
+          <h2 className="sp-why-banner-title">Why Businesses Choose Us</h2>
+          <div className="sp-why-banner-grid">
             {whyChoose.map((item, i) => (
-              <div key={i} className={`aiwd-why-card ${item.colorClass}`}>
-                <div className="aiwd-why-icon-wrap">{item.icon}</div>
+              <div key={i} className="sp-why-banner-item">
+                <div className="aiwd-why-icon-wrap sp-why-banner-icon" style={{ background: 'rgba(56,189,248,0.2)', color: '#38bdf8' }}>{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </div>
@@ -180,6 +194,7 @@ const AIWebsiteDesign = () => {
         <div className="aiwd-container">
           <div className="aiwd-section-head">
             <span className="aiwd-section-pill">Our Website Design Process</span>
+            <h2 className="aiwd-section-title">Our Website Design Process</h2>
           </div>
           <div className="aiwd-process-row">
             {processSteps.map((item, i) => (
@@ -200,6 +215,7 @@ const AIWebsiteDesign = () => {
         <div className="aiwd-container">
           <div className="aiwd-section-head">
             <span className="aiwd-section-pill">AI Features We Can Integrate</span>
+            <h2 className="aiwd-section-title">AI Features We Can Integrate</h2>
           </div>
           <div className="aiwd-features-grid">
             {aiFeatures.map((f, i) => (
@@ -218,89 +234,45 @@ const AIWebsiteDesign = () => {
           <div className="aiwd-section-head">
             <h2 className="aiwd-section-title">Frequently Asked Questions</h2>
           </div>
-          <div className="aiwd-faq-2col">
+          <div className="sp-faq-box-grid">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`aiwd-faq-item ${activeFaq === i ? "active" : ""}`}
+                className={`sp-faq-box-item ${activeFaq === i ? "active" : ""}`}
                 onClick={() => setActiveFaq(activeFaq === i ? null : i)}
               >
-                <div className="aiwd-faq-q">
+                <div className="sp-faq-box-q">
                   <span>{faq.question}</span>
                   {activeFaq === i ? <Minus size={18} /> : <Plus size={18} />}
                 </div>
-                <AnimatePresence>
-                  {activeFaq === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                      className="aiwd-faq-a"
-                    >
-                      <p>{faq.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {activeFaq === i && (
+                  <div className="sp-faq-box-a"><p>{faq.answer}</p></div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ SECTION 7 — CTA with form ═══ */}
-      <section className="aiwd-cta-section">
-        <div className="aiwd-container">
-          <div className="aiwd-cta-inner">
-            <div className="aiwd-cta-left">
-              <span className="aiwd-cta-label">Let's Build Your Success</span>
-              <h2 className="aiwd-cta-big-title">
-                Ready to Build an{" "}
-                <span className="aiwd-text-blue">AI-Powered Website?</span>
-              </h2>
-              <p className="aiwd-cta-desc">
-                Let's create a high-performing website designed to grow your business,
-                improve conversions, and support long-term digital success.
-              </p>
-              <div className="aiwd-cta-checks">
-                <div className="aiwd-cta-check-row">
-                  <CheckCircle2 size={18} className="aiwd-check-icon" />
-                  <span>We usually respond within 1–3 business hours</span>
-                </div>
-                <div className="aiwd-cta-check-row">
-                  <CheckCircle2 size={18} className="aiwd-check-icon" />
-                  <span>No spam. No obligation.</span>
-                </div>
-                <div className="aiwd-cta-check-row">
-                  <CheckCircle2 size={18} className="aiwd-check-icon" />
-                  <span>100% focused on your success.</span>
-                </div>
-              </div>
-            </div>
-            <div className="aiwd-cta-right">
-              <div className="aiwd-cta-form">
-                <h3>Get Free Consultation</h3>
-                <div className="aiwd-form-row">
-                  <input type="text"  placeholder="Your Name*"     className="aiwd-form-input" />
-                  <input type="email" placeholder="Email Address*" className="aiwd-form-input" />
-                </div>
-                <div className="aiwd-form-row">
-                  <input type="tel" placeholder="Phone Number*" className="aiwd-form-input" />
-                  <select className="aiwd-form-input">
-                    <option value="">Select a Service</option>
-                    <option>Business Website Design</option>
-                    <option>Landing Page</option>
-                    <option>E-commerce</option>
-                    <option>AI Integration</option>
-                    <option>Website Redesign</option>
-                  </select>
-                </div>
-                <button className="aiwd-form-btn">Send Message →</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceCtaForm
+        title="Ready to Build an"
+        titleAccent="AI-Powered Website?"
+        description="Let's create a high-performing website designed to grow your business, improve conversions, and support long-term digital success."
+        checks={[
+          "We usually respond within 1–3 business hours",
+          "No spam. No obligation.",
+          "100% focused on your success.",
+        ]}
+        serviceOptions={[
+          "Business Website Design",
+          "Landing Page",
+          "E-commerce",
+          "AI Integration",
+          "Website Redesign",
+        ]}
+        ctaImage={imgs.cta}
+        ctaAlt={imgs.ctaAlt}
+      />
 
       <Footer />
     </div>

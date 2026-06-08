@@ -1651,3 +1651,208 @@
     opacity: 0.85;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  /* 1. HERO SECTION WRAPPER - Minimal top gap for that clean look */
+  .aiss__hero, .aiwa__hero_section, .fswd__bar_hero, .ecd__hero, .aiso__hero, .seo-hero, .wm__hero {
+    padding-top: 20px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  /* 2. BREADCRUMBS & BADGES - Perfectly centered at the top */
+  .aiss__hero_container > :first-child,
+  .aiwa__container > :first-child,
+  .fswd__container > :first-child,
+  .ecd__hero_container > :first-child,
+  .seo-container > :first-child,
+  .wm__hero_container > :first-child {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* The Pill-shaped Badge */
+  .aiss__hero_badge, .aiwa__hero_badge_wrapper, .fswd__hero_label, .ecd__hero_badge_wrapper, .seo-hero-badge-wrapper, .wm-hero-badge-wrapper {
+    margin: 0 auto 15px auto !important;
+    display: inline-flex !important;
+    padding: 6px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    border-radius: 100px !important; /* Makes it a perfect pill */
+  }
+
+  /* 3. THE GIANT HEADING - Matches your screenshot exactly */
+  .aiss__hero_title, 
+  .aiwa__heading, 
+  .fswd__heading, 
+  .ecd__hero_title, 
+  .aiso__hero_title, 
+  .seo-hero-title, 
+  .wm__hero_title {
+    font-size: 42px !important;    /* Massive Impact */
+    font-weight: 900 !important;    /* Maximum Boldness */
+    line-height: 1.0 !important;    /* Tight and Clean spacing */
+    letter-spacing: -0.04em !important; /* Premium character squeeze */
+    text-align: center !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+    width: 100%;
+    word-break: break-word;
+  }
+
+  /* Handle the blue text highlights inside headings */
+  .aiss__hero_title_accent, 
+  .aiwa-text-blue, 
+  .text_light_blue, 
+  .ecd__hero_title_highlight, 
+  .aiso__hero_title_highlight, 
+  .seo_title_sky_blue, 
+  .wm__hero_title_highlight {
+    font-size: 1em !important;
+    color: #3b82f6 !important; /* Or your specific brand blue */
+  }
+
+  /* 4. THE CLEAN DESCRIPTION - Small but very readable */
+  .aiss__hero_text, 
+  .aiwa__hero_text_white, 
+  .fswd__hero_text_white, 
+  .ecd__hero_text, 
+  .aiso__hero_text, 
+  .seo-desc, 
+  .wm__hero_text {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    max-width: 90% !important;
+    margin: 0 auto 30px auto !important;
+    opacity: 0.8 !important; /* Faded to let the heading pop */
+    font-weight: 400 !important;
+  }
+
+  /* 5. HERO BUTTONS - Equal Width, Tall, and Centered */
+  .aiss-hero-actions, .aiwa__hero_actions, .fswd__hero_actions, .hero-buttons, .wm__cta-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+  }
+
+  .aiss-btn-primary, .aiss-btn-secondary,
+  .aiwa__btn_primary, .aiwa__btn_secondary,
+  .fswd__hero_btn,
+  .btn-primary, .btn-secondary,
+  .wm-btn-primary, .wm-btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important; /* Matching the rounded buttons in your image */
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+  }
+}
+
+
+
+/* --- Desktop Equal Height Fix for Pricing Cards --- */
+@media (min-width: 1024px) {
+  /* 1. Ensure the grid container allows items to stretch */
+  .wm-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust based on your column count */
+    align-items: stretch; /* This forces all grid items to the same height */
+    gap: 24px;
+  }
+
+  /* 2. Make the card itself a flex container that fills the height */
+  .wm-plan-card {
+    height: 100%; /* Fill the grid cell */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This pushes the 'Get Started' button to the very bottom */
+  }
+
+  /* 3. Allow the features list to grow and fill the empty space */
+  .wm-plan-features {
+    flex-grow: 1; /* This pushes the button down even if there are fewer features */
+    margin-bottom: 30px; /* Space between last feature and button */
+  }
+
+  /* 4. Optional: If you want the 'Performance Plan' to look slightly taller (as a highlight) 
+     but keep others aligned, you can use padding instead of height differences */
+  .wm-plan-card--popular {
+    transform: scale(1.05); /* Keeps it highlighted without breaking the alignment */
+    z-index: 2;
+  }
+}
+
+
+/* Separation for the Bottom Sections */
+.wm-cta-section {
+  margin-top: 100px; /* Adjust this value (e.g., 80px or 120px) to get the perfect gap */
+}
+
+/* Ensure the gap remains clean on mobile as well */
+@media (max-width: 768px) {
+  .wm-cta-section {
+    margin-top: 60px; /* Slightly smaller gap for mobile screens */
+  }
+}
+
+
+
+
+
+
+
+/* 1. Fix the layout alignment to the top */
+.wm-faq-layout {
+  display: flex;
+  align-items: flex-start; /* CRITICAL: Prevents the left side from moving when the right side grows */
+  gap: 60px;
+  position: relative;
+}
+
+/* 2. Make the "?" visual stay in one spot */
+.wm-faq-visual {
+  position: sticky;
+  top: 100px; /* Adjust this based on your navbar height */
+  flex: 0 0 350px; /* Keeps the width fixed so it doesn't shrink */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 3. Ensure the accordion side grows independently */
+.wm-faq-right {
+  flex: 1;
+  min-height: 500px; /* Optional: prevents the bottom section from jumping too much */
+}
+
+/* 4. Smooth out the opening of the FAQ */
+.wm-faq-a {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Adjustment: On mobile, we stack them, so sticky isn't needed */
+@media (max-width: 768px) {
+  .wm-faq-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wm-faq-visual {
+    position: relative;
+    top: 0;
+    margin-bottom: 30px;
+  }
+}

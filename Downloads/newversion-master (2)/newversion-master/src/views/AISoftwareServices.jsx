@@ -12,8 +12,13 @@ import {
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Breadcrumb from "../components/Breadcrumb";
+import ServicePageHero from "../components/ServicePageHero";
+import ServiceIntroSection from "../components/ServiceIntroSection";
+import ServiceCtaForm from "../components/ServiceCtaForm";
+import { serviceImages } from "../data/serviceImages";
 import "../styles/AISoftwareServices.css";
+
+const imgs = serviceImages['ai-software'];
 
 /* ─── DATA ──────────────────────────────────────────── */
 
@@ -142,32 +147,15 @@ const AISoftwareServices = () => {
     <div className="aiss__wrapper">
       <Navbar />
 
-      {    /* ═══════════════════════════════════════
-          HERO — UNCHANGED
-      ═══════════════════════════════════════ */}
-      <section className="aiss__hero">
-        <div className="aiss__hero_gradient"></div>
-        <div className="aiss__hero_container">
-          <Breadcrumb />
-          <span className="aiss__hero_badge">
-            AI Software Development Company for UK &amp; USA Businesses
-          </span>
-          <h1 className="aiss__hero_title">
-            Custom AI Software Development That Automates Operations and{" "}
-            <span className="aiss__hero_title_accent">Accelerates Growth</span>
-          </h1>
-          <p className="aiss__hero_text">
-            We design and build intelligent AI software solutions including custom chatbots,
-            workflow automation systems, GPT-powered tools, and business integrations that
-            reduce manual work, improve decision-making, and scale with your business.
-          </p>
-          <div className="aiss-hero-actions">
-            <a href="/contact" className="aiss-btn-primary">Get Free AI Consultation →</a>
-            <a href="/case-studies" className="aiss-btn-secondary">View Our Works →</a>
-          </div>
-          <p className="aiss__hero_trust">Trusted by 120+ businesses across the UK, USA &amp; Europe</p>
-        </div>
-      </section>
+      <ServicePageHero
+        badge="AI Software Development Company"
+        title="Custom AI Software Development That"
+        titleAccent="Automates Operations & Accelerates Growth"
+        subtitle="We design and build intelligent AI software solutions including custom chatbots, workflow automation systems, GPT-powered tools, and business integrations that reduce manual work and scale with your business."
+        features={["Trusted in USA, UK & UAE", "5-Star Client Rating", "Enterprise-Ready Solutions"]}
+        heroImage={imgs.hero}
+        heroAlt={imgs.heroAlt}
+      />
 
       {/* ═══════════════════════════════════════
           STATS BAR
@@ -183,61 +171,15 @@ const AISoftwareServices = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
-          SECTION 1 — What Is AI Software Dev?
-      ═══════════════════════════════════════ */}
-      <section className="aiss-intro-section">
-        <div className="aiss-container">
-          <div className="aiss-intro-layout">
-
-            {/* Left — illustration */}
-            <div className="aiss-intro-visual">
-              <div className="aiss-visual-inner">
-                <div className="aiss-visual-brain">
-                  <Brain size={48} className="aiss-brain-icon" />
-                </div>
-                <div className="aiss-visual-nodes">
-                  <div className="aiss-node n1"><Bot size={18} /></div>
-                  <div className="aiss-node n2"><Zap size={18} /></div>
-                  <div className="aiss-node n3"><Database size={18} /></div>
-                  <div className="aiss-node n4"><BarChart4 size={18} /></div>
-                </div>
-                <div className="aiss-visual-code">
-                  <span className="aiss-code-line cl1">&lt;AI /&gt;</span>
-                  <span className="aiss-code-line cl2">{"{ automate }"}</span>
-                  <span className="aiss-code-line cl3">{"[ predict ]"}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Middle — text */}
-            <div className="aiss-intro-text">
-              <span className="aiss-intro-tag">What Is AI Software Development?</span>
-              <h2 className="aiss-intro-title">
-                Smarter Software for{" "}
-                <span className="aiss-blue">Modern Businesses</span>
-              </h2>
-              <p className="aiss-intro-desc">
-                Custom AI software development involves building intelligent systems
-                tailored to automate business operations, improve decision-making,
-                reduce manual workloads, and integrate seamlessly with existing
-                platforms and workflows.
-              </p>
-            </div>
-
-            {/* Right — checklist */}
-            <div className="aiss-intro-checklist">
-              {aiChecklist.map((item, i) => (
-                <div key={i} className="aiss-check-row">
-                  <CheckCircle2 size={17} className="aiss-check-icon" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <ServiceIntroSection
+        label="What Is AI Software Development?"
+        title="Smarter Software for"
+        titleAccent="Modern Businesses"
+        description="Custom AI software development involves building intelligent systems tailored to automate business operations, improve decision-making, reduce manual workloads, and integrate seamlessly with existing platforms and workflows."
+        checklist={aiChecklist}
+        introImage={imgs.intro}
+        introAlt={imgs.introAlt}
+      />
 
       {/* ═══════════════════════════════════════
           SECTION 2 — Services 4-column grid
@@ -262,18 +204,13 @@ const AISoftwareServices = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
-          SECTION 3 — Why Businesses Choose Us (dark)
-      ═══════════════════════════════════════ */}
-      <section className="aiss-why-section">
+      <section className="sp-why-banner">
         <div className="aiss-container">
-          <div className="aiss-section-head">
-            <span className="aiss-pill-white">Why Businesses Choose ZonzocTech</span>
-          </div>
-          <div className="aiss-why-grid">
+          <h2 className="sp-why-banner-title">Why Businesses Choose ZonzocTech</h2>
+          <div className="sp-why-banner-grid" style={{ gridTemplateColumns: 'repeat(6, 1fr)' }}>
             {whyChoose.map((item, i) => (
-              <div key={i} className={`aiss-why-card ${item.color}`}>
-                <div className="aiss-why-icon">{item.icon}</div>
+              <div key={i} className="sp-why-banner-item">
+                <div className="aiss-why-icon sp-why-banner-icon" style={{ background: 'rgba(56,189,248,0.2)', color: '#38bdf8' }}>{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
@@ -397,19 +334,19 @@ const AISoftwareServices = () => {
           <div className="aiss-section-head">
             <h2 className="aiss-section-title">Frequently Asked Questions</h2>
           </div>
-          <div className="aiss-faq-2col">
+          <div className="sp-faq-box-grid">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className={`aiss-faq-item ${activeFaq === i ? "active" : ""}`}
+                className={`sp-faq-box-item ${activeFaq === i ? "active" : ""}`}
                 onClick={() => setActiveFaq(activeFaq === i ? null : i)}
               >
-                <div className="aiss-faq-q">
+                <div className="sp-faq-box-q">
                   <span>{faq.question}</span>
                   {activeFaq === i ? <Minus size={17} /> : <Plus size={17} />}
                 </div>
                 {activeFaq === i && (
-                  <div className="aiss-faq-a"><p>{faq.answer}</p></div>
+                  <div className="sp-faq-box-a"><p>{faq.answer}</p></div>
                 )}
               </div>
             ))}
@@ -417,57 +354,24 @@ const AISoftwareServices = () => {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════
-          SECTION 8 — CTA (dark, with AI visual)
-      ═══════════════════════════════════════ */}
-      <section className="aiss-cta-section">
-        <div className="aiss-container">
-          <div className="aiss-cta-inner">
-
-            {/* Left */}
-            <div className="aiss-cta-left">
-              <span className="aiss-cta-tag">Let's Build Something Amazing</span>
-              <h2 className="aiss-cta-title">
-                Ready to Automate and{" "}
-                <span className="aiss-cta-blue">Scale Your Business with AI?</span>
-              </h2>
-              <p className="aiss-cta-desc">
-                Let's build intelligent AI software solutions that automate operations,
-                improve efficiency, and support long-term business growth.
-              </p>
-              <div className="aiss-cta-actions">
-                <a href="/contact" className="aiss-btn-primary">Get Free Consultation →</a>
-                <a href="/case-studies" className="aiss-btn-secondary">View Our Works →</a>
-              </div>
-              <div className="aiss-cta-trust">
-                <CheckCircle2 size={15} className="aiss-trust-icon" />
-                <span>We usually respond within 1–3 business hours. No commitment.</span>
-              </div>
-            </div>
-
-            {/* Right — AI visual */}
-            <div className="aiss-cta-visual">
-              <div className="aiss-cta-visual-inner">
-                <div className="aiss-cta-brain-wrap">
-                  <Brain size={80} className="aiss-cta-brain" />
-                </div>
-                <div className="aiss-cta-stats">
-                  <div className="aiss-cta-stat">
-                    <strong>150+</strong><span>Projects</span>
-                  </div>
-                  <div className="aiss-cta-stat">
-                    <strong>10+</strong><span>Years Exp.</span>
-                  </div>
-                  <div className="aiss-cta-stat">
-                    <strong>24/7</strong><span>Support</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <ServiceCtaForm
+        title="Ready to Automate and"
+        titleAccent="Scale Your Business with AI?"
+        description="Let's build intelligent AI software solutions that automate operations, improve efficiency, and support long-term business growth."
+        checks={[
+          "We usually respond within 1–3 business hours",
+          "No spam. No obligation.",
+          "Trusted by businesses in USA, UK & UAE.",
+        ]}
+        serviceOptions={[
+          "AI Chatbot Development",
+          "GPT Integration",
+          "Business Process Automation",
+          "Enterprise AI Systems",
+        ]}
+        ctaImage={imgs.cta}
+        ctaAlt={imgs.ctaAlt}
+      />
 
       <Footer />
     </div>

@@ -1,9 +1,15 @@
 'use client';
 import React, { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Breadcrumb from "../components/Breadcrumb";
+import ServicePageHero from "../components/ServicePageHero";
+import ServiceIntroSection from "../components/ServiceIntroSection";
+import ServiceCtaForm from "../components/ServiceCtaForm";
+import { serviceImages } from "../data/serviceImages";
 import "../styles/FullStackWebDev.css";
+
+const imgs = serviceImages['full-stack'];
 
 const FullStackWebDev = () => {
   const [openFaq, setOpenFaq] = useState(null);
@@ -119,47 +125,20 @@ const FullStackWebDev = () => {
     { q: "Can you integrate third-party services and APIs?",       a: "Yes. We integrate payment gateways, CRM systems, automation platforms, REST/GraphQL APIs, and any third-party services your business needs." },
   ];
 
-  const codeSnippet = `// Building scalable applications
-const app = express();
-
-app.get('/api/health', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Application is running smoothly 🚀'
-  });
-});`;
-
   return (
     <div className="fswd__wrapper">
       <Navbar />
 
-      {/* ── HERO — UNTOUCHED ─────────────────────────── */}
-      <section className="fswd__bar_hero">
-        <div className="fswd__container">
-          <div className="fswd__hero_content">
-            <Breadcrumb />
-            <span className="fswd__hero_label">Full Stack Web Development Agency</span>
-            <h1 className="fswd__heading">
-              Full Stack Web Development Agency for{" "}
-              <span className="text_light_blue">UK & USA Businesses</span>
-            </h1>
-            <p className="fswd__hero_text_white">
-              Bespoke, high-performance web applications, MVPs and SaaS platforms
-              built to scale. We combine senior engineering talent with clean,
-              maintainable code and conversion-focused UI/UX.
-            </p>
-            <div className="fswd__hero_actions">
-              <a href="/contact" className="fswd__hero_btn fswd__hero_btn--primary">
-                Get Free Consultation
-              </a>
-              <a href="https://zonzoc-tech.netlify.app/" target="_blank" rel="noopener noreferrer" className="fswd__hero_btn fswd__hero_btn--secondary">
-                View Portfolio →
-              </a>
-            </div>
-            <p className="fswd__hero_trust">Trusted by 120+ businesses across the UK, USA & Europe</p>
-          </div>
-        </div>
-      </section>
+      <ServicePageHero
+        badge="FULL STACK WEB DEVELOPMENT"
+        title="Custom Full Stack Web Applications Built for"
+        titleAccent="Performance, Scalability & Growth"
+        subtitle="We design and build bespoke, high-performance web applications, MVPs and SaaS platforms built to scale. We combine senior engineering talent with clean, maintainable code and conversion-focused UI/UX."
+        features={["Scalable Architecture", "Modern Tech Stack", "On-Time Delivery"]}
+        secondaryCta={{ href: "https://zonzoc-tech.netlify.app/", label: "View Portfolio →" }}
+        heroImage={imgs.hero}
+        heroAlt={imgs.heroAlt}
+      />
 
       {/* ── STATS BAR — 6 items ───────────────────────── */}
       <section className="fswd-stats-section">
@@ -176,42 +155,33 @@ app.get('/api/health', (req, res) => {
         </div>
       </section>
 
-      {/* ── SECTION 1 — WHY + SERVICES ───────────────── */}
+      <ServiceIntroSection
+        label="Why Businesses Choose Us"
+        title="End-to-End Development That Powers"
+        titleAccent="Real Business Growth"
+        description="From idea to deployment, we build robust, scalable and future-ready web applications that drive automation, efficiency and long-term success."
+        checklist={whyChecklist}
+        chipLabel="FS"
+        introImage={imgs.intro}
+        introAlt={imgs.introAlt}
+      />
+
+      {/* ── SERVICES — 2×3 grid ──────────────────────── */}
       <section className="fswd-why-section">
         <div className="fswd__container">
-          <div className="fswd-why-grid">
-
-            {/* Left */}
-            <div className="fswd-why-left">
-              <span className="fswd-eyebrow">Why Businesses Choose Us</span>
-              <h2 className="fswd-section-heading">
-                End-to-End Development That Powers Real Business Growth
-              </h2>
-              <p className="fswd-why-desc">
-                From idea to deployment, we build robust, scalable and future-ready web applications that drive automation, efficiency and long-term success.
-              </p>
-              <ul className="fswd-checklist">
-                {whyChecklist.map((item, i) => (
-                  <li key={i} className="fswd-check-item">
-                    <span className="fswd-check-dot">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right — 2×3 services grid */}
-            <div className="fswd-services-grid">
-              {services.map((svc, i) => (
-                <div key={i} className="fswd-service-card">
-                  <div className="fswd-service-icon-box">{svc.icon}</div>
-                  <h3 className="fswd-service-title">{svc.title}</h3>
-                  <p className="fswd-service-desc">{svc.desc}</p>
-                  <a href={svc.link} className="fswd-learn-more">Learn More →</a>
-                </div>
-              ))}
-            </div>
-
+          <div className="fswd-section-center">
+            <span className="fswd-eyebrow">Our Services</span>
+            <h2 className="fswd-section-heading">Full Stack Web Development Services</h2>
+          </div>
+          <div className="fswd-services-grid">
+            {services.map((svc, i) => (
+              <div key={i} className="fswd-service-card">
+                <div className="fswd-service-icon-box">{svc.icon}</div>
+                <h3 className="fswd-service-title">{svc.title}</h3>
+                <p className="fswd-service-desc">{svc.desc}</p>
+                <a href={svc.link} className="fswd-learn-more">Learn More →</a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -320,74 +290,53 @@ app.get('/api/health', (req, res) => {
         </div>
       </section>
 
-      {/* ── FAQ + CODE BLOCK ─────────────────────────── */}
+      {/* ── FAQ ──────────────────────────────────────── */}
       <section className="fswd-faq-section">
         <div className="fswd__container">
-          <div className="fswd-faq-grid">
-
-            {/* Left — accordion */}
-            <div className="fswd-faq-left">
-              <span className="fswd-eyebrow">Frequently Asked Questions</span>
-              <h2 className="fswd-section-heading">Got Questions? We've Got Answers.</h2>
-              <div className="fswd-faq-list">
-                {faqs.map((faq, i) => (
-                  <div
-                    key={i}
-                    className={`fswd-faq-item ${openFaq === i ? 'fswd-faq-item--open' : ''}`}
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  >
-                    <div className="fswd-faq-q">
-                      <span>{faq.q}</span>
-                      <span className="fswd-faq-toggle">{openFaq === i ? '−' : '+'}</span>
-                    </div>
-                    {openFaq === i && (
-                      <div className="fswd-faq-a"><p>{faq.a}</p></div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — code card */}
-            <div className="fswd-code-card">
-              <h3 className="fswd-code-heading">Clean Code. Scalable Solutions.</h3>
-              <p className="fswd-code-subtext">
-                We follow best practices to build secure, maintainable and high-performance applications.
-              </p>
-              <div className="fswd-code-block">
-                <div className="fswd-code-dots">
-                  <span className="fswd-dot fswd-dot--red"></span>
-                  <span className="fswd-dot fswd-dot--yellow"></span>
-                  <span className="fswd-dot fswd-dot--green"></span>
+          <div className="fswd-section-center">
+            <span className="fswd-eyebrow">Frequently Asked Questions</span>
+            <h2 className="fswd-section-heading">Got Questions? We've Got Answers.</h2>
+          </div>
+          <div className="sp-faq-box-grid">
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className={`sp-faq-box-item ${openFaq === i ? "active" : ""}`}
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              >
+                <div className="sp-faq-box-q">
+                  <span>{faq.q}</span>
+                  {openFaq === i ? <Minus size={17} /> : <Plus size={17} />}
                 </div>
-                <pre className="fswd-code-pre"><code>{codeSnippet}</code></pre>
+                {openFaq === i && (
+                  <div className="sp-faq-box-a"><p>{faq.a}</p></div>
+                )}
               </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA BOTTOM ───────────────────────────────── */}
-      <section className="fswd-cta-section">
-        <div className="fswd__container">
-          <div className="fswd-cta-inner">
-            <h2 className="fswd-cta-title">Ready to Build Your Next Big Application?</h2>
-            <p className="fswd-cta-desc">
-              Let's turn your idea into a powerful, scalable and future-ready web application.
-            </p>
-            <div className="fswd-cta-buttons">
-              <a href="/contact" className="fswd-cta-btn-primary">Get Free Consultation →</a>
-              <a href="/case-studies" className="fswd-cta-btn-secondary">View Our Work</a>
-            </div>
-            <div className="fswd-cta-pills">
-              <span>✓ No Obligation</span>
-              <span>✓ Quick Response (1–3 Hours)</span>
-              <span>✓ 100% Confidential</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceCtaForm
+        title="Ready to Build Your"
+        titleAccent="Next Big Application?"
+        description="Let's turn your idea into a powerful, scalable and future-ready web application."
+        checks={[
+          "No Obligation",
+          "Quick Response (1–3 Hours)",
+          "100% Confidential",
+        ]}
+        serviceOptions={[
+          "Custom Web Applications",
+          "SaaS Development",
+          "Frontend Development",
+          "Backend Development",
+          "API Development",
+          "Cloud & DevOps",
+        ]}
+        ctaImage={imgs.cta}
+        ctaAlt={imgs.ctaAlt}
+      />
 
       <Footer />
     </div>

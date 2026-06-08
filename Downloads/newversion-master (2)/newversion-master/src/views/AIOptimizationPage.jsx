@@ -1,9 +1,12 @@
 'use client';
 import React, { useState } from "react";
+import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ServicePageHero from "../components/ServicePageHero";
+import ServiceCtaForm from "../components/ServiceCtaForm";
+import { serviceImages } from "../data/serviceImages";
 import "../styles/AIOptimizationPage.css";
-import Breadcrumb from "../components/Breadcrumb";
 import {
   Bot,
   Brain,
@@ -32,6 +35,8 @@ import {
   Link2,
   FileText,
   Cpu,
+  Plus,
+  Minus,
 } from "lucide-react";
 
 /* ── Inline SVG platform logos ─────────────────────────────────────────── */
@@ -84,6 +89,8 @@ const BingIcon = () => (
     <path d="M13 17l7 4-7-2v-2z" fill="#00b4f0"/>
   </svg>
 );
+
+const imgs = serviceImages['ai-seo'];
 
 /* ── Component ──────────────────────────────────────────────────────────── */
 const AISearchOptimization = () => {
@@ -163,35 +170,17 @@ const AISearchOptimization = () => {
     <div className="pg__wrap">
       <Navbar />
 
-      {/* ── HERO (unchanged) ──────────────────────────────────────── */}
-      <section className="aiso__hero">
-        <div className="aiso__hero_background">
-          <div className="aiso__hero_circle aiso__circle_1" />
-          <div className="aiso__hero_circle aiso__circle_2" />
-          <div className="aiso__hero_circle aiso__circle_3" />
-        </div>
-        <div className="aiso__hero_container">
-          <Breadcrumb />
-          <span className="aiso-hero-badge-wrapper">
-            <span className="aiso-hero-badge-dot" />
-            <span className="aiso-hero-badge-text">AI Search Optimization Agency</span>
-          </span>
-          <h1 className="aiso__hero_title">
-            AI Search Optimization Agency Helping Businesses Appear in{" "}
-            <span className="aiso__hero_title_highlight">Google AI, ChatGPT &amp; Generative Search Results</span>
-          </h1>
-          <p className="aiso__hero_text">
-            Search has evolved beyond traditional Google rankings. We help businesses stay visible
-            across AI-powered platforms like ChatGPT, Perplexity, and Google AI Overviews — where
-            customers now get answers directly.
-          </p>
-          <div className="hero-buttons">
-            <a href="/contact" className="btn-primary">Get Free AI Search Audit →</a>
-            <a href="#aiso-how" className="btn-secondary">See How It Works ↓</a>
-          </div>
-          <p className="hero-trust-text">Trusted by 120+ businesses across UK, USA &amp; Europe</p>
-        </div>
-      </section>
+      <ServicePageHero
+        badge="AI SEARCH OPTIMIZATION SERVICES"
+        title="Get Cited in AI Answers &"
+        titleAccent="Own the Future of Search"
+        subtitle="Search has evolved beyond traditional Google rankings. We help businesses stay visible across AI-powered platforms like ChatGPT, Perplexity, and Google AI Overviews — where customers now get answers directly."
+        primaryCta={{ href: "/contact", label: "Get Free AI Search Audit →" }}
+        secondaryCta={{ href: "#aiso-how", label: "See How It Works ↓" }}
+        features={["GEO & AEO Expertise", "AI Platform Visibility", "Future-Proof Strategy"]}
+        heroImage={imgs.hero}
+        heroAlt={imgs.heroAlt}
+      />
 
       {/* ── STATS BAR ──────────────────────────────────────────────── */}
       <div className="sb" id="aiso-how">
@@ -234,6 +223,14 @@ const AISearchOptimization = () => {
             </div>
 
             <div className="what__right">
+              <Image
+                src={imgs.intro}
+                alt={imgs.introAlt}
+                width={480}
+                height={360}
+                className="sp-intro-image"
+                style={{ borderRadius: 16, width: '100%', height: 'auto', marginBottom: 20 }}
+              />
               {/* AI Answer Mockup */}
               <div className="mock__card">
                 <div className="mock__bar">
@@ -433,54 +430,46 @@ const AISearchOptimization = () => {
             <span className="chip chip--blue">✦ FAQ</span>
             <h2 className="sec__h2">Questions Answered</h2>
           </div>
-          <div className="faq__wrap">
+          <div className="sp-faq-box-grid">
             {faqs.map((f, i) => (
               <div
-                className={`faq__item ${openFaq === i ? "faq__item--open" : ""}`}
+                className={`sp-faq-box-item ${openFaq === i ? "active" : ""}`}
                 key={i}
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
               >
-                <div className="faq__q">
-                  <span>{String(i + 1).padStart(2, "0")}. {f.q}</span>
-                  <span className="faq__tog">{openFaq === i ? "−" : "+"}</span>
+                <div className="sp-faq-box-q">
+                  <span>{f.q}</span>
+                  {openFaq === i ? <Minus size={17} /> : <Plus size={17} />}
                 </div>
-                {openFaq === i && <p className="faq__a">{f.a}</p>}
+                {openFaq === i && (
+                  <div className="sp-faq-box-a"><p>{f.a}</p></div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FINAL CTA ──────────────────────────────────────────────── */}
-      <section className="pg__cta">
-        <div className="pg__cont">
-          <div className="cta__box">
-            <div className="cta__left">
-              <span className="chip chip--light">✦ Get Started</span>
-              <h2 className="cta__h2">Ready to Dominate AI Search?</h2>
-              <p className="cta__p">Get a free AI search visibility audit. No commitment — just clarity on where you stand and what to do next.</p>
-              <div className="cta__btns">
-                <a href="/contact" className="cta__btn--primary">Get Free AI Audit →</a>
-                <a href="/seo-services" className="cta__btn--ghost">View SEO Services</a>
-              </div>
-              <p className="cta__trust">No spam • Response within 1–3 hours</p>
-            </div>
-            <div className="cta__right">
-              <div className="cta__visual">
-                <div className="cta__ring cta__ring--1"/>
-                <div className="cta__ring cta__ring--2"/>
-                <div className="cta__ring cta__ring--3"/>
-                <Search size={40} className="cta__search" />
-                <div className="cta__pings">
-                  {["ChatGPT","Gemini","Perplexity","Claude"].map((pl, i) => (
-                    <span key={i} className={`cta__ping cta__ping--${i}`}>{pl}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceCtaForm
+        label="Get Started"
+        title="Ready to Dominate"
+        titleAccent="AI Search?"
+        description="Get a free AI search visibility audit. No commitment — just clarity on where you stand and what to do next."
+        checks={[
+          "Free AI Visibility Audit",
+          "No spam. No obligation.",
+          "Response within 1–3 business hours",
+        ]}
+        serviceOptions={[
+          "Generative Engine Optimization",
+          "ChatGPT & AI Visibility",
+          "Google AI Overview Optimization",
+          "Semantic SEO",
+          "Structured Data & Schema",
+        ]}
+        ctaImage={imgs.cta}
+        ctaAlt={imgs.ctaAlt}
+      />
 
       <Footer />
     </div>
