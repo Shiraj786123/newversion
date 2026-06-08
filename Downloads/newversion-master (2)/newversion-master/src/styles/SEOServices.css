@@ -964,3 +964,203 @@ section.seo-hero .seo-sub {
   .ss-google-card { padding: 18px; }
   .ss-industries-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+
+
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. HERO BUTTONS & GAPS */
+  .seo-hero, .ecd__hero, .fswd__bar_hero, .aiss__hero, .aiwa__hero_section {
+    padding-top: 20px !important; /* Pulls content up under navbar */
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  /* Center the Badge and Breadcrumb containers */
+  .seo-container > :first-child, 
+  .ecd__hero_container > :first-child,
+  .fswd__container > :first-child,
+  .aiss__hero_container > :first-child {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 10px !important;
+  }
+
+  /* Stack and Equalize Hero Buttons */
+  .hero-buttons, .ecd__hero_actions, .fswd__hero_actions, .aiss-hero-actions, .aiwa__hero_actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .btn-primary, .btn-secondary, 
+  .ecd-form-btn, .fswd__hero_btn, 
+  .aiss-btn-primary, .aiss-btn-secondary,
+  .aiwa__btn_primary, .aiwa__btn_secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+  }
+
+  /* 2. STATS BARS - Grid Layout */
+  .ss-stats-inner, .ecd-stats-inner, .fswd-stats-box, .aiss-stats-inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 stats per row */
+    gap: 20px !important;
+    padding: 30px 15px !important;
+  }
+
+  .ss-stat-sep, .aiss-process-connector, .fswd-process-connector {
+    display: none !important; /* Hide horizontal dividers/arrows */
+  }
+
+  .ss-stat-item, .ecd-stat-cell, .fswd-stat-cell, .aiss-stat-item {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* 3. PROCESS SECTION - Side-by-Side (Icon Left, Text Right) */
+  .ss-process-row, .ecd-process-track, .fswd-process-track, .aiss-process-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 35px !important;
+  }
+
+  .ss-process-step, .ecd-process-step, .fswd-process-step, .aiss-process-col {
+    display: grid !important;
+    grid-template-columns: 70px 1fr !important; /* Icon stays left, Text right */
+    text-align: left !important;
+    align-items: start !important;
+    gap: 15px !important;
+    width: 100% !important;
+  }
+
+  /* Ensure the icon/circle stays in the left column */
+  .ss-process-circle, .ecd-process-node, .fswd-process-node-wrap, .aiss-process-circle {
+    grid-column: 1 !important;
+    grid-row: 1 / 4 !important; /* Span across title and description */
+    margin: 0 !important;
+    justify-self: center;
+  }
+
+  /* Ensure text elements stay in the right column */
+  .ss-process-title, .ss-process-desc, 
+  .ecd-process-num, .ecd-process-desc,
+  .fswd-process-num, .fswd-process-title, .fswd-process-desc,
+  .aiss-process-num, .aiss-process-col h3, .aiss-process-col p {
+    grid-column: 2 !important;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  /* 4. OTHER SECTIONS (Why, Services, Industries, FAQ) */
+  .ss-why-grid, .ecd-why-grid, .fswd-why-grid, .aiss-intro-layout {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .ss-check-list, .ecd-checklist, .fswd-checklist, .aiss-intro-checklist {
+    text-align: left !important;
+    display: inline-flex !important;
+    flex-direction: column;
+    margin: 0 auto !important;
+  }
+
+  .ss-services-grid, .ecd-services-grid, .fswd-services-grid, .aiss-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .ss-industries-grid, .ecd-who-grid, .aiss-feature-item {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* 5. CTA SECTION - Centered & Stacked */
+  .ss-cta-box, .ecd-cta-inner, .fswd-cta-inner, .aiss-cta-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 30px 15px !important;
+  }
+
+  .ss-cta-left, .ecd-cta-left, .fswd-cta-inner, .aiss-cta-left {
+    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Form spacing fix */
+  .ecd-form-row {
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  .ecd-form-input {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* 1. Center the content inside the CTA box */
+  .ss-cta-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .ss-cta-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the title, desc, and button */
+    width: 100%;
+  }
+
+  /* 2. Center the Button specifically */
+  .ss-cta-btn {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 20px auto !important; /* Centers the button horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 3. Center the Checkmark List at the bottom */
+  .ss-cta-trust {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center; /* Centers the checkmarks */
+    gap: 10px 15px;
+    padding: 0;
+    margin: 20px auto 0 auto;
+    list-style: none;
+    max-width: 100%;
+  }
+
+  .ss-cta-trust li {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevents text from breaking awkwardly */
+  }
+}
