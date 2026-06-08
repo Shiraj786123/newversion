@@ -591,3 +591,302 @@
 .aiwa-form-note { text-align: center; font-size: 13px; color: #94a3b8; margin: 0; }
 
 @media (max-width: 900px) { .aiwa-cta-inner { grid-template-columns: 1fr; gap: 36px; } .aiwa-cta-section { padding: 72px 0; } }
+
+
+
+
+
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. HERO SECTION - Reduce gap and center content */
+  .aiwa__hero_section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+    text-align: center;
+  }
+
+  .aiwa__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aiwa__hero_badge_wrapper {
+    margin: 0 auto 20px auto;
+  }
+
+  .aiwa__heading {
+    font-size: 28px !important;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .aiwa__hero_text_white {
+    text-align: center;
+    margin: 15px auto;
+  }
+
+  /* Buttons: Same length and centered */
+  .aiwa__hero_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .aiwa__btn_primary,
+  .aiwa__btn_secondary {
+    width: 100% !important;
+    max-width: 320px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+  }
+
+  /* 2. INTRO SECTION - Brain/Code Visual and Checklist */
+  .aiwa-intro-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .aiwa-intro-visual {
+    margin: 0 auto;
+  }
+
+  .aiwa-intro-checklist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps icons next to text */
+    margin: 0 auto;
+    width: fit-content;
+    text-align: left;
+  }
+
+  /* 3. SERVICES & WHY CHOOSE - Grids */
+  .aiwa-section-head {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aiwa-services-grid,
+  .aiwa-why-grid {
+    grid-template-columns: 1fr !important; /* Single column on mobile */
+    gap: 20px;
+  }
+
+  .aiwa-service-card,
+  .aiwa-why-card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 4. INDUSTRIES & FEATURES - Icon Grids */
+  .aiwa-industries-grid,
+  .aiwa-features-grid {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 icons per row */
+    gap: 15px;
+  }
+
+  .aiwa-industry-item,
+  .aiwa-feature-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* 5. PROCESS SECTION - Vertical Steps */
+  .aiwa-process-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .aiwa-process-col {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aiwa-process-connector {
+    display: none; /* Hide horizontal lines on mobile */
+  }
+
+  /* 6. TECHNOLOGIES - Centered Pills */
+  .aiwa-tech-row {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* 7. FAQ SECTION - Single Column */
+  .aiwa-faq-2col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* 8. CTA SECTION - Text & Form Centering */
+  .aiwa-cta-inner {
+    flex-direction: column !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .aiwa-cta-left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aiwa-cta-badges {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+  /* Form Styling */
+  .aiwa-cta-right {
+    width: 100%;
+  }
+
+  .aiwa-cta-form {
+    padding: 25px 20px;
+  }
+
+  .aiwa-form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .aiwa-form-input,
+  .aiwa-form-btn {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Make the outer container take full width */
+  .aiwa-intro-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* 2. Increase the actual box width */
+  .aiwa-intro-visual-inner {
+    width: 90% !important; /* Makes it fill 90% of the screen width */
+    max-width: 400px;      /* Prevents it from getting TOO wide on tablets */
+    height: 280px !important; /* Slightly reduce height to make it look wider/more horizontal */
+    transform: scale(1) !important; /* Reset scale to 1 to use full width */
+    margin: 0 auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 3. Ensure the code lines inside expand to fit the new width */
+  .aiwa-visual-code {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .aiwa-code-line {
+    width: 100%; /* Make code bars fill the blue box width */
+    text-align: center;
+    font-size: 14px;
+    padding: 8px 0;
+  }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Reduce the top gap and center the hero section */
+  .aiwa__hero_section {
+    padding-top: 30px !important; /* Brings content closer to navbar */
+    padding-bottom: 40px !important;
+    text-align: center;
+    min-height: auto !important;
+  }
+
+  /* 2. Center the container children */
+  .aiwa__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* 3. MAINTAIN LARGE FONT SIZE for the Heading */
+  .aiwa__heading {
+    font-size: 32px !important; /* Maintained large font size as requested */
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  /* 4. Center and style the Badge */
+  .aiwa__hero_badge_wrapper {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 8px 16px;
+  }
+
+  /* 5. Style the Sub-text (Paragraph) */
+  .aiwa__hero_text_white {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+    max-width: 100% !important;
+    margin: 0 auto 25px auto !important;
+    opacity: 0.9;
+  }
+
+  /* 6. Ensure Breadcrumbs are centered */
+  .aiwa__container > *:first-child {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

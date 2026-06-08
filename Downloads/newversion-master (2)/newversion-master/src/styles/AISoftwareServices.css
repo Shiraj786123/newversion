@@ -1308,3 +1308,207 @@ section.aiss__hero {
     width: 100%;
   }
 }
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Stack the layout vertically and center everything */
+  .aiss-intro-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 40px; /* Space between the visual box, text, and checklist */
+    padding: 20px;
+  }
+
+  /* 2. Ensure the visual box is centered */
+  .aiss-intro-visual {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* 3. Center the text content */
+  .aiss-intro-text {
+    width: 100%;
+  }
+
+  /* 4. Center the checklist block */
+  .aiss-intro-checklist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Keeps text aligned with checkmarks */
+    width: fit-content;      /* Shrinks container to fit the list */
+    margin: 0 auto;          /* Centers the whole list block */
+    text-align: left;        /* Keeps individual list items readable */
+  }
+
+  /* Optional: Adjust individual check rows for better mobile spacing */
+  .aiss-check-row {
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Center the main section container and labels */
+  .aiss-split-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the heading and the grid/list */
+    text-align: center;
+    width: 100%;
+  }
+
+  .aiss-split-label {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    display: block;
+  }
+
+  /* 2. Industries Content: Center the icons and text */
+  .aiss-industry-grid {
+    justify-content: center; /* Centers the grid items horizontally */
+    gap: 20px;
+    width: 100%;
+  }
+
+  .aiss-industry-item {
+    align-items: center; /* Centers icon and text within the item */
+    text-align: center;
+  }
+
+  /* 3. Technologies Content: Center the groups and pills */
+  .aiss-tech-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .aiss-tech-group h4 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .aiss-tech-pills {
+    justify-content: center; /* Centers the technology pills */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Remove the vertical divider line on mobile */
+  .aiss-split-divider {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Center the main container and text */
+  .aiss__hero_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px; /* Adjust spacing for mobile */
+  }
+
+  /* 2. Center the Badge */
+  .aiss__hero_badge {
+    margin: 0 auto 15px auto;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  /* 3. Adjust Title and Text width for better centering */
+  .aiss__hero_title {
+    font-size: 28px; /* Slightly smaller for mobile screens */
+    line-height: 1.3;
+    max-width: 100%;
+  }
+
+  .aiss__hero_text {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* 4. Center and stack the Buttons */
+  .aiss-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    margin: 25px 0;
+  }
+
+  /* Make Hero buttons same length and height */
+  .aiss-hero-actions .aiss-btn-primary,
+  .aiss-hero-actions .aiss-btn-secondary {
+    width: 100%;
+    max-width: 320px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  /* 5. Center the Trust text at the bottom */
+  .aiss__hero_trust {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Reduce the main padding of the hero section */
+  .aiss__hero {
+    padding-top: 40px !important; /* Adjust this number until it looks perfect */
+    padding-bottom: 40px !important;
+    min-height: auto !important; /* Prevents the section from being forced too tall */
+  }
+
+  /* 2. Remove extra top padding from the internal container */
+  .aiss__hero_container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* 3. Adjust the Breadcrumb spacing if it has a top margin */
+  .aiss__hero_container > :first-child {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* 4. Ensure the badge doesn't have a massive top margin */
+  .aiss__hero_badge {
+    margin-top: 5px !important;
+  }
+}
