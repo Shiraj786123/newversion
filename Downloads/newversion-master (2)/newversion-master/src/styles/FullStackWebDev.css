@@ -1353,3 +1353,324 @@ font-size: 18px;
     letter-spacing: 0.03em;
   }
 }
+
+
+
+
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. HERO SECTION - Center and Maintain Font Size */
+  .fswd__bar_hero {
+    padding-top: 40px !important; /* Reduces gap from navbar */
+    padding-bottom: 40px !important;
+    text-align: center;
+    min-height: auto !important;
+  }
+
+  .fswd__container {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fswd__hero_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .fswd__heading {
+    font-size: 32px !important; /* Maintained large font size */
+    line-height: 1.2 !important;
+    text-align: center;
+    margin-top: 15px !important;
+  }
+
+  .fswd__hero_text_white {
+    text-align: center;
+    margin: 15px auto 25px auto !important;
+  }
+
+  /* Hero Buttons: Uniform width and centered */
+  .fswd__hero_actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .fswd__hero_btn {
+    width: 100% !important;
+    max-width: 320px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+  }
+
+  /* 2. STATS BAR - Grid layout for mobile */
+  .fswd-stats-box {
+    grid-template-columns: repeat(2, 1fr) !important; /* 2 stats per row */
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .fswd-stat-cell {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* 3. WHY + SERVICES SECTION */
+  .fswd-why-grid {
+    grid-template-columns: 1fr !important; /* Stack left text and right grid */
+    gap: 40px;
+  }
+
+  .fswd-why-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fswd-checklist {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+  .fswd-services-grid {
+    grid-template-columns: 1fr !important; /* 1 service card per row */
+    gap: 15px;
+  }
+
+  .fswd-service-card {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 4. TECH STACK SECTION */
+  .fswd-tech-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+  }
+
+  .fswd-tech-col {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fswd-tech-icons-row {
+    justify-content: center;
+  }
+
+  /* 5. PROCESS SECTION - Vertical Timeline */
+  .fswd-process-track {
+    flex-direction: column !important;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .fswd-process-step {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fswd-process-connector {
+    display: none; /* Hide horizontal lines */
+  }
+
+  .fswd-process-node-wrap {
+    margin-bottom: 10px;
+  }
+
+  /* 6. CASE STUDIES */
+  .fswd-cases-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  /* 7. FAQ + CODE BLOCK SECTION */
+  .fswd-faq-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .fswd-faq-left {
+    order: 1; /* Keep FAQ on top */
+  }
+
+  .fswd-code-card {
+    order: 2; /* Code block below */
+    padding: 20px;
+  }
+
+  .fswd-code-pre {
+    font-size: 12px; /* Smaller font for mobile code blocks */
+    overflow-x: auto;
+  }
+
+  /* 8. BOTTOM CTA SECTION */
+  .fswd-cta-inner {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .fswd-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .fswd-cta-btn-primary,
+  .fswd-cta-btn-secondary {
+    width: 100% !important;
+    max-width: 320px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fswd-cta-pills {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* General Center Heading fix for all sections */
+  .fswd-section-center, .fswd-section-heading {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Set the step container to a 2-column grid */
+  .fswd-process-step {
+    display: grid !important;
+    grid-template-columns: 80px 1fr; /* Column 1 for icon, Column 2 for text */
+    text-align: left !important;    /* Align text to the left */
+    align-items: start;            /* Align icon and text to the top */
+    gap: 0 15px;                   /* Gap between icon and text */
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  /* 2. Force the Icon to stay in the first column and span all rows */
+  .fswd-process-node-wrap {
+    grid-column: 1;
+    grid-row: 1 / 5; /* Spans across Num, Title, and Desc rows */
+    display: flex;
+    justify-content: center;
+    padding-top: 5px; /* Adjust this to align circle with the first line of text */
+  }
+
+  /* 3. Force all text elements to the second column */
+  .fswd-process-num, 
+  .fswd-process-title, 
+  .fswd-process-desc {
+    grid-column: 2;
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+
+  /* 4. Adjust the Circle size for the side-by-side look */
+  .fswd-process-circle {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px;
+    margin: 0 !important;
+  }
+
+  /* 5. Icon inside the circle sizing */
+  .fswd-process-circle-icon {
+    font-size: 20px !important;
+  }
+
+  /* 6. Text Spacing adjustments */
+  .fswd-process-num {
+    font-size: 14px;
+    margin-bottom: 4px !important;
+  }
+
+  .fswd-process-title {
+    font-size: 18px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .fswd-process-desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* 7. Hide the desktop connector line */
+  .fswd-process-connector {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Reduce the outer section padding */
+  .fswd-cta-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  /* 2. Reduce the inner container padding */
+  .fswd-cta-inner {
+    padding: 30px 20px !important; /* Top/Bottom: 30px, Left/Right: 20px */
+    min-height: auto !important;
+  }
+
+  /* 3. Tighten the space above the main title */
+  .fswd-cta-title {
+    margin-top: 0 !important;
+    font-size: 26px !important; /* Slightly smaller to save more vertical space */
+    line-height: 1.2;
+    margin-bottom: 12px !important;
+  }
+
+  /* 4. Reduce margin below the description */
+  .fswd-cta-desc {
+    margin-bottom: 25px !important;
+    font-size: 15px !important;
+  }
+
+  /* 5. Reduce space between buttons and the checkmark pills */
+  .fswd-cta-buttons {
+    margin-bottom: 20px !important;
+  }
+
+  /* 6. Tighten the vertical gap between the checkmark pills */
+  .fswd-cta-pills {
+    gap: 8px !important;
+  }
+}
