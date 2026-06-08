@@ -1512,3 +1512,96 @@ section.aiss__hero {
     margin-top: 5px !important;
   }
 }
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. Reduce the top gap and center the hero section */
+  .aiss__hero {
+    padding-top: 30px !important; /* Reduces space below Navbar */
+    padding-bottom: 40px !important;
+    text-align: center;
+    min-height: auto !important; /* Prevents awkward empty vertical space */
+  }
+
+  /* 2. Center the container and Breadcrumb */
+  .aiss__hero_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* Ensure Breadcrumb component is centered */
+  .aiss__hero_container > :first-child {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  /* 3. Center the Badge */
+  .aiss__hero_badge {
+    margin: 0 auto 15px auto !important;
+    display: inline-block;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  /* 4. MAINTAIN LARGE FONT SIZE for the Title */
+  .aiss__hero_title {
+    font-size: 32px !important; /* Large impactful size as requested */
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    text-align: center;
+    margin-top: 10px !important;
+    margin-bottom: 15px !important;
+    letter-spacing: -0.02em;
+  }
+
+  .aiss__hero_title_accent {
+    display: block; /* Puts the accent text on its own line for better mobile rhythm */
+  }
+
+  /* 5. Center and adjust the description text */
+  .aiss__hero_text {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+    max-width: 100% !important;
+    margin: 0 auto 25px auto !important;
+    padding: 0 5px;
+  }
+
+  /* 6. Center and stack the Buttons (Equal length) */
+  .aiss-hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .aiss-btn-primary,
+  .aiss-btn-secondary {
+    width: 100% !important;
+    max-width: 320px; /* Standard button width for mobile */
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+    font-size: 16px;
+  }
+
+  /* 7. Center the "Trusted by" text */
+  .aiss__hero_trust {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+}
