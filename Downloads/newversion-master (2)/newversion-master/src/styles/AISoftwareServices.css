@@ -1217,3 +1217,94 @@ section.aiss__hero {
     text-align: center;
   }
 }
+
+
+
+
+
+/* Mobile Styles for CTA Buttons */
+@media (max-width: 768px) {
+  .aiss-cta-actions {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;    /* Center buttons horizontally */
+    gap: 16px;              /* Space between buttons */
+    width: 100%;            /* Ensure container takes full width */
+    margin: 0 auto;
+  }
+
+  .aiss-btn-primary,
+  .aiss-btn-secondary {
+    width: 100%;            /* Make both buttons same width */
+    max-width: 320px;       /* Optional: prevents buttons from becoming too wide */
+    height: 55px;           /* Set a fixed height for both */
+    display: flex;          /* Use flex to center text inside buttons */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;             /* Reset padding to ensure height is exact */
+    box-sizing: border-box;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* Stack the two columns (text and visual) and center them */
+  .aiss-cta-inner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 40px; /* Adds space between the text and the brain graphic */
+    padding: 40px 20px;
+  }
+
+  /* Ensure the left side content takes full width and centers children */
+  .aiss-cta-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Center the buttons and make them uniform */
+  .aiss-cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .aiss-btn-primary,
+  .aiss-btn-secondary {
+    width: 100%;
+    max-width: 300px; /* Limits width so buttons don't touch screen edges */
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important; /* Removes any existing desktop margins */
+  }
+
+  /* Center the "No commitment" trust line */
+  .aiss-cta-trust {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* Center the Brain/Stats graphic */
+  .aiss-cta-visual {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
