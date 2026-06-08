@@ -1292,3 +1292,235 @@
     padding: 12px 16px;
   }
 }
+
+
+
+
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. HERO BUTTONS & GAPS */
+  .aiso__hero {
+    padding-top: 20px !important; /* Reduces gap from navbar */
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+    text-align: center !important;
+  }
+
+  /* Center Breadcrumb and Badge */
+  .aiso__hero_container > :first-child {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 10px !important;
+  }
+
+  .aiso-hero-badge-wrapper {
+    margin: 0 auto 15px auto !important;
+  }
+
+  /* Stack and Equalize Hero Buttons */
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-top: 25px !important;
+  }
+
+  .btn-primary, 
+  .btn-secondary,
+  .cta__btn--primary,
+  .cta__btn--ghost {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+  }
+
+  .hero-trust-text {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  /* 2. STATS BAR (sb) - 2x3 Grid */
+  .sb__inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    padding: 30px 15px !important;
+  }
+
+  .sb__sep {
+    display: none !important; /* Hide horizontal dividers */
+  }
+
+  .sb__item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* 3. WHAT WE DO (What Is AI Search Optimization) */
+  .what__grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .what__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sec__p {
+    text-align: center;
+  }
+
+  .check__list {
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .what__right {
+    width: 100%;
+  }
+
+  /* 4. SERVICES GRID - Single Column */
+  .srv__grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .srv__card {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 5. PROCESS SECTION - Side-by-Side (Icon Left, Text Right) */
+  .proc__row {
+    flex-direction: column !important;
+    gap: 35px;
+  }
+
+  .proc__step {
+    display: grid !important;
+    grid-template-columns: 70px 1fr; /* Icon column, Text column */
+    text-align: left !important;
+    align-items: start;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .proc__circle {
+    grid-column: 1;
+    grid-row: 1 / 3; /* Spans title and description */
+    margin: 0 !important;
+  }
+
+  .proc__title, .proc__desc {
+    grid-column: 2;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .proc__line {
+    display: none !important; /* Hide connector lines/arrows */
+  }
+
+  /* 6. TECH STACK - Flex wrapping */
+  .tech__row {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .tool__tags {
+    justify-content: center;
+  }
+
+  /* 7. COMPARISON TABLE - Stacked */
+  .cmp__head {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .cmp__row {
+    grid-template-columns: 1fr !important;
+    gap: 5px;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+  }
+
+  .cmp__cell {
+    padding: 5px 10px !important;
+  }
+
+  /* 8. WHY CHOOSE & WHO WE HELP - Single Column */
+  .wc__grid, .who__grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .wc__card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 9. FAQ - Full Width */
+  .faq__wrap {
+    width: 100%;
+  }
+
+  /* 10. FINAL CTA - Stacked and Centered */
+  .pg__cta {
+    padding: 40px 0 !important;
+  }
+
+  .cta__box {
+    flex-direction: column !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .cta__left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cta__btns {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .cta__right {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Global section header centering */
+  .sec__head {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
