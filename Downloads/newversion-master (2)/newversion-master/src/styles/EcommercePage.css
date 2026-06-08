@@ -1215,3 +1215,430 @@ h1.ecd__hero_title {
     font-size: 28px !important; /* Decreased mobile size */
   }
 }
+
+
+
+
+
+
+
+/* ============================================================
+   MOBILE RESPONSIVE STYLES (Max-width: 768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* 1. HERO SECTION - Center and Font Fix */
+  .ecd__hero {
+    padding-top: 30px !important; /* Reduces gap from navbar */
+    padding-bottom: 40px !important;
+    text-align: center;
+    min-height: auto !important;
+  }
+
+  .ecd__hero_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* Maintain 32px Font for Hero */
+  .ecd__hero_title {
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    text-align: center;
+    margin-top: 15px !important;
+  }
+
+  .ecd__hero_text {
+    text-align: center;
+    margin: 15px auto 25px auto !important;
+    font-size: 16px;
+  }
+
+  /* Hero Buttons: Uniform and Stacked */
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100% !important;
+    max-width: 320px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+  }
+
+  /* 2. STATS BAR - 2x3 Grid */
+  .ecd-stats-inner {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .ecd-stat-cell {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* 3. WHY STORES UNDERPERFORM - Stacking the Comparison */
+  .ecd-why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+  }
+
+  .ecd-why-left {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ecd__heading, .ecd__description {
+    text-align: center !important;
+  }
+
+  .ecd-comparison-card {
+    grid-template-columns: 1fr !important; /* Stack bad vs good vertically */
+  }
+
+  /* 4. SERVICES GRID - Single Column */
+  .ecd-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .ecd-service-card {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 5. PLATFORMS - Flex wrapping */
+  .ecd-platforms-strip {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* 6. DARK STATS (Results Section) */
+  .ecd-results-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* 7. PROCESS SECTION - Side-by-Side (Icon Left, Text Right) */
+  .ecd-process-track {
+    flex-direction: column !important;
+    gap: 35px;
+  }
+
+  .ecd-process-step {
+    display: grid !important;
+    grid-template-columns: 70px 1fr; /* Icon column and Text column */
+    text-align: left !important;
+    align-items: start;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .ecd-process-node {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: flex;
+    justify-content: center;
+    margin: 0 !important;
+  }
+
+  .ecd-process-num, .ecd-process-desc {
+    grid-column: 2;
+    text-align: left !important;
+    margin: 0 !important;
+  }
+
+  .ecd-process-dash {
+    display: none !important; /* Hide connector lines */
+  }
+
+  /* 8. WHO FOR - 2 Column Grid */
+  .ecd-who-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px;
+  }
+
+  /* 9. FAQ - Full Width */
+  .ecd-faq-list {
+    width: 100%;
+  }
+
+  /* 10. CTA SECTION - Stacking Text and Form */
+  .ecd-cta-section {
+    padding: 40px 0 !important;
+  }
+
+  .ecd-cta-inner {
+    flex-direction: column !important;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .ecd-cta-left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ecd-cta-pills {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .ecd-cta-form-card {
+    width: 100%;
+    padding: 25px 15px;
+  }
+
+  .ecd-form-row {
+    flex-direction: column !important;
+    gap: 0;
+  }
+
+  .ecd-form-input {
+    width: 100% !important;
+    margin-bottom: 15px;
+  }
+
+  .ecd-form-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. THE HEADING - Matching your screenshot exactly */
+  .aiss__hero_title, 
+  .aiwa__heading, 
+  .fswd__heading, 
+  .ecd__hero_title {
+    font-size: 36px !important; /* The 'Giant' size from your image */
+    font-weight: 900 !important; /* Extra bold/black weight */
+    line-height: 1.1 !important; /* Very tight spacing between lines */
+    text-align: center !important;
+    letter-spacing: -0.03em !important; /* Tightens the characters for that premium look */
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+    width: 100%;
+    display: block;
+  }
+
+  /* 2. THE DESCRIPTION - Keeping it readable but secondary */
+  .aiss__hero_text, 
+  .aiwa__hero_text_white, 
+  .fswd__hero_text_white, 
+  .ecd__hero_text {
+    font-size: 17px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    padding: 0 10px !important;
+    opacity: 0.9;
+  }
+
+  /* 3. THE BUTTONS - Same width and centered as requested before */
+  .aiss-hero-actions, 
+  .aiwa__hero_actions, 
+  .fswd__hero_actions, 
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 15px !important;
+  }
+
+  .aiss-btn-primary, .aiss-btn-secondary,
+  .aiwa__btn_primary, .aiwa__btn_secondary,
+  .fswd__hero_btn,
+  .btn-primary, .btn-secondary {
+    width: 100% !important;
+    max-width: 340px !important; /* Matches the width in your screenshot */
+    height: 58px !important;     /* Slightly taller for better touch targets */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important; /* Matches the rounded corners in your image */
+    margin: 0 !important;
+  }
+
+  /* 4. REMOVE TOP GAP - Pulls the giant title up */
+  .aiss__hero, 
+  .aiwa__hero_section, 
+  .fswd__bar_hero, 
+  .ecd__hero {
+    padding-top: 20px !important;
+    min-height: auto !important;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. INCREASE HEADING - Making it massive and impactful */
+  .aiss__hero_title, 
+  .aiwa__heading, 
+  .fswd__heading, 
+  .ecd__hero_title {
+    font-size: 42px !important;    /* Increased size for "Giant" look */
+    font-weight: 900 !important;    /* Maximum thickness */
+    line-height: 1.05 !important;   /* Extremely tight line spacing */
+    letter-spacing: -0.04em !important; /* Tight character spacing for premium feel */
+    text-align: center !important;
+    margin-bottom: 15px !important;
+    margin-top: 10px !important;
+    width: 100%;
+  }
+
+  /* 2. DECREASE DESCRIPTION - Creating high contrast hierarchy */
+  .aiss__hero_text, 
+  .aiwa__hero_text_white, 
+  .fswd__hero_text_white, 
+  .ecd__hero_text {
+    font-size: 14px !important;    /* Reduced size as requested */
+    line-height: 1.6 !important;    /* More breathing room for small text */
+    text-align: center !important;
+    max-width: 90% !important;      /* Keeps lines short and readable */
+    margin: 0 auto 30px auto !important;
+    opacity: 0.8 !important;        /* Slightly faded to make title pop more */
+    padding: 0 10px;
+  }
+
+  /* 3. BUTTONS - Centered and Large */
+  .aiss-hero-actions, 
+  .aiwa__hero_actions, 
+  .fswd__hero_actions, 
+  .hero-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .aiss-btn-primary, .aiss-btn-secondary,
+  .aiwa__btn_primary, .aiwa__btn_secondary,
+  .fswd__hero_btn,
+  .btn-primary, .btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+    border-radius: 10px !important;
+  }
+
+  /* 4. REDUCE TOP GAP - Bringing the content higher */
+  .aiss__hero, 
+  .aiwa__hero_section, 
+  .fswd__bar_hero, 
+  .ecd__hero {
+    padding-top: 15px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+  }
+
+  /* 5. CENTER BREADCRUMBS & BADGES */
+  .aiss__hero_container > :first-child,
+  .aiwa__container > :first-child,
+  .fswd__container > :first-child,
+  .ecd__hero_container > :first-child {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+    margin-bottom: 5px !important;
+  }
+
+  .aiss__hero_badge,
+  .aiwa__hero_badge_wrapper,
+  .fswd__hero_label,
+  .ecd__hero_badge_wrapper {
+    margin: 0 auto 10px auto !important;
+    display: inline-flex !important;
+    justify-content: center;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  /* 1. THE HEADING - Increased to 48px for maximum impact */
+  .aiss__hero_title, 
+  .aiwa__heading, 
+  .fswd__heading, 
+  .ecd__hero_title {
+    font-size: 48px !important;    /* Even larger "Power" size */
+    font-weight: 900 !important;    /* Maximum boldness */
+    line-height: 1.0 !important;    /* Ultra-tight line height to keep it compact */
+    letter-spacing: -0.05em !important; /* Tighter letter spacing for a premium look */
+    text-align: center !important;
+    margin-bottom: 15px !important;
+    margin-top: 5px !important;
+    width: 100%;
+    display: block;
+    word-break: break-word;        /* Prevents long words from cutting off */
+  }
+
+  /* 2. THE DESCRIPTION - Kept small to maintain the hierarchy contrast */
+  .aiss__hero_text, 
+  .aiwa__hero_text_white, 
+  .fswd__hero_text_white, 
+  .ecd__hero_text {
+    font-size: 14px !important;     /* Small and clean */
+    line-height: 1.6 !important;
+    text-align: center !important;
+    max-width: 85% !important;      /* Slightly narrower for better reading rhythm */
+    margin: 0 auto 30px auto !important;
+    opacity: 0.8 !important;
+  }
+
+  /* 3. HERO CONTAINER - Bringing everything higher up */
+  .aiss__hero, 
+  .aiwa__hero_section, 
+  .fswd__bar_hero, 
+  .ecd__hero {
+    padding-top: 10px !important;   /* Minimal gap at the top */
+    padding-bottom: 30px !important;
+    min-height: auto !important;
+  }
+
+  /* 4. BUTTONS - Centered and thick */
+  .aiss-btn-primary, .aiss-btn-secondary,
+  .aiwa__btn_primary, .aiwa__btn_secondary,
+  .fswd__hero_btn,
+  .btn-primary, .btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 56px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+  }
+}
