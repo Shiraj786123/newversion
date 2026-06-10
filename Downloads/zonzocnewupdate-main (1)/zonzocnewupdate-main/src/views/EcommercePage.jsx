@@ -1,10 +1,13 @@
 'use client';
+
 import React, { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Plus, Minus, ArrowRight, Zap, Smartphone, ShoppingCart, Search, Shield, TrendingUp, CheckCircle2
+} from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ServicePageHero from "../components/ServicePageHero";
-import ServiceCtaForm from "../components/ServiceCtaForm";
 import { serviceImages } from "../data/serviceImages";
 import "../styles/EcommercePage.css";
 
@@ -12,6 +15,7 @@ const imgs = serviceImages['ecommerce'];
 
 const EcommerceDev = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const [form, setForm] = useState({ name: '', email: '', website: '', message: '' });
 
   const stats = [
     { icon: "🛒", number: "150+", label: "Stores Launched" },
@@ -40,13 +44,14 @@ const EcommerceDev = () => {
     "More Revenue & Growth",
   ];
 
-  const whyChecklist = [
-    "Slow loading speeds lead to higher bounce rates",
-    "Poor mobile experience reduces conversions",
-    "Complex checkout causes cart abandonment",
-    "Weak SEO limits organic traffic and visibility",
-    "Poor user experience lowers customer trust",
-    "Lack of optimization hurts long-term growth",
+  // Modern colorful items for the horizontally moving sitemap cards
+  const introItems = [
+    { title: "Slow loading speeds lead to higher bounce rates",     icon: <Zap size={32} />,        colorClass: "pink-purple" },
+    { title: "Poor mobile experience reduces conversions",          icon: <Smartphone size={32} />, colorClass: "cyan-blue" },
+    { title: "Complex checkout causes cart abandonment",            icon: <ShoppingCart size={32} />,colorClass: "lime-green" },
+    { title: "Weak SEO limits organic traffic and visibility",      icon: <Search size={32} />,      colorClass: "orange-yellow" },
+    { title: "Poor user experience lowers customer trust",          icon: <Shield size={32} />,      colorClass: "purple-indigo" },
+    { title: "Lack of optimization hurts long-term growth",         icon: <TrendingUp size={32} />,  colorClass: "blue-accent" }
   ];
 
   const services = [
@@ -60,17 +65,16 @@ const EcommerceDev = () => {
     { icon: "⚙️", title: "Integrations & Automation",   description: "Payment gateways, CRM, inventory, marketing automation & third-party integrations.",    link: "/integrations" },
   ];
 
-  const platforms = [
+const platforms = [
     { name: "Shopify",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/shopify/shopify-original.svg",         color: "#96bf48" },
     { name: "WooCommerce",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/woocommerce/woocommerce-original.svg", color: "#7f54b3" },
     { name: "WordPress",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg",     color: "#21759b" },
-    { name: "Stripe",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stripe/stripe-original.svg",           color: "#635bff" },
-    { name: "PayPal",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/paypal/paypal-original.svg",           color: "#003087" },
+    { name: "Stripe",       icon: "https://cdn.simpleicons.org/stripe",                                                             color: "#635bff" },
+    { name: "PayPal",       icon: "https://cdn.simpleicons.org/paypal",                                                             color: "#003087" },
     { name: "Klaviyo",      icon: null,                                                                                              color: "#1b7f3b" },
     { name: "NX Commerce",  icon: null,                                                                                              color: "#003070" },
     { name: "Headless",     icon: null,                                                                                              color: "#0d1b3e" },
   ];
-
   const results = [
     { stat: "+42%", label: "Increase in Conversion Rate",    sub: "After redesign & CRO Implementation",         icon: "📈" },
     { stat: "+65%", label: "Mobile Performance Boost",       sub: "Faster load times and better mobile experience", icon: "📱" },
@@ -112,6 +116,7 @@ const EcommerceDev = () => {
       <div className="ecd__wrapper">
         <Navbar />
 
+        {/* ── HERO ── */}
         <ServicePageHero
           badge="ECOMMERCE DEVELOPMENT & OPTIMIZATION"
           title="High-Converting Ecommerce Stores Built for"
@@ -137,28 +142,20 @@ const EcommerceDev = () => {
           </div>
         </section>
 
-        {/* ── SECTION 1 — WHY STORES UNDERPERFORM ──────── */}
+        {/* ── SECTION 1 — WHY STORES UNDERPERFORM (WITH INF SCRICKER) ── */}
         <section className="ecd-why-section">
           <div className="ecd__container">
             <div className="ecd-why-grid">
 
-              {/* Left — text + checklist */}
+              {/* Left — text */}
               <div className="ecd-why-left">
                 <span className="ecd-eyebrow">Why Stores Underperform</span>
                 <h2 className="ecd__heading" style={{ textAlign: 'left', marginBottom: '16px' }}>
                   Great Products Deserve Better Ecommerce Experiences
                 </h2>
-                <p className="ecd__description" style={{ textAlign: 'left', margin: '0 0 24px' }}>
+                <p className="ecd__description" style={{ textAlign: 'left', margin: '0' }}>
                   Slow websites, poor design, complicated checkouts, and weak SEO cost businesses thousands of potential customers every month.
                 </p>
-                <ul className="ecd-checklist">
-                  {whyChecklist.map((item, i) => (
-                    <li key={i} className="ecd-check-item">
-                      <span className="ecd-check-dot"></span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               {/* Right — comparison table */}
@@ -190,6 +187,42 @@ const EcommerceDev = () => {
               </div>
 
             </div>
+
+            {/* Sitemap Cards Horizontal Marquee Ticker */}
+            <div className="ecd-intro-marquee-wrapper">
+              <div className="ecd-intro-marquee-track">
+                {[...introItems, ...introItems].map((item, idx) => (
+                  <div key={idx} className="ecd-intro-sitemap-col">
+                    <div className="ecd-intro-sitemap-card">
+                      <div className="ecd-intro-sitemap-header-bar">
+                        <span className="ecd-intro-browser-dot"></span>
+                        <span className="ecd-intro-browser-dot"></span>
+                        <span className="ecd-intro-browser-dot"></span>
+                      </div>
+                      <div className="ecd-intro-sitemap-body">
+                        <div className="aiwa-intro-card-left-group">
+                          <CheckCircle2 size={16} className="ecd-intro-check-icon" />
+                          <h4 className="ecd-intro-sitemap-card-title">{item.title}</h4>
+                        </div>
+                        
+                        {/* Modern Colorful Icon container */}
+                        <div className={`ecd-intro-icon-box ${item.colorClass}`}>
+                          {item.icon}
+                        </div>
+                        
+                        <div className="ecd-intro-sitemap-card-footer">
+                          <span>Explore</span>
+                          <ArrowRight size={14} className="ecd-intro-card-arrow" />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Dotted vertical sitemap connector line */}
+                    <div className="ecd-intro-sitemap-line"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -315,54 +348,105 @@ const EcommerceDev = () => {
           </div>
         </section>
 
-        {/* ── FAQ ───────────────────────────────────────── */}
+        {/* ── FAQ — FULLY RESTORED ORIGINAL ACCORDION WITH ANIMATEPRESENCE ── */}
         <section className="ecd-faq-section">
           <div className="ecd__container">
             <div className="ecd-section-head">
               <span className="ecd-eyebrow">FAQ</span>
               <h2 className="ecd__heading">Frequently Asked Questions</h2>
             </div>
-            <div className="sp-faq-box-grid">
+            <div className="ecd-faq-list">
               {faqs.map((faq, i) => (
                 <div
                   key={i}
-                  className={`sp-faq-box-item ${openFaq === i ? "active" : ""}`}
+                  className={`ecd-faq-item ${openFaq === i ? 'ecd-faq-item--open' : ''}`}
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <div className="sp-faq-box-q">
+                  <div className="ecd-faq-q">
                     <span>{faq.question}</span>
-                    {openFaq === i ? <Minus size={17} /> : <Plus size={17} />}
+                    <span className="ecd-faq-chevron">{openFaq === i ? '−' : '+'}</span>
                   </div>
-                  {openFaq === i && (
-                    <div className="sp-faq-box-a"><p>{faq.answer}</p></div>
-                  )}
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="ecd-faq-a"
+                      >
+                        <p>{faq.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <ServiceCtaForm
-          title="Ready to Build a"
-          titleAccent="High-Converting Ecommerce Store?"
-          description="Let's create an ecommerce experience that converts visitors into customers and helps your business grow online."
-          checks={[
-            "Free Consultation",
-            "No Obligation",
-            "Quick Response (1–3 hours)",
-            "100% Confidential",
-          ]}
-          serviceOptions={[
-            "Shopify Development",
-            "WooCommerce Development",
-            "Ecommerce Design",
-            "Conversion Optimization",
-            "Ecommerce SEO",
-            "Speed Optimization",
-          ]}
-          ctaImage={imgs.cta}
-          ctaAlt={imgs.ctaAlt}
-        />
+        {/* ── CTA — SPLIT ORIGINAL CTA WITH FULL FORM CONTROLS ── */}
+        <section className="ecd-cta-section">
+          <div className="ecd__container">
+            <div className="ecd-cta-inner">
+
+              {/* Left */}
+              <div className="ecd-cta-left">
+                <h2 className="ecd-cta-title">
+                  Ready to Build a High-Converting Ecommerce Store?
+                </h2>
+                <p className="ecd-cta-desc">
+                  Let's create an ecommerce experience that converts visitors into customers and helps your business grow online.
+                </p>
+                <div className="ecd-cta-pills">
+                  <span>✓ Free Consultation</span>
+                  <span>✓ No Obligation</span>
+                  <span>✓ Quick Response (1-3 hours)</span>
+                  <span>✓ 100% Confidential</span>
+                </div>
+              </div>
+
+              {/* Right — contact form */}
+              <div className="ecd-cta-form-card">
+                <h3 className="ecd-form-heading">Get Free Consultation</h3>
+                <div className="ecd-form-row">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="ecd-form-input"
+                    value={form.name}
+                    onChange={e => setForm({ ...form, name: e.target.value })}
+                  />
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    className="ecd-form-input"
+                    value={form.email}
+                    onChange={e => setForm({ ...form, email: e.target.value })}
+                  />
+                </div>
+                <div className="ecd-form-row">
+                  <input
+                    type="text"
+                    placeholder="Website (if any)"
+                    className="ecd-form-input"
+                    value={form.website}
+                    onChange={e => setForm({ ...form, website: e.target.value })}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Your Message"
+                    className="ecd-form-input"
+                    value={form.message}
+                    onChange={e => setForm({ ...form, message: e.target.value })}
+                  />
+                </div>
+                <button className="ecd-form-btn">Send Message →</button>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
         <Footer />
       </div>

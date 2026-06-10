@@ -13,6 +13,11 @@
   --ecd-light: #f8faff;
 }
 
+/* Global Box-Sizing Safety Check */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* ── Wrapper ──────────────────────────────────────────── */
 .ecd__wrapper {
   min-height: 100vh;
@@ -20,6 +25,8 @@
   flex-direction: column;
   background: #ffffff;
   font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* ── Shared container ─────────────────────────────────── */
@@ -111,9 +118,9 @@
 }
 .btn-secondary:hover { background: rgba(255,255,255,.1); border-color: #fff; }
 
-/* ═══════════════════════════════════════════════════════
-   HERO — ORIGINAL, UNTOUCHED
-═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   HERO — DESKTOP STYLES
+═══════════════════════════════════════ */
 .ecd__hero {
   position: relative;
   background: linear-gradient(135deg, #003070 0%, #00448f 100%);
@@ -196,8 +203,25 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   STATS BAR — 6 items with icon + number + label
+   DESKTOP BREADCRUMB ALIGNMENT OVERRIDES (.ecd__wrapper)
 ═══════════════════════════════════════════════════════ */
+html body div[class*="ecd__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+html body div.ecd__wrapper section.sp-hero-split div.breadcrumb-wrap,
+html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap {
+  margin-left: -60px !important;
+  padding-left: 0 !important;
+  font-size: 11px !important;
+}
+
+html body div[class*="ecd__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+html body div.ecd__wrapper section.sp-hero-split div.breadcrumb-wrap *,
+html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap * {
+  font-size: 11px !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   STATS BAR — Desktop Default
+═══════════════════════════════════════════════════ */
 .ecd-stats-bar {
   background: #fff;
   padding: 0 24px;
@@ -211,9 +235,11 @@
   border: 1.5px solid #e4eaf6;
   border-radius: 20px;
   box-shadow: 0 8px 40px rgba(0,48,112,.1);
-  transform: translateY(-36px);
   background: #fff;
   overflow: hidden;
+  transform: none !important;
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
 }
 
 .ecd-stat-cell {
@@ -247,10 +273,9 @@
   text-align: center;
 }
 
-/* ═══════════════════════════════════════════════════════
-   SECTION 1 — WHY STORES UNDERPERFORM
-   Style: 2-col — left text+checklist, right comparison card
-═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   CUSTOM INTRO SECTION (SITEMAP ROW)
+═══════════════════════════════════════ */
 .ecd-why-section {
   padding: 40px 0 90px;
   background: #fff;
@@ -265,31 +290,186 @@
 
 .ecd-why-left .ecd-eyebrow { margin-bottom: 14px; }
 
-.ecd-checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Sitemap Cards Row Grid */
+.ecd-intro-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 24px 0 10px;
+  margin-top: 40px;
+  box-sizing: border-box;
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.ecd-intro-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScrollTech 35s linear infinite;
+}
+
+/* Pause animation on hover */
+.ecd-intro-marquee-wrapper:hover .ecd-intro-marquee-track {
+  animation-play-state: paused;
+}
+
+.ecd-intro-sitemap-col {
+  width: 220px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  align-items: center;
+  position: relative;
 }
 
-.ecd-check-item {
+/* Card Styling */
+.ecd-intro-sitemap-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 68, 143, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 270px;
+}
+
+.ecd-intro-sitemap-card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12);
+}
+
+/* Sitemap Top Header - Colored #00448f */
+.ecd-intro-sitemap-header-bar {
+  background: #00448f;
+  height: 12px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  color: #374151;
-  line-height: 1.5;
+  gap: 3px;
+  flex-shrink: 0;
 }
 
-.ecd-check-dot {
-  width: 9px;
-  height: 9px;
-  min-width: 9px;
+.ecd-intro-browser-dot {
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  background: var(--ecd-blue);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Card Body */
+.ecd-intro-sitemap-body {
+  flex: 1;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  text-align: left;
+}
+
+.aiwa-intro-card-left-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ecd-intro-sitemap-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ecd-blue);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.ecd-intro-check-icon {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Custom Modern Colorful Icon Containers */
+.ecd-intro-icon-box {
+  height: 75px;
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.ecd-intro-icon-box.pink-purple {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  color: #db2777;
+  border: 1px dashed rgba(236, 72, 153, 0.3);
+}
+
+.ecd-intro-icon-box.cyan-blue {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+  color: #0891b2;
+  border: 1px dashed rgba(6, 182, 212, 0.3);
+}
+
+.ecd-intro-icon-box.lime-green {
+  background: linear-gradient(135deg, rgba(132, 204, 22, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+  color: #16a34a;
+  border: 1px dashed rgba(132, 204, 22, 0.3);
+}
+
+.ecd-intro-icon-box.orange-yellow {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 179, 8, 0.15) 100%);
+  color: #ea580c;
+  border: 1px dashed rgba(249, 115, 22, 0.3);
+}
+
+.ecd-intro-icon-box.purple-indigo {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(79, 70, 229, 0.15) 100%);
+  color: #7c3aed;
+  border: 1px dashed rgba(168, 85, 247, 0.3);
+}
+
+.ecd-intro-icon-box.blue-accent {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(37, 99, 235, 0.15) 100%);
+  color: #2563eb;
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+}
+
+/* Footer of the sitemap card with arrow animation */
+.ecd-intro-sitemap-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.25s ease;
+}
+
+.ecd-intro-card-arrow { transition: transform 0.25s ease; }
+.ecd-intro-sitemap-card:hover .ecd-intro-sitemap-card-footer { color: #2563eb; }
+.ecd-intro-sitemap-card:hover .ecd-intro-card-arrow { transform: translateX(4px); }
+
+.ecd-intro-sitemap-line {
+  width: 2px;
+  height: 40px;
+  border-left: 2px dashed #cbd5e1;
+  margin-top: 12px;
+}
+
+/* Infinite Marquee Scroll Keyframes Animation */
+@keyframes marqueeScrollTech {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Comparison card */
@@ -358,10 +538,9 @@
   flex-shrink: 0;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 2 — SERVICES
-   Style: 4-col grid with icon, title, desc, "Learn More →"
-═══════════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .ecd-services-section {
   padding: 90px 0;
   background: #f8faff;
@@ -446,10 +625,9 @@
 }
 .ecd-learn-more:hover { gap: 8px; }
 
-/* ═══════════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    PLATFORMS STRIP
-   Style: White bg, icon + name cards in a flex row
-═══════════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .ecd-platforms-section {
   padding: 40px 0 56px;
   background: #fff;
@@ -534,9 +712,9 @@
   border-color: #e4eaf6;
 }
 
-/* ═══════════════════════════════════════════════════════
-   SUCCESS RESULTS — Dark bg with 4 metric cards
-═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   SUCCESS RESULTS 
+═══════════════════════════════════════ */
 .ecd-results-section {
   padding: 90px 0;
   background: linear-gradient(160deg, #010c22 0%, #001245 55%, #003070 100%);
@@ -610,9 +788,9 @@
   line-height: 1.5;
 }
 
-/* ═══════════════════════════════════════════════════════
-   PROCESS — Light bg, horizontal 5-step flow
-═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   PROCESS 
+═══════════════════════════════════════ */
 .ecd-process-section {
   padding: 90px 0;
   background: #f8faff;
@@ -689,9 +867,9 @@
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════════════════
-   WHO FOR — Icon tile grid
-═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   WHO FOR 
+═══════════════════════════════════════ */
 .ecd-who-section {
   padding: 90px 0;
   background: #fff;
@@ -746,9 +924,9 @@
   line-height: 1.3;
 }
 
-/* ═══════════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    FAQ — Accordion
-═══════════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .ecd-faq-section {
   padding: 90px 0;
   background: #f8faff;
@@ -819,9 +997,9 @@
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════════════════
-   CTA — Dark gradient left + white contact form right
-═══════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   CTA 
+═══════════════════════════════════════ */
 .ecd-cta-section {
   padding: 90px 0;
   background: linear-gradient(135deg, #010c22 0%, #001245 55%, var(--ecd-blue) 100%);
@@ -942,7 +1120,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   RESPONSIVE — original mobile queries preserved
+   GLOBAL RESPONSIVE BREAKS (UNIFIED & OVERLAP FREE)
 ═══════════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
   .ecd-stats-inner  { grid-template-columns: repeat(3, 1fr); transform: translateY(-24px); }
@@ -955,7 +1133,6 @@
 
 @media (max-width: 1024px) {
   .ecd__hero         { padding: 80px 24px; }
-  .ecd__hero_title   { font-size: 42px; }
   .ecd__heading      { font-size: 32px; }
   .ecd-cta-inner     { grid-template-columns: 1fr; }
   .ecd-cta-form-card { max-width: 520px; margin: 0 auto; }
@@ -968,677 +1145,477 @@
   .ecd-stats-inner  { grid-template-columns: repeat(3, 1fr); transform: translateY(-20px); }
 }
 
-@media (max-width: 768px) {
-  .ecd__hero         { padding: 60px 20px; }
-  .ecd__hero_title   { font-size: 36px; }
-  .ecd__heading      { font-size: 28px; }
-  .ecd-services-grid { grid-template-columns: 1fr; }
-  .ecd-results-grid  { grid-template-columns: 1fr; }
-  .ecd-process-track { grid-template-columns: 1fr; gap: 28px; }
-  .ecd-who-grid      { grid-template-columns: repeat(2, 1fr); }
-  .ecd-stats-inner   { grid-template-columns: repeat(2, 1fr); transform: translateY(-20px); }
-  .ecd-cta-title     { font-size: 30px; }
-  .ecd-form-row      { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 480px) {
-  .ecd__hero_title   { font-size: 28px; }
-  .ecd-who-grid      { grid-template-columns: repeat(2, 1fr); }
-  .ecd-stats-inner   { grid-template-columns: repeat(2, 1fr); transform: translateY(-12px); }
-  .ecd-cta-form-card { padding: 28px 20px; }
-}
-
-
-
-
-
-
-
-
-
-/* ==========================================================================
-   ECOMMERCE HERO SECTION LAYOUT & STYLING
-   ========================================================================== */
-
-/* Outer Section Wrapper */
-.ecd__hero {
-  position: relative;
-  /* Exact beautiful glowing radial gradient specified */
-  background: radial-gradient(circle at 50% 90%, #003d73 0%, #001b3a 60%, #000f21 100%) !important;
-  color: #ffffff;
-  padding: 100px 24px 80px 24px; /* Balanced standard spacing */
-  text-align: center;
-  overflow: hidden;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-/* Hide background grid/noise pattern to maintain the clean glow */
-.ecd__hero_pattern {
-  display: none !important;
-}
-
-/* Centered Content Container */
-.ecd__hero_container {
-  max-width: 1000px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ================= BREADCRUMB OVERRIDES ================= */
-.ecd__hero_container .breadcrumb {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ================= BADGE STYLING ================= */
-.ecd__hero_badge_wrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 18px;
-  margin-bottom: 28px;
-  border-radius: 9999px;
-  border: 1px solid rgba(56, 189, 248, 0.35); /* Semi-transparent blue border */
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.ecd__hero_badge_dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background-color: #38bdf8;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #38bdf8;
-}
-
-.ecd__hero_badge_text {
-  color: #38bdf8;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  text-transform: capitalize;
-}
-
-/* ================= TITLE & HIGHLIGHT ================= */
-.ecd__hero_title {
-  font-size: clamp(2.5rem, 5.2vw, 4.25rem); /* Responsive heading sizing */
-  font-weight: 800; /* Extra bold */
-  line-height: 1.15; /* Tight vertical line spacing */
-  color: #ffffff;
-  margin: 0 auto 28px auto;
-  max-width: 900px;
-  letter-spacing: -0.03em; /* Tight letter spacing like screenshot */
-}
-
-.ecd__hero_title_highlight {
-  color: #38bdf8 !important; /* Sky Blue highlight */
-  background-color: transparent !important;
-  display: inline !important;
-}
-
-/* ================= SUBTEXT ================= */
-.ecd__hero_text {
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85); /* Soft, high-readability white text */
-  max-width: 800px;
-  margin: 0 auto 36px auto;
-  font-weight: 400;
-}
-
-/* ================= BUTTONS ================= */
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-  width: 100%;
-}
-
-/* Common properties to make both buttons identical in height/dimensions */
-.hero-buttons .btn-primary,
-.hero-buttons .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 52px;            /* Standardized height */
-  padding: 0 28px;         /* Standardized padding */
-  border-radius: 10px;     /* Smooth rounded corners */
-  font-size: 1rem;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;     /* Avoid wrapping of text */
-  box-sizing: border-box;  /* Correct heights rendering */
-  transition: all 0.2s ease;
-}
-
-/* Primary Button (Solid Sky Blue with high-contrast text) */
-.hero-buttons .btn-primary {
-  background-color: #38bdf8 !important;
-  color: #001f3f !important; /* Rich Dark Navy */
-  border: 1.5px solid transparent !important;
-  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.25);
-}
-
-.hero-buttons .btn-primary:hover {
-  background-color: #25aff2 !important;
-  transform: translateY(-2px);
-}
-
-/* Secondary Button (Semi-transparent Outlined style) */
-.hero-buttons .btn-secondary {
-  background-color: transparent !important;
-  color: #ffffff !important;
-  border: 1.5px solid rgba(56, 189, 248, 0.5) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.hero-buttons .btn-secondary:hover {
-  border-color: #38bdf8 !important;
-  background-color: rgba(56, 189, 248, 0.08) !important;
-  transform: translateY(-2px);
-}
-
-/* ================= TRUST TEXT ================= */
-.ecd__hero_trust {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5); /* Muted slate-gray */
-  margin: 0;
-  font-weight: 500;
-}
-
-/* ================= RESPONSIVE MOBILE ADJUSTMENTS ================= */
-@media (max-width: 768px) {
-  .ecd__hero {
-    padding: 80px 16px 60px 16px;
-  }
-
-  .ecd__hero_title {
-    font-size: 3.3rem; /* Compact heading size for mobile */
-  }
-
-  .ecd__hero_text {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    width: 100%;
-    max-width: 340px; /* Constrains buttons width on mobile screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-buttons .btn-primary,
-  .hero-buttons .btn-secondary {
-    width: 100%; /* Spans full width inside mobile container */
-  }
-}
-
-
-
-
-
-/* Decreased Desktop Size */
+/* Decreased Desktop Title Scaling */
 section.ecd__hero h1.ecd__hero_title,
 section.ecd__hero .ecd__hero_title,
 h1.ecd__hero_title {
-  font-size: 52px !important; /* Decreased desktop size */
+  font-size: 52px !important;
 }
 
-/* Decreased Mobile Size */
+/* ═══════════════════════════════════════════════════════
+   UNIFIED & BULLETPROOF MOBILE OVERRIDES (Max-width: 768px)
+═══════════════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  section.ecd__hero h1.ecd__hero_title,
-  section.ecd__hero .ecd__hero_title,
-  h1.ecd__hero_title {
-    font-size: 28px !important; /* Decreased mobile size */
+  /* 1. Prevent parent flexbox stretching & lock viewports */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
   }
-}
 
+  .ecd__wrapper {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
 
-
-
-
-
-
-/* ============================================================
-   MOBILE RESPONSIVE STYLES (Max-width: 768px)
-   ============================================================ */
-
-@media (max-width: 768px) {
-  /* 1. HERO SECTION - Center and Font Fix */
   .ecd__hero {
-    padding-top: 30px !important; /* Reduces gap from navbar */
+    padding-top: 40px !important;
     padding-bottom: 40px !important;
-    text-align: center;
     min-height: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
-  .ecd__hero_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
+  /* Target both theme classes and wildcard variants */
+  .ecd__hero_container,
+  .sp-hero-split-grid,
+  [class*="sp-hero-split-grid"],
+  .sp-hero-split-content,
+  [class*="sp-hero-split-content"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
-  /* Maintain 32px Font for Hero */
-  .ecd__hero_title {
-    font-size: 32px !important;
+  /* Force override standard container margins and inner paddings */
+  .ecd__container,
+  .aiwd-container,
+  div[class*="aiwd-container"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* 2. Headline & Hero Text Centering Overrides */
+  .sp-hero-split-title,
+  .ecd__hero_title,
+  [class*="sp-hero-split-title"],
+  h1[class*="hero-split-title"] {
+    font-size: 28px !important;              /* Clean responsive scale to prevent cut-offs */
     font-weight: 800 !important;
-    line-height: 1.2 !important;
-    text-align: center;
-    margin-top: 15px !important;
-  }
-
-  .ecd__hero_text {
-    text-align: center;
-    margin: 15px auto 25px auto !important;
-    font-size: 16px;
-  }
-
-  /* Hero Buttons: Uniform and Stacked */
-  .hero-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 12px;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100% !important;
-    max-width: 320px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 !important;
-  }
-
-  /* 2. STATS BAR - 2x3 Grid */
-  .ecd-stats-inner {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 20px;
-    padding: 30px 15px;
-  }
-
-  .ecd-stat-cell {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* 3. WHY STORES UNDERPERFORM - Stacking the Comparison */
-  .ecd-why-grid {
-    grid-template-columns: 1fr !important;
-    gap: 40px;
-  }
-
-  .ecd-why-left {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .ecd__heading, .ecd__description {
+    line-height: 1.25 !important;
     text-align: center !important;
-  }
-
-  .ecd-comparison-card {
-    grid-template-columns: 1fr !important; /* Stack bad vs good vertically */
-  }
-
-  /* 4. SERVICES GRID - Single Column */
-  .ecd-services-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-
-  .ecd-service-card {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* 5. PLATFORMS - Flex wrapping */
-  .ecd-platforms-strip {
-    justify-content: center;
-    gap: 15px;
-  }
-
-  /* 6. DARK STATS (Results Section) */
-  .ecd-results-grid {
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-
-  /* 7. PROCESS SECTION - Side-by-Side (Icon Left, Text Right) */
-  .ecd-process-track {
-    flex-direction: column !important;
-    gap: 35px;
-  }
-
-  .ecd-process-step {
-    display: grid !important;
-    grid-template-columns: 70px 1fr; /* Icon column and Text column */
-    text-align: left !important;
-    align-items: start;
-    gap: 15px;
-    width: 100%;
-  }
-
-  .ecd-process-node {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    display: flex;
-    justify-content: center;
-    margin: 0 !important;
-  }
-
-  .ecd-process-num, .ecd-process-desc {
-    grid-column: 2;
-    text-align: left !important;
-    margin: 0 !important;
-  }
-
-  .ecd-process-dash {
-    display: none !important; /* Hide connector lines */
-  }
-
-  /* 8. WHO FOR - 2 Column Grid */
-  .ecd-who-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 12px;
-  }
-
-  /* 9. FAQ - Full Width */
-  .ecd-faq-list {
-    width: 100%;
-  }
-
-  /* 10. CTA SECTION - Stacking Text and Form */
-  .ecd-cta-section {
-    padding: 40px 0 !important;
-  }
-
-  .ecd-cta-inner {
-    flex-direction: column !important;
-    gap: 40px;
-    text-align: center;
-  }
-
-  .ecd-cta-left {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .ecd-cta-pills {
-    justify-content: center;
-    text-align: left;
-  }
-
-  .ecd-cta-form-card {
-    width: 100%;
-    padding: 25px 15px;
-  }
-
-  .ecd-form-row {
-    flex-direction: column !important;
-    gap: 0;
-  }
-
-  .ecd-form-input {
-    width: 100% !important;
-    margin-bottom: 15px;
-  }
-
-  .ecd-form-btn {
-    width: 100%;
-  }
-}
-
-
-
-
-
-@media (max-width: 768px) {
-  /* 1. THE HEADING - Matching your screenshot exactly */
-  .aiss__hero_title, 
-  .aiwa__heading, 
-  .fswd__heading, 
-  .ecd__hero_title {
-    font-size: 36px !important; /* The 'Giant' size from your image */
-    font-weight: 900 !important; /* Extra bold/black weight */
-    line-height: 1.1 !important; /* Very tight spacing between lines */
-    text-align: center !important;
-    letter-spacing: -0.03em !important; /* Tightens the characters for that premium look */
+    letter-spacing: -0.02em !important;
     margin-top: 10px !important;
-    margin-bottom: 20px !important;
-    width: 100%;
-    display: block;
+    margin-bottom: 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
   }
 
-  /* 2. THE DESCRIPTION - Keeping it readable but secondary */
-  .aiss__hero_text, 
-  .aiwa__hero_text_white, 
-  .fswd__hero_text_white, 
-  .ecd__hero_text {
-    font-size: 17px !important;
-    line-height: 1.5 !important;
+  .sp-hero-split-accent {
+    display: inline !important;
     text-align: center !important;
-    margin-bottom: 30px !important;
-    padding: 0 10px !important;
-    opacity: 0.9;
   }
 
-  /* 3. THE BUTTONS - Same width and centered as requested before */
-  .aiss-hero-actions, 
-  .aiwa__hero_actions, 
-  .fswd__hero_actions, 
-  .hero-buttons {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
+  .ecd__hero_text,
+  .sp-hero-split-content p,
+  p[class*="hero-split-text"] {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
     width: 100% !important;
-    gap: 15px !important;
+    max-width: 100% !important;
+    margin: 0 auto 24px auto !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
   }
 
-  .aiss-btn-primary, .aiss-btn-secondary,
-  .aiwa__btn_primary, .aiwa__btn_secondary,
-  .fswd__hero_btn,
-  .btn-primary, .btn-secondary {
-    width: 100% !important;
-    max-width: 340px !important; /* Matches the width in your screenshot */
-    height: 58px !important;     /* Slightly taller for better touch targets */
+  /* 3. Center Breadcrumbs Row-wise without wrapping */
+  html body div.ecd__wrapper div.sp-hero-split div.breadcrumb-wrap,
+  html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body div[class*="ecd__wrapper"] div[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+  html body div.breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"] {
     display: flex !important;
-    align-items: center !important;
     justify-content: center !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    border-radius: 12px !important; /* Matches the rounded corners in your image */
-    margin: 0 !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 16px auto !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    box-sizing: border-box !important;
   }
 
-  /* 4. REMOVE TOP GAP - Pulls the giant title up */
-  .aiss__hero, 
-  .aiwa__hero_section, 
-  .fswd__bar_hero, 
-  .ecd__hero {
-    padding-top: 20px !important;
-    min-height: auto !important;
+  html body div.ecd__wrapper div.sp-hero-split div.breadcrumb-wrap > div,
+  html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap > div,
+  html body div[class*="ecd__wrapper"] div[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] > div,
+  html body div.breadcrumb-wrap > div,
+  html body .breadcrumb-wrap > div,
+  html body div[class*="breadcrumb-wrap"] > div {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    gap: 4px !important;
   }
-}
 
-
-
-
-@media (max-width: 768px) {
-  /* 1. INCREASE HEADING - Making it massive and impactful */
-  .aiss__hero_title, 
-  .aiwa__heading, 
-  .fswd__heading, 
-  .ecd__hero_title {
-    font-size: 42px !important;    /* Increased size for "Giant" look */
-    font-weight: 900 !important;    /* Maximum thickness */
-    line-height: 1.05 !important;   /* Extremely tight line spacing */
-    letter-spacing: -0.04em !important; /* Tight character spacing for premium feel */
+  html body div.ecd__wrapper div.sp-hero-split div.breadcrumb-wrap *,
+  html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body div[class*="ecd__wrapper"] div[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+  html body div.breadcrumb-wrap *,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    justify-content: center !important;
     text-align: center !important;
-    margin-bottom: 15px !important;
-    margin-top: 10px !important;
-    width: 100%;
+    white-space: nowrap !important;
+    font-size: 11px !important;
   }
 
-  /* 2. DECREASE DESCRIPTION - Creating high contrast hierarchy */
-  .aiss__hero_text, 
-  .aiwa__hero_text_white, 
-  .fswd__hero_text_white, 
-  .ecd__hero_text {
-    font-size: 14px !important;    /* Reduced size as requested */
-    line-height: 1.6 !important;    /* More breathing room for small text */
+  /* 4. Force Badge/Eyebrow centering */
+  .sp-hero-split-badge,
+  .ecd__hero_badge_wrapper,
+  [class*="sp-hero-split-badge"] {
+    display: block !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+    margin: 0 auto 16px auto !important;
     text-align: center !important;
-    max-width: 90% !important;      /* Keeps lines short and readable */
-    margin: 0 auto 30px auto !important;
-    opacity: 0.8 !important;        /* Slightly faded to make title pop more */
-    padding: 0 10px;
+    box-sizing: border-box !important;
   }
 
-  /* 3. BUTTONS - Centered and Large */
-  .aiss-hero-actions, 
-  .aiwa__hero_actions, 
-  .fswd__hero_actions, 
-  .hero-buttons {
+  /* 5. Fix checklist container layouts causing screen stretching */
+  html body .sp-hero-split-features,
+  html body [class*="sp-hero-split-features"] {
+    display: flex !important;
+    flex-flow: row wrap !important;          /* Allow wrapping to prevent width stretching */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px 16px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 6. Stack and Center Hero Buttons */
+  .hero-buttons,
+  [class*="hero-buttons"] {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
     gap: 12px !important;
+    margin: 0 auto !important;
   }
 
-  .aiss-btn-primary, .aiss-btn-secondary,
-  .aiwa__btn_primary, .aiwa__btn_secondary,
-  .fswd__hero_btn,
-  .btn-primary, .btn-secondary {
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary,
+  .btn-primary,
+  .btn-secondary {
     width: 100% !important;
     max-width: 320px !important;
-    height: 56px !important;
+    height: 52px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
     margin: 0 !important;
-    border-radius: 10px !important;
   }
 
-  /* 4. REDUCE TOP GAP - Bringing the content higher */
-  .aiss__hero, 
-  .aiwa__hero_section, 
-  .fswd__bar_hero, 
-  .ecd__hero {
-    padding-top: 15px !important;
-    padding-bottom: 40px !important;
-    min-height: auto !important;
+  .ecd__hero_trust {
+    text-align: center !important;
+    margin-top: 15px !important;
   }
 
-  /* 5. CENTER BREADCRUMBS & BADGES */
-  .aiss__hero_container > :first-child,
-  .aiwa__container > :first-child,
-  .fswd__container > :first-child,
-  .ecd__hero_container > :first-child {
+  /* 7. STATS BAR — Responsive Grid */
+  .ecd-stats-bar {
+    padding: 0 16px !important;
+    margin-top: -30px !important;
+    background: transparent !important;
+  }
+
+  .ecd-stats-inner {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px 12px !important;
+    padding: 24px 16px !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    height: auto !important;
+    border: 1.5px solid #e4eaf6 !important;
+  }
+
+  .ecd-stat-cell {
+    padding: 12px 6px !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e4eaf6;
+  }
+
+  .ecd-stat-cell:nth-child(odd) {
+    border-right: 1px solid #e4eaf6 !important;
+  }
+
+  .ecd-stat-cell:nth-child(5),
+  .ecd-stat-cell:nth-child(6) {
+    border-bottom: none !important;
+  }
+
+  .ecd-stat-icon { font-size: 18px !important; margin-bottom: 4px !important; }
+  .ecd-stat-num { font-size: 22px !important; margin-bottom: 2px !important; }
+  .ecd-stat-lbl { font-size: 11px !important; }
+
+  /* 8. SITEMAP MARQUEE ROW CAROUSEL Support */
+  .ecd-intro-sitemap-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    gap: 16px !important;
+    margin-top: 24px;
+  }
+
+  .ecd-intro-sitemap-col {
+    width: 220px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 9. STACK COMPARISON CARDS FOR HIGH MOBILE READABILITY */
+  .ecd-comparison-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;   /* Column-by-column stacking layout */
+    gap: 16px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .ecd-compare-col {
+    border: 1.5px solid #e4eaf6 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+  }
+
+  .ecd-head-good { border-left: none !important; }
+  .ecd-row-good { border-left: none !important; }
+
+  /* 10. GRID COLLAPSING overrides */
+  .ecd-services-grid { grid-template-columns: 1fr; }
+  .ecd-results-grid  { grid-template-columns: 1fr; }
+  .ecd-who-grid      { grid-template-columns: repeat(2, 1fr); }
+
+  /* 11. PROCESS SECTION Vertical Timeline Reflow */
+  .ecd-process-track {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+  }
+
+  .ecd-process-step {
+    display: grid !important;
+    grid-template-columns: 80px 1fr !important; /* Node in Column 1, details in Column 2 */
+    text-align: left !important;
+    align-items: start !important;
+    gap: 0 15px !important;
+    margin-bottom: 40px !important;
+    width: 100% !important;
+  }
+
+  .ecd-process-node {
+    grid-column: 1 !important;
+    grid-row: 1 / 5 !important;
     display: flex !important;
     justify-content: center !important;
-    width: 100%;
-    margin-bottom: 5px !important;
+    padding-top: 5px !important;
+    width: auto !important;
+    height: 100% !important;
+    margin-bottom: 0 !important;
   }
 
-  .aiss__hero_badge,
-  .aiwa__hero_badge_wrapper,
-  .fswd__hero_label,
-  .ecd__hero_badge_wrapper {
-    margin: 0 auto 10px auto !important;
-    display: inline-flex !important;
-    justify-content: center;
+  .ecd-process-num,
+  .ecd-process-desc {
+    grid-column: 2 !important;
+    margin-left: 0 !important;
+    text-align: left !important;
+  }
+
+  .ecd-process-icon {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    margin: 0 !important;
+    font-size: 22px !important;
+  }
+
+  .ecd-process-num { font-size: 14px; margin-bottom: 4px !important; }
+  .ecd-process-desc { font-size: 13px; line-height: 1.5; }
+  .ecd-process-dash { display: none !important; }
+
+  /* 12. FAQ ACCORDION SIZING */
+  .ecd-faq-list { width: 100% !important; }
+  .ecd-faq-q span:first-child { font-size: 15px !important; }
+
+  /* 13. CTA SECTION & Form Card Optimizations */
+  .ecd-cta-section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .ecd-cta-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ecd-cta-title {
+    font-size: 28px !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  .ecd-cta-desc {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .ecd-cta-pills {
+    justify-content: center !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .ecd-cta-form-card {
+    width: 100% !important;
+    max-width: 340px !important;             /* Lock boundary width on phones */
+    padding: 24px 20px !important;
+    box-sizing: border-box !important;
+    margin: 0 auto !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .ecd-form-row {
+    grid-template-columns: 1fr !important;   /* Stacks Name and Email inputs vertically */
+    gap: 12px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ecd-form-input {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ecd-form-btn {
+    width: 100% !important;
+    height: 50px !important;
+    font-size: 15px !important;
+    margin-top: 6px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   EXTRA SMALL MOBILE DEVIATIONS (Max-width: 480px)
+═══════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .ecd-who-grid      { grid-template-columns: repeat(2, 1fr) !important; }
+  .ecd-stats-inner   { grid-template-columns: repeat(2, 1fr) !important; transform: translateY(-12px); }
+  .ecd-cta-form-card { padding: 28px 20px !important; }
+}
+
+
+
+/* ============================================================
+   REDUCE BREADCRUMB FONT SIZE ON MOBILE (PREVENT CLIPPING)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Force a smaller, highly compact font size on all breadcrumb text and elements */
+  html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .ecd__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body .breadcrumb-wrap,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"],
+  html body div[class*="breadcrumb-wrap"] * {
+    font-size: 9.5px !important; /* Decreased from 11px to fit standard mobile viewports */
+    letter-spacing: 0.02em !important;
+    line-height: 1.2 !important;
   }
 }
 
 
 
+
+/* ============================================================
+   CENTER ALIGN WHY-SECTION HEADINGS ON MOBILE
+   ============================================================ */
 @media (max-width: 768px) {
-  /* 1. THE HEADING - Increased to 48px for maximum impact */
-  .aiss__hero_title, 
-  .aiwa__heading, 
-  .fswd__heading, 
-  .ecd__hero_title {
-    font-size: 48px !important;    /* Even larger "Power" size */
-    font-weight: 900 !important;    /* Maximum boldness */
-    line-height: 1.0 !important;    /* Ultra-tight line height to keep it compact */
-    letter-spacing: -0.05em !important; /* Tighter letter spacing for a premium look */
+  /* 1. Force the parent container column to center all its contents */
+  html body .ecd__wrapper .ecd-why-left {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     text-align: center !important;
-    margin-bottom: 15px !important;
-    margin-top: 5px !important;
-    width: 100%;
-    display: block;
-    word-break: break-word;        /* Prevents long words from cutting off */
   }
 
-  /* 2. THE DESCRIPTION - Kept small to maintain the hierarchy contrast */
-  .aiss__hero_text, 
-  .aiwa__hero_text_white, 
-  .fswd__hero_text_white, 
-  .ecd__hero_text {
-    font-size: 14px !important;     /* Small and clean */
-    line-height: 1.6 !important;
-    text-align: center !important;
-    max-width: 85% !important;      /* Slightly narrower for better reading rhythm */
-    margin: 0 auto 30px auto !important;
-    opacity: 0.8 !important;
-  }
-
-  /* 3. HERO CONTAINER - Bringing everything higher up */
-  .aiss__hero, 
-  .aiwa__hero_section, 
-  .fswd__bar_hero, 
-  .ecd__hero {
-    padding-top: 10px !important;   /* Minimal gap at the top */
-    padding-bottom: 30px !important;
-    min-height: auto !important;
-  }
-
-  /* 4. BUTTONS - Centered and thick */
-  .aiss-btn-primary, .aiss-btn-secondary,
-  .aiwa__btn_primary, .aiwa__btn_secondary,
-  .fswd__hero_btn,
-  .btn-primary, .btn-secondary {
+  /* 2. Overrides the inline JSX style and forces the main heading to center */
+  html body .ecd__wrapper .ecd-why-left h2.ecd__heading,
+  html body .ecd__wrapper .ecd-why-left .ecd__heading {
+    text-align: center !important;       /* Knocks out the inline text-align: left */
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: 100% !important;
-    max-width: 320px !important;
-    height: 56px !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    border-radius: 10px !important;
+  }
+
+  /* 3. Center align the top eyebrow ("Why Stores Underperform") */
+  html body .ecd__wrapper .ecd-why-left .ecd-eyebrow {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-block !important;
+  }
+
+  /* 4. Center align the description paragraph below the heading */
+  html body .ecd__wrapper .ecd-why-left .ecd__description {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
   }
 }

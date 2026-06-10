@@ -1,115 +1,156 @@
 /* ═══════════════════════════════════════════════════
-   HERO — ORIGINAL, UNTOUCHED
+   HERO SECTION — STRUCTURAL & DESKTOP STYLES
 ═══════════════════════════════════════════════════ */
-.aiss__hero {
+section.aiss__hero {
   position: relative;
   background: radial-gradient(circle at 50% 90%, #003d73 0%, #001b3a 60%, #000f21 100%) !important;
+  color: #ffffff;
   min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 100px 24px;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* Hide decorative background layers */
 .aiss__hero_gradient {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,.05) 0%, transparent 50%);
-  animation: aiss__gradient_shift 15s ease-in-out infinite;
-}
-
-@keyframes aiss__gradient_shift {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: .7; }
+  display: none !important;
 }
 
 .aiss__hero_container {
-  max-width: 1000px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
+/* Breadcrumbs (Desktop default) */
+.breadcrumb-wrapper,
+.breadcrumb {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Badge Styling */
 .aiss__hero_badge {
   display: inline-flex;
   align-items: center;
-  gap: .8rem;
-  background: rgba(255,255,255,.2);
-  backdrop-filter: blur(10px);
-  color: #fff;
-  padding: .8rem 2rem;
-  border-radius: 100px;
+  gap: 8px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+  padding: 8px 20px;
+  border-radius: 9999px;
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(255,255,255,.3);
+  letter-spacing: 0.03em;
+  margin-bottom: 32px;
+  line-height: 1.2;
 }
 
+/* Badge dot */
+.aiss__hero_badge::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Title Styling */
 .aiss__hero_title {
-  font-size: 52px;
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 800;
-  color: #fff;
+  color: #ffffff;
   line-height: 1.15;
-  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  max-width: 980px;
+  margin: 0 auto 24px auto;
+  text-align: center;
 }
 
 .aiss__hero_title_accent {
-  color: #60a5fa;
+  color: #38bdf8;
+  display: inline;
 }
 
+/* Description text */
 .aiss__hero_text {
   font-size: 20px;
-  color: rgba(255,255,255,.85);
-  line-height: 1.7;
-  margin-bottom: 3rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 840px;
+  margin: 0 auto 36px auto;
+  text-align: center;
 }
 
-.aiss__hero_trust {
-  margin-top: 2rem;
-  font-size: 14px;
-  color: rgba(255,255,255,.7);
-  font-weight: 500;
-}
-
-/* hero CTA buttons */
+/* Hero CTA Buttons */
 .aiss-hero-actions {
   display: flex;
-  gap: 16px;
   justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .aiss-btn-primary {
   display: inline-block;
-  background: #fff;
-  color: #003070;
-  padding: 14px 30px;
-  border-radius: 8px;
-  text-decoration: none;
+  background-color: #38bdf8;
+  color: #001b3a;
+  font-size: 1rem;
   font-weight: 700;
-  font-size: 16px;
-  transition: all .2s;
-  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
 }
-.aiss-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+
+.aiss-btn-primary:hover {
+  background-color: #25aff2;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+}
 
 .aiss-btn-secondary {
   display: inline-block;
-  background: transparent;
-  color: #fff;
-  padding: 14px 30px;
-  border-radius: 8px;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  border: 2px solid rgba(255,255,255,.5);
-  transition: all .2s;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
-.aiss-btn-secondary:hover { background: rgba(255,255,255,.1); border-color: #fff; transform: translateY(-3px); }
+
+.aiss-btn-secondary:hover {
+  border-color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.08);
+  transform: translateY(-2px);
+}
+
+.aiss__hero_trust {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 20px;
+  font-weight: 500;
+  text-align: center;
+}
 
 /* ═══════════════════════════════════════════════════
    STATS BAR
@@ -206,156 +247,254 @@
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════════════
-   SECTION 1 — INTRO (3-column)
-═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   CUSTOM INTRO SECTION (SITEMAP ROW SETUP WITH CONTENTS INSIDE)
+═══════════════════════════════════════ */
 .aiss-intro-section {
-  padding: 90px 0;
-  background: #f8faff;
-}
-
-.aiss-intro-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
-
-/* — Visual illustration — */
-.aiss-intro-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.aiss-visual-inner {
-  width: 260px;
-  height: 260px;
-  background: linear-gradient(135deg, #001850 0%, #003070 60%, #00448f 100%);
-  border-radius: 28px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 20px 60px rgba(0,48,112,.35);
-  overflow: hidden;
-}
-
-.aiss-visual-brain {
-  width: 88px;
-  height: 88px;
-  background: rgba(96,165,250,.18);
-  border: 2px solid rgba(96,165,250,.4);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.aiss-brain-icon { color: #60a5fa; }
-
-.aiss-visual-nodes {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.aiss-node {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  background: rgba(96,165,250,.18);
-  border: 1.5px solid rgba(96,165,250,.35);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #93c5fd;
-  animation: aiss-float 3s ease-in-out infinite;
-}
-
-.aiss-node.n1 { top: 24px;  left: 24px;  animation-delay: 0s; }
-.aiss-node.n2 { top: 24px;  right: 24px; animation-delay: .7s; }
-.aiss-node.n3 { bottom: 24px; left: 24px; animation-delay: 1.4s; }
-.aiss-node.n4 { bottom: 24px; right: 24px; animation-delay: 2.1s; }
-
-@keyframes aiss-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-7px); }
-}
-
-.aiss-visual-code {
-  position: absolute;
-  bottom: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: max-content;
-}
-
-.aiss-code-line {
-  font-size: 11px;
-  font-family: monospace;
-  color: #7dd3fc;
-  background: rgba(0,0,0,.25);
-  border-radius: 4px;
-  padding: 2px 8px;
-  opacity: .8;
+  padding: 100px 0 60px;
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
   text-align: center;
 }
 
-/* — Middle text — */
-.aiss-intro-tag {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  color: #003070;
-  margin-bottom: 14px;
+.aiss-intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.aiss-intro-title {
-  font-size: 36px;
-  font-weight: 800;
-  color: #0b1120;
-  line-height: 1.22;
+.aiss-intro-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
   margin-bottom: 18px;
 }
 
-.aiss-blue { color: #003070; }
+.aiss-intro-title {
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
 
 .aiss-intro-desc {
   font-size: 16px;
-  color: #4b5563;
   line-height: 1.75;
+  color: var(--slate);
+  margin: 0 0 36px;
+  max-width: 720px;
 }
 
-/* — Right checklist — */
-.aiss-intro-checklist {
+/* Sitemap Cards Row Grid */
+.aiss-intro-sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+
+.aiss-intro-sitemap-col {
+  width: 220px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  align-items: center;
+  position: relative;
 }
 
-.aiss-check-row {
+/* Card Styling */
+.aiss-intro-sitemap-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 68, 143, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 270px;
+}
+
+.aiss-intro-sitemap-card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12);
+}
+
+/* Sitemap Top Header - Colored #00448f */
+.aiss-intro-sitemap-header-bar {
+  background: #00448f;
+  height: 12px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.aiss-intro-browser-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Card Body */
+.aiss-intro-sitemap-body {
+  flex: 1;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  text-align: left;
+}
+
+.aiwa-intro-card-left-group {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 15px;
-  color: #374151;
-  font-weight: 500;
-  line-height: 1.5;
 }
 
-.aiss-check-icon { color: #003070; flex-shrink: 0; margin-top: 2px; }
+.aiss-intro-sitemap-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+  line-height: 1.4;
+}
 
-/* ═══════════════════════════════════════════════════
+.aiss-intro-check-icon {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Custom Modern Colorful Icon Containers replacing wireframe graphics */
+.aiss-intro-icon-box {
+  height: 75px;
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.aiss-intro-icon-box.pink-purple {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  color: #db2777;
+  border: 1px dashed rgba(236, 72, 153, 0.3);
+}
+
+.aiss-intro-icon-box.cyan-blue {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+  color: #0891b2;
+  border: 1px dashed rgba(6, 182, 212, 0.3);
+}
+
+.aiss-intro-icon-box.lime-green {
+  background: linear-gradient(135deg, rgba(132, 204, 22, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+  color: #16a34a;
+  border: 1px dashed rgba(132, 204, 22, 0.3);
+}
+
+.aiss-intro-icon-box.orange-yellow {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 179, 8, 0.15) 100%);
+  color: #ea580c;
+  border: 1px dashed rgba(249, 115, 22, 0.3);
+}
+
+.aiss-intro-icon-box.purple-indigo {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(79, 70, 229, 0.15) 100%);
+  color: #7c3aed;
+  border: 1px dashed rgba(168, 85, 247, 0.3);
+}
+
+.aiss-intro-icon-box.blue-accent {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(37, 99, 235, 0.15) 100%);
+  color: #2563eb;
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+}
+
+/* Footer of the sitemap card with arrow animation */
+.aiss-intro-sitemap-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.25s ease;
+}
+
+.aiwd-intro-card-arrow {
+  transition: transform 0.25s ease;
+}
+
+.aiss-intro-sitemap-card:hover .aiss-intro-sitemap-card-footer {
+  color: #2563eb;
+}
+
+.aiss-intro-sitemap-card:hover .aiwd-intro-card-arrow {
+  transform: translateX(4px);
+}
+
+/* Vertical dotted connecter sitemap lines below card */
+.aiss-intro-sitemap-line {
+  width: 2px;
+  height: 40px;
+  border-left: 2px dashed #cbd5e1;
+  margin-top: 12px;
+}
+
+/* Sitemap Cards Moving Horizontally Wrapper */
+.aiss-intro-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 24px 0 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.aiss-intro-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScrollTech 35s linear infinite;
+}
+
+/* Pause animation on hover */
+.aiss-intro-marquee-wrapper:hover .aiss-intro-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Infinite Marquee Scroll Keyframes Animation */
+@keyframes marqueeScrollTech {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════
    SECTION 2 — SERVICES GRID (4-col × 2 rows)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-services-section {
   padding: 90px 0;
   background: #ffffff;
@@ -428,9 +567,9 @@
   line-height: 1.7;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 3 — WHY CHOOSE (dark, 6-card row)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-why-section {
   padding: 90px 0;
   background: linear-gradient(160deg, #010c22 0%, #001245 60%, #003070 100%);
@@ -506,9 +645,9 @@
   line-height: 1.65;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 4 — INDUSTRIES + TECHNOLOGIES (split)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-split-section {
   padding: 80px 0;
   background: #fff;
@@ -580,9 +719,9 @@
   line-height: 1.3;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    TECHNOLOGIES — Icon + name pills
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-tech-groups {
   display: flex;
   flex-direction: column;
@@ -666,9 +805,9 @@
   line-height: 1;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 5 — PROCESS (6-step row with connectors)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-process-section {
   padding: 90px 0;
   background: #f8faff;
@@ -744,9 +883,9 @@
   line-height: 1.6;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 6 — AI FEATURES (icon grid)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-features-section {
   padding: 80px 0;
   background: #fff;
@@ -798,9 +937,9 @@
   line-height: 1.35;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 7 — FAQ (2-column accordion)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-faq-section {
   padding: 90px 0;
   background: #f8faff;
@@ -860,9 +999,9 @@
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════════════
+/* ═══════════════════════════════════════
    SECTION 8 — CTA (dark)
-═══════════════════════════════════════════════════ */
+═══════════════════════════════════════ */
 .aiss-cta-section {
   padding: 90px 0;
   background: linear-gradient(135deg, #010c22 0%, #001245 60%, #003070 100%);
@@ -999,7 +1138,50 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   RESPONSIVE
+   BALANCED 2-COLUMN INDUSTRIES LAYOUT (DESKTOP)
+═══════════════════════════════════════════════════ */
+@media (min-width: 769px) {
+  .aiss-industry-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px 24px !important;
+  }
+
+  .aiss-industry-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    text-align: left !important;
+    gap: 16px !important;
+    background: #f8faff !important;
+    border: 1.5px solid #e4eaf6;
+    border-radius: 14px;
+    padding: 12px 18px !important;
+    box-sizing: border-box;
+    width: 100%;
+    transition: all 0.22s ease;
+  }
+
+  .aiss-industry-item:hover {
+    background: #eff6ff !important;
+    border-color: #2563eb !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 48, 112, 0.05);
+  }
+
+  .aiss-industry-icon {
+    margin: 0 !important;
+    flex-shrink: 0;
+  }
+
+  .aiss-industry-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE DESIGN ADAPTATIONS (TABLET / LAPTOP)
 ═══════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
   .aiss-why-grid      { grid-template-columns: repeat(3, 1fr); }
@@ -1021,350 +1203,179 @@
   .aiss-why-grid      { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 640px) {
-  .aiss__hero_title   { font-size: 34px; }
-  .aiss-section-title { font-size: 28px; }
-  .aiss-stats-inner   { gap: 0; }
-  .aiss-stat-item     { min-width: 50%; border-right: none; border-bottom: 1px solid #e8eef8; }
-  .aiss-services-grid { grid-template-columns: 1fr; }
-  .aiss-why-grid      { grid-template-columns: 1fr; }
-  .aiss-features-grid { grid-template-columns: repeat(2, 1fr); }
-  .aiss-industry-grid { grid-template-columns: repeat(2, 1fr); }
-  .aiss-process-row   { grid-template-columns: 1fr; gap: 28px; }
-  .aiss-cta-title     { font-size: 28px; }
-}
-
-
-
-
-
-/* ==========================================================================
-   AI SOFTWARE HERO SECTION STYLES
-   ========================================================================== */
-
-section.aiss__hero {
-  position: relative;
-  background: radial-gradient(circle at 50% 90%, #003d73 0%, #001b3a 60%, #000f21 100%) !important;
-  color: #ffffff;
-  padding: 100px 24px 80px 24px;
-  text-align: center;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 70vh;
-  width: 100%;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-/* Hide overlapping decorative structures to let the radial gradient define the tone */
-.aiss__hero_gradient {
-  display: none !important;
-}
-
-.aiss__hero_container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Centered Breadcrumbs spacing */
-.aiss__hero_container .breadcrumb-wrapper,
-.aiss__hero_container .breadcrumb {
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: center;
-}
-
-/* Premium Rounded Pill Badge Layout */
-.aiss__hero_badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: #38bdf8;
-  padding: 8px 20px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  margin-bottom: 32px;
-  line-height: 1.2;
-}
-
-/* Simulated blue-teal active status dot inside badge */
-.aiss__hero_badge::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #38bdf8;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-/* Bold Main Title Typography */
-.aiss__hero_title {
-  font-size: clamp(2.2rem, 5vw, 4rem); /* Responsive typography base */
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  max-width: 980px;
-  margin: 0 auto 24px auto;
-  text-align: center;
-}
-
-/* Sky-Blue accent span */
-.aiss__hero_title_accent {
-  color: #38bdf8;
-  display: inline;
-}
-
-/* Soft-white descriptive text */
-.aiss__hero_text {
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.85);
-  max-width: 840px;
-  margin: 0 auto 36px auto;
-  text-align: center;
-}
-
-/* Centered Action Button Block */
-.aiss-hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-/* Primary Button (Solid Sky Blue / High Contrast Dark Text) */
-.aiss-btn-primary {
-  display: inline-block;
-  background-color: #38bdf8;
-  color: #001b3a;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 14px 28px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
-}
-
-.aiss-btn-primary:hover {
-  background-color: #25aff2;
-  transform: translateY(-1px);
-}
-
-/* Secondary Button (Outlined White) */
-.aiss-btn-secondary {
-  display: inline-block;
-  background-color: transparent;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 14px 28px;
-  border: 1.5px solid rgba(56, 189, 248, 0.4);
-  border-radius: 10px;
-  text-decoration: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-}
-
-.aiss-btn-secondary:hover {
-  border-color: #38bdf8;
-  background-color: rgba(56, 189, 248, 0.08);
-  transform: translateY(-1px);
-}
-
-/* Footer Trust Note */
-.aiss__hero_trust {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN ADAPTATIONS
-   ========================================================================== */
-
+/* ═══════════════════════════════════════════════════
+   UNIFIED & BULLETPROOF MOBILE RESPONSIVE OVERRIDES
+═══════════════════════════════════════════════════ */
 @media (max-width: 768px) {
+  /* 1. Base Hero Section Mobile Alignments */
   section.aiss__hero {
-    padding: 80px 20px 60px 20px;
-  }
-  
-  .aiss-hero-actions {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 340px;
-    margin: 0 auto 24px auto;
-  }
-  
-  .aiss-btn-primary, 
-  .aiss-btn-secondary {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
     text-align: center;
   }
-}
 
-
-
-
-
-/* Mobile Styles for CTA Buttons */
-@media (max-width: 768px) {
-  .aiss-cta-actions {
+  .aiss__hero_container {
     display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center;    /* Center buttons horizontally */
-    gap: 16px;              /* Space between buttons */
-    width: 100%;            /* Ensure container takes full width */
-    margin: 0 auto;
-  }
-
-  .aiss-btn-primary,
-  .aiss-btn-secondary {
-    width: 100%;            /* Make both buttons same width */
-    max-width: 320px;       /* Optional: prevents buttons from becoming too wide */
-    height: 55px;           /* Set a fixed height for both */
-    display: flex;          /* Use flex to center text inside buttons */
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0;             /* Reset padding to ensure height is exact */
+    width: 100%;
+    padding: 0 16px;
     box-sizing: border-box;
   }
-}
 
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-  /* Stack the two columns (text and visual) and center them */
-  .aiss-cta-inner {
-    flex-direction: column;
+  /* 2. Title & Text Scaling */
+  .aiss__hero_title {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
     text-align: center;
-    align-items: center;
-    gap: 40px; /* Adds space between the text and the brain graphic */
-    padding: 40px 20px;
-  }
-
-  /* Ensure the left side content takes full width and centers children */
-  .aiss-cta-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: 8px !important;
+    margin-bottom: 16px !important;
+    letter-spacing: -0.02em;
     width: 100%;
   }
 
-  /* Center the buttons and make them uniform */
-  .aiss-cta-actions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
+  .aiss__hero_title_accent {
+    display: inline-block;
   }
 
+  .aiss__hero_text {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    text-align: center;
+    max-width: 100% !important;
+    margin: 0 auto 24px auto !important;
+    padding: 0 4px;
+    box-sizing: border-box;
+  }
+
+  /* 3. Equal-width CTA Action Buttons (Stacked Vertically) */
+  .aiss-hero-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  .aiss-hero-actions .aiss-btn-primary,
+  .aiss-hero-actions .aiss-btn-secondary,
   .aiss-btn-primary,
   .aiss-btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 52px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+  }
+
+  /* 4. Trust Banner Centering */
+  .aiss__hero_trust {
+    text-align: center;
     width: 100%;
-    max-width: 300px; /* Limits width so buttons don't touch screen edges */
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 !important; /* Removes any existing desktop margins */
+    margin-top: 15px;
+    font-size: 14px;
   }
 
-  /* Center the "No commitment" trust line */
-  .aiss-cta-trust {
-    justify-content: center;
-    margin-top: 20px;
+  /* 5. Mobile Breadcrumb Layout Alignment */
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"],
+  .breadcrumb-wrapper,
+  .breadcrumb {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px 10px !important;
+    width: 100% !important;
+    margin: 0 auto 16px auto !important;
+    padding: 0 !important;
   }
 
-  /* Center the Brain/Stats graphic */
-  .aiss-cta-visual {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
   }
-}
 
+  /* 6. Hero Split Features / Checklist Container Wrapping */
+  html body .sp-hero-split-features,
+  html body [class*="sp-hero-split-features"] {
+    display: flex !important;
+    flex-flow: row wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px 18px !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
 
+  html body .sp-hero-split-features > *,
+  html body [class*="sp-hero-split-features"] > * {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    margin: 0 !important;
+    gap: 6px !important;
+  }
 
-
-@media (max-width: 768px) {
-  /* 1. Stack the layout vertically and center everything */
+  /* 7. General Section & Inner Split Layout Adjustments */
   .aiss-intro-layout {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px; /* Space between the visual box, text, and checklist */
-    padding: 20px;
+    gap: 32px;
+    padding: 16px;
   }
 
-  /* 2. Ensure the visual box is centered */
   .aiss-intro-visual {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin: 0 auto;
   }
 
-  /* 3. Center the text content */
   .aiss-intro-text {
     width: 100%;
   }
 
-  /* 4. Center the checklist block */
   .aiss-intro-checklist {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Keeps text aligned with checkmarks */
-    width: fit-content;      /* Shrinks container to fit the list */
-    margin: 0 auto;          /* Centers the whole list block */
-    text-align: left;        /* Keeps individual list items readable */
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: left;
   }
 
-  /* Optional: Adjust individual check rows for better mobile spacing */
   .aiss-check-row {
     margin-bottom: 12px;
     font-size: 15px;
   }
-}
 
-
-
-
-
-
-
-@media (max-width: 768px) {
-  /* 1. Center the main section container and labels */
+  /* 8. Split Column Responsiveness */
   .aiss-split-col {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the heading and the grid/list */
+    align-items: center;
     text-align: center;
     width: 100%;
   }
@@ -1372,23 +1383,22 @@ section.aiss__hero {
   .aiss-split-label {
     text-align: center;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
     display: block;
   }
 
-  /* 2. Industries Content: Center the icons and text */
   .aiss-industry-grid {
-    justify-content: center; /* Centers the grid items horizontally */
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    justify-content: center;
+    gap: 16px;
     width: 100%;
   }
 
   .aiss-industry-item {
-    align-items: center; /* Centers icon and text within the item */
+    align-items: center;
     text-align: center;
   }
 
-  /* 3. Technologies Content: Center the groups and pills */
   .aiss-tech-group {
     display: flex;
     flex-direction: column;
@@ -1402,206 +1412,184 @@ section.aiss__hero {
   }
 
   .aiss-tech-pills {
-    justify-content: center; /* Centers the technology pills */
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
   }
 
-  /* Remove the vertical divider line on mobile */
   .aiss-split-divider {
     display: none;
   }
-}
 
+  /* 9. Stats Bar Responsive */
+  .aiss-stats-inner   { gap: 0; }
+  .aiss-stat-item     { min-width: 50%; border-right: none; border-bottom: 1px solid #e8eef8; }
+  .aiss-stat-item:last-child { border-bottom: none; }
 
+  /* 10. Secondary Grids Responsive */
+  .aiss-services-grid { grid-template-columns: 1fr; }
+  .aiss-why-grid      { grid-template-columns: 1fr; }
+  .aiss-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .aiss-process-row   { grid-template-columns: 1fr; gap: 28px; }
 
-
-
-
-
-
-
-@media (max-width: 768px) {
-  /* 1. Center the main container and text */
-  .aiss__hero_container {
+  /* 11. CTA Responsive Layout */
+  .aiss-cta-inner {
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    padding-top: 60px; /* Adjust spacing for mobile */
+    align-items: center;
+    gap: 32px;
+    padding: 32px 16px;
   }
 
-  /* 2. Center the Badge */
-  .aiss__hero_badge {
-    margin: 0 auto 15px auto;
-    display: inline-block;
-    width: fit-content;
-  }
-
-  /* 3. Adjust Title and Text width for better centering */
-  .aiss__hero_title {
-    font-size: 28px; /* Slightly smaller for mobile screens */
-    line-height: 1.3;
-    max-width: 100%;
-  }
-
-  .aiss__hero_text {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* 4. Center and stack the Buttons */
-  .aiss-hero-actions {
+  .aiss-cta-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 15px;
-    margin: 25px 0;
   }
 
-  /* Make Hero buttons same length and height */
-  .aiss-hero-actions .aiss-btn-primary,
-  .aiss-hero-actions .aiss-btn-secondary {
-    width: 100%;
-    max-width: 320px;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+  .aiss-cta-title {
+    font-size: 28px;
   }
 
-  /* 5. Center the Trust text at the bottom */
-  .aiss__hero_trust {
-    text-align: center;
-    margin-top: 20px;
-  }
-}
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-  /* 1. Reduce the main padding of the hero section */
-  .aiss__hero {
-    padding-top: 40px !important; /* Adjust this number until it looks perfect */
-    padding-bottom: 40px !important;
-    min-height: auto !important; /* Prevents the section from being forced too tall */
-  }
-
-  /* 2. Remove extra top padding from the internal container */
-  .aiss__hero_container {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-
-  /* 3. Adjust the Breadcrumb spacing if it has a top margin */
-  .aiss__hero_container > :first-child {
-    margin-top: 0 !important;
-    margin-bottom: 15px !important;
-  }
-
-  /* 4. Ensure the badge doesn't have a massive top margin */
-  .aiss__hero_badge {
-    margin-top: 5px !important;
-  }
-}
-
-
-
-
-
-@media (max-width: 768px) {
-  /* 1. Reduce the top gap and center the hero section */
-  .aiss__hero {
-    padding-top: 30px !important; /* Reduces space below Navbar */
-    padding-bottom: 40px !important;
-    text-align: center;
-    min-height: auto !important; /* Prevents awkward empty vertical space */
-  }
-
-  /* 2. Center the container and Breadcrumb */
-  .aiss__hero_container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-  }
-
-  /* Ensure Breadcrumb component is centered */
-  .aiss__hero_container > :first-child {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  /* 3. Center the Badge */
-  .aiss__hero_badge {
-    margin: 0 auto 15px auto !important;
-    display: inline-block;
-    text-align: center;
-    max-width: 90%;
-  }
-
-  /* 4. MAINTAIN LARGE FONT SIZE for the Title */
-  .aiss__hero_title {
-    font-size: 32px !important; /* Large impactful size as requested */
-    font-weight: 800 !important;
-    line-height: 1.2 !important;
-    text-align: center;
-    margin-top: 10px !important;
-    margin-bottom: 15px !important;
-    letter-spacing: -0.02em;
-  }
-
-  .aiss__hero_title_accent {
-    display: block; /* Puts the accent text on its own line for better mobile rhythm */
-  }
-
-  /* 5. Center and adjust the description text */
-  .aiss__hero_text {
-    font-size: 16px !important;
-    line-height: 1.6 !important;
-    text-align: center;
-    max-width: 100% !important;
-    margin: 0 auto 25px auto !important;
-    padding: 0 5px;
-  }
-
-  /* 6. Center and stack the Buttons (Equal length) */
-  .aiss-hero-actions {
+  .aiss-cta-actions {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     gap: 12px;
-    margin-bottom: 20px;
   }
 
-  .aiss-btn-primary,
-  .aiss-btn-secondary {
-    width: 100% !important;
-    max-width: 320px; /* Standard button width for mobile */
-    height: 55px;
-    display: flex;
-    align-items: center;
+  .aiss-cta-trust {
     justify-content: center;
-    margin: 0 !important;
-    font-size: 16px;
+    margin-top: 16px;
   }
 
-  /* 7. Center the "Trusted by" text */
-  .aiss__hero_trust {
-    text-align: center;
+  .aiss-cta-visual {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    margin-top: 15px;
-    font-size: 14px;
+  }
+}
+
+
+
+
+
+/* ============================================================
+   BREADCRUMB OVERRIDES (FOR .aiss__wrapper .sp-hero-split)
+   ============================================================ */
+
+/* 1. Desktop: Pull breadcrumbs left to match the red accent line and shrink font size */
+html body div[class*="aiss__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+html body div.aiss__wrapper section.sp-hero-split div.breadcrumb-wrap,
+html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap {
+  margin-left: -100px !important; /* Pulls it left to align with the red vertical line */
+  padding-left: 0 !important;
+  font-size: 11px !important;
+}
+
+/* Force font-size on all nested child elements (links, spacers, spans) */
+html body div[class*="aiss__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+html body div.aiss__wrapper section.sp-hero-split div.breadcrumb-wrap *,
+html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap * {
+  font-size: 11px !important;
+}
+
+/* 2. Mobile: Force breadcrumbs horizontal (row-wise), wrapped, and centered */
+@media (max-width: 768px) {
+  html body div[class*="aiss__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+  html body div.aiss__wrapper section.sp-hero-split div.breadcrumb-wrap,
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Forces horizontal alignment */
+    flex-wrap: wrap !important;           /* Wrap cleanly on small screens */
+    justify-content: center !important;   /* Centers horizontally */
+    align-items: center !important;       /* Centers vertically */
+    gap: 8px !important;                  /* Spacing between items */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+  }
+
+  /* Force nested tags (links, separators, spans) to behave inline row-wise with auto-width */
+  html body div[class*="aiss__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+  html body div.aiss__wrapper section.sp-hero-split div.breadcrumb-wrap *,
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    display: inline-flex !important;      
+    flex-direction: row !important;       
+    align-items: center !important;
+    justify-content: center !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;               /* Prevents blocks from taking 100% width and stacking */
+    max-width: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 11px !important;           
+    line-height: 1 !important;
+    white-space: nowrap !important;       
+  }
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* 1. OVERPOWER CONTAINER CENTERING (Specificity: 35) */
+  html body div.aiss__wrapper div.sp-hero-split div.breadcrumb-wrap,
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body div[class*="aiss__wrapper"] div[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+  html body div.breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"] {
+    display: flex !important;
+    justify-content: flex-start !important;  /* Aligns contents to the left */
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px 0 !important;           /* Resets centering auto-margins */
+    padding-left: 20px !important;           /* Pushes it precisely to match your red marked area */
+    padding-right: 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. OVERPOWER INNER WRAPPER CENTERING (Specificity: 35) */
+  html body div.aiss__wrapper div.sp-hero-split div.breadcrumb-wrap > div,
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap > div,
+  html body div[class*="aiss__wrapper"] div[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] > div,
+  html body div.breadcrumb-wrap > div,
+  html body .breadcrumb-wrap > div,
+  html body div[class*="breadcrumb-wrap"] > div {
+    display: flex !important;
+    justify-content: flex-start !important;  /* Forces the link row to start on the left */
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 3. OVERPOWER CHILD ELEMENT CENTERING (Specificity: 36) */
+  html body div.aiss__wrapper div.sp-hero-split div.breadcrumb-wrap *,
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body div[class*="aiss__wrapper"] div[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+  html body div.breadcrumb-wrap *,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    justify-content: flex-start !important;  /* Changes forced centering to left alignment */
+    text-align: left !important;
   }
 }

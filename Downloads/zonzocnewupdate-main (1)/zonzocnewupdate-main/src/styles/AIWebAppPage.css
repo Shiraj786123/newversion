@@ -67,7 +67,7 @@
 }
 
 /* ═══════════════════════════════════════
-   HERO — UNTOUCHED
+   HERO 
 ═══════════════════════════════════════ */
 .aiwa__hero_section {
   background: linear-gradient(135deg, #001e3c 0%, #00448f 100%);
@@ -179,101 +179,263 @@
 }
 
 /* ═══════════════════════════════════════
-   SECTION 1 — Intro (3-col layout)
+   CUSTOM INTRO SECTION (SITEMAP ROW SETUP WITH CONTENTS INSIDE)
 ═══════════════════════════════════════ */
-.aiwa-intro-section { padding: 100px 0; background: #ffffff; }
-
-.aiwa-intro-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr 260px;
-  gap: 48px;
-  align-items: center;
+.aiwa-intro-section {
+  padding: 100px 0 60px;
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+  text-align: center;
 }
 
-.aiwa-intro-visual-inner {
-  background: linear-gradient(145deg, #001b3a 0%, #003070 100%);
-  border-radius: 20px;
-  padding: 36px 28px;
-  min-height: 240px;
+.aiwa-intro-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.aiwa-intro-visual-inner::before {
-  content: "";
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, transparent 70%);
-}
-
-.aiwa-visual-badge {
-  background: linear-gradient(135deg, #38bdf8, #2563eb);
-  color: #fff;
-  font-size: 22px;
-  font-weight: 800;
-  width: 52px; height: 52px;
-  border-radius: 12px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(56,189,248,0.3);
 }
-
-.aiwa-visual-code { display: flex; flex-direction: column; gap: 8px; }
-
-.aiwa-code-line {
-  font-family: 'Courier New', monospace;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-.l1 { color: #38bdf8; background: rgba(56,189,248,0.1); }
-.l2 { color: #a78bfa; background: rgba(167,139,250,0.1); }
-.l3 { color: #34d399; background: rgba(52,211,153,0.1); }
-.l4 { color: #fb923c; background: rgba(251,146,60,0.1); }
 
 .aiwa-intro-label {
-  display: block;
-  font-size: 13px;
+  display: inline-block;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #2563eb;
-  margin-bottom: 14px;
+  color: var(--blue);
+  margin-bottom: 18px;
 }
 
 .aiwa-intro-title {
-  font-size: clamp(24px, 2.8vw, 32px);
+  font-size: clamp(28px, 4.2vw, 44px);
   font-weight: 800;
   color: var(--navy);
-  line-height: 1.2;
-  margin: 0 0 18px;
+  line-height: 1.15;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
 }
 
-.aiwa-intro-desc { font-size: 16px; line-height: 1.72; color: var(--slate); margin: 0; }
+.aiwa-intro-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--slate);
+  margin: 0 0 36px;
+  max-width: 720px;
+}
 
-.aiwa-intro-checklist { display: flex; flex-direction: column; gap: 12px; }
+/* Sitemap Cards Row Grid */
+.aiwa-intro-sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
+  margin-top: 40px;
+  box-sizing: border-box;
+}
 
-.aiwa-check-item {
+.aiwa-intro-sitemap-col {
+  width: 220px; /* Fixed card width in the horizontal loop */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Card Styling */
+.aiwa-intro-sitemap-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 68, 143, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  min-height: 270px;
+}
+
+.aiwa-intro-sitemap-card:hover {
+  transform: translateY(-6px);
+  border-color: #2563eb;
+  box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12);
+}
+
+/* Sitemap Top Header - Colored #00448f */
+.aiwa-intro-sitemap-header-bar {
+  background: #00448f; /* Brand blue top bar */
+  height: 12px;
+  padding: 0 8px;
   display: flex;
   align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.aiwa-intro-browser-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Card Body */
+.aiwa-intro-sitemap-body {
+  flex: 1;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  background: #ffffff;
+  text-align: left;
+}
+
+.aiwa-intro-card-left-group {
+  display: flex;
+  align-items: flex-start;
   gap: 10px;
-  font-size: 15px;
-  font-weight: 600;
+}
+
+.aiwa-intro-sitemap-card-title {
+  font-size: 13px;
+  font-weight: 700;
   color: var(--navy);
+  margin: 0;
   line-height: 1.4;
 }
-.aiwa-check-icon { color: #22c55e; flex-shrink: 0; }
 
-@media (max-width: 1024px) { .aiwa-intro-layout { grid-template-columns: 1fr; gap: 32px; } }
-@media (max-width: 560px) { .aiwa-intro-section { padding: 70px 0; } }
+.aiwa-intro-check-icon {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Custom Modern Colorful Icon Containers replacing wireframe graphics */
+.aiwa-intro-icon-box {
+  height: 75px;
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.aiwa-intro-icon-box.pink-purple {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  color: #db2777;
+  border: 1px dashed rgba(236, 72, 153, 0.3);
+}
+
+.aiwa-intro-icon-box.cyan-blue {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+  color: #0891b2;
+  border: 1px dashed rgba(6, 182, 212, 0.3);
+}
+
+.aiwa-intro-icon-box.lime-green {
+  background: linear-gradient(135deg, rgba(132, 204, 22, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+  color: #16a34a;
+  border: 1px dashed rgba(132, 204, 22, 0.3);
+}
+
+.aiwa-intro-icon-box.orange-yellow {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(234, 179, 8, 0.15) 100%);
+  color: #ea580c;
+  border: 1px dashed rgba(249, 115, 22, 0.3);
+}
+
+.aiwa-intro-icon-box.purple-indigo {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(79, 70, 229, 0.15) 100%);
+  color: #7c3aed;
+  border: 1px dashed rgba(168, 85, 247, 0.3);
+}
+
+.aiwa-intro-icon-box.blue-accent {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(37, 99, 235, 0.15) 100%);
+  color: #2563eb;
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+}
+
+/* Footer of the sitemap card with arrow animation */
+.aiwa-intro-sitemap-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-top: auto;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.25s ease;
+}
+
+.aiwa-intro-card-arrow {
+  transition: transform 0.25s ease;
+}
+
+.aiwa-intro-sitemap-card:hover .aiwa-intro-sitemap-card-footer {
+  color: #2563eb;
+}
+
+.aiwa-intro-sitemap-card:hover .aiwa-intro-card-arrow {
+  transform: translateX(4px);
+}
+
+/* Vertical dotted connecter sitemap lines below card */
+.aiwa-intro-sitemap-line {
+  width: 2px;
+  height: 40px;
+  border-left: 2px dashed #cbd5e1;
+  margin-top: 12px;
+}
+
+/* Sitemap Cards Moving Horizontally Wrapper */
+.aiwa-intro-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  padding: 24px 0 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  /* Smooth horizontal fade out on edges */
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.aiwa-intro-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marqueeScrollTech 35s linear infinite;
+}
+
+/* Pause animation on hover */
+.aiwa-intro-marquee-wrapper:hover .aiwa-intro-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Infinite Marquee Scroll Keyframes Animation */
+@keyframes marqueeScrollTech {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .aiwa-intro-section {
+    padding: 70px 0;
+  }
+  .aiwa-intro-sitemap-line {
+    height: 30px;
+  }
+}
 
 /* ═══════════════════════════════════════
    SECTION 2 — Services 4-col grid
@@ -593,10 +755,6 @@
 @media (max-width: 900px) { .aiwa-cta-inner { grid-template-columns: 1fr; gap: 36px; } .aiwa-cta-section { padding: 72px 0; } }
 
 
-
-
-
-
 /* ============================================================
    MOBILE RESPONSIVE STYLES (Max-width: 768px)
    ============================================================ */
@@ -652,7 +810,7 @@
     margin: 0 !important;
   }
 
-  /* 2. INTRO SECTION - Brain/Code Visual and Checklist */
+  /* 2. INTRO SECTION - Sitemap Cards Slider and Checklist */
   .aiwa-intro-layout {
     display: flex;
     flex-direction: column;
@@ -783,57 +941,6 @@
   }
 }
 
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-  /* 1. Make the outer container take full width */
-  .aiwa-intro-visual {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* 2. Increase the actual box width */
-  .aiwa-intro-visual-inner {
-    width: 90% !important; /* Makes it fill 90% of the screen width */
-    max-width: 400px;      /* Prevents it from getting TOO wide on tablets */
-    height: 280px !important; /* Slightly reduce height to make it look wider/more horizontal */
-    transform: scale(1) !important; /* Reset scale to 1 to use full width */
-    margin: 0 auto !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* 3. Ensure the code lines inside expand to fit the new width */
-  .aiwa-visual-code {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .aiwa-code-line {
-    width: 100%; /* Make code bars fill the blue box width */
-    text-align: center;
-    font-size: 14px;
-    padding: 8px 0;
-  }
-}
-
-
-
-
-
 @media (max-width: 768px) {
   /* 1. Reduce the top gap and center the hero section */
   .aiwa__hero_section {
@@ -888,5 +995,261 @@
     justify-content: center;
     width: 100%;
     margin-bottom: 10px;
+  }
+}
+
+
+/* ===================================================
+   FORCE BREADCRUMB-WRAP HORIZONTAL & CENTERED ON MOBILE
+   =================================================== */
+@media (max-width: 768px) {
+  /* Force the outer container to align horizontally and center */
+  html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Forces row direction */
+    flex-wrap: wrap !important;           /* Allows wrapping on extremely narrow screens */
+    justify-content: center !important;   /* Centers horizontally */
+    align-items: center !important;       /* Centers vertically */
+    gap: 8px !important;                  /* Standard gap between links/spacers */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+  }
+
+  /* Force every nested tag inside to act as inline elements with auto-width */
+  html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    display: inline-flex !important;      /* Forces elements to line up next to each other */
+    flex-direction: row !important;       /* Ensures flex children inside flow horizontally */
+    align-items: center !important;
+    justify-content: center !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;               /* Stops elements from stretching to 100% width and forcing line breaks */
+    max-width: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 11px !important;           /* Slightly reduces font size */
+    line-height: 1 !important;
+    white-space: nowrap !important;       /* Prevents words from breaking to a new line */
+  }
+
+  /* Mobile Centering for .sp-hero-split content */
+  html body .aiwa__wrapper .sp-hero-split,
+  html body .aiwa__wrapper .sp-hero-split > div,
+  html body .aiwa__wrapper .sp-hero-split [class*="container"],
+  html body .aiwa__wrapper .sp-hero-split [class*="content"],
+  html body .aiwa__wrapper .sp-hero-split [class*="left"] {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  html body .aiwa__wrapper .sp-hero-split [class*="badge"],
+  html body .aiwa__wrapper .sp-hero-split [class*="Badge"] {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  html body .aiwa__wrapper .sp-hero-split h1,
+  html body .aiwa__wrapper .sp-hero-split [class*="title"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100% !important;
+  }
+  
+  html body .aiwa__wrapper .sp-hero-split h1 * {
+    text-align: center !important;
+  }
+
+  html body .aiwa__wrapper .sp-hero-split p,
+  html body .aiwa__wrapper .sp-hero-split [class*="subtext"],
+  html body .aiwa__wrapper .sp-hero-split [class*="sub"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+  }
+
+  html body .aiwa__wrapper .sp-hero-split [class*="actions"],
+  html body .aiwa__wrapper .sp-hero-split [class*="button"] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 12px !important;
+  }
+
+  html body .aiwa__wrapper .sp-hero-split [class*="features"],
+  html body .aiwa__wrapper .sp-hero-split [class*="feature"] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+}
+
+
+
+
+
+/* ============================================================
+   ULTRA-POWERFUL OVERRIDE: BREADCRUMB ALIGNMENT & FONT SIZE
+   ============================================================ */
+
+/* 1. Desktop: Pull breadcrumbs left to match the red accent line and shrink font size */
+html body div[class*="aiwa__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+html body div.aiwa__wrapper section.sp-hero-split div.breadcrumb-wrap,
+html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap {
+  margin-left: -85px !important; /* Pulls it left to align with the red vertical line */
+  padding-left: 0 !important;
+  font-size: 11px !important;
+}
+
+/* Force font-size on all nested child elements (links, spacers, spans) */
+html body div[class*="aiwa__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+html body div.aiwa__wrapper section.sp-hero-split div.breadcrumb-wrap *,
+html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap * {
+  font-size: 11px !important;
+}
+
+/* 2. Mobile: Force breadcrumbs horizontal (row-wise), wrapped, and centered */
+@media (max-width: 768px) {
+  html body div[class*="aiwa__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"],
+  html body div.aiwa__wrapper section.sp-hero-split div.breadcrumb-wrap,
+  html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Forces horizontal alignment */
+    flex-wrap: wrap !important;           /* Wrap cleanly on small screens */
+    justify-content: center !important;   /* Centers horizontally */
+    align-items: center !important;       /* Centers vertically */
+    gap: 8px !important;                  /* Spacing between items */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+  }
+
+  /* Force nested tags (links, separators, spans) to behave inline row-wise with auto-width */
+  html body div[class*="aiwa__wrapper"] section[class*="sp-hero-split"] div[class*="breadcrumb-wrap"] *,
+  html body div.aiwa__wrapper section.sp-hero-split div.breadcrumb-wrap *,
+  html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    display: inline-flex !important;      
+    flex-direction: row !important;       
+    align-items: center !important;
+    justify-content: center !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;               /* Prevents blocks from taking 100% width and stacking */
+    max-width: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 11px !important;           
+    line-height: 1 !important;
+    white-space: nowrap !important;       
+  }
+}
+
+
+
+/* ============================================================
+   MOBILE ONLY BREADCRUMBS & HERO FEATURES OVERRIDES
+   ============================================================ */
+@media (max-width: 768px) {
+  
+  /* 1. Fix Breadcrumbs on Mobile: Force them horizontal (row-wise), wrap safely, and center */
+  html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .breadcrumb-wrap,
+  html body div[class*="breadcrumb-wrap"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Forces horizontal row */
+    flex-wrap: wrap !important;           /* Wrap cleanly so they do not clip on narrow screens */
+    justify-content: center !important;   /* Centers horizontally */
+    align-items: center !important;       /* Centers vertically */
+    gap: 6px 10px !important;              /* Spacing between items */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force nested tags (links, separators, spans) to behave inline row-wise with auto-width */
+  html body .aiwa__wrapper .sp-hero-split .breadcrumb-wrap * ,
+  html body .breadcrumb-wrap *,
+  html body div[class*="breadcrumb-wrap"] * {
+    display: inline-flex !important;      
+    flex-direction: row !important;       
+    align-items: center !important;
+    justify-content: center !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;               /* Prevents blocks from taking 100% width and stacking */
+    max-width: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 11px !important;           /* Slightly reduces font size on mobile */
+    line-height: 1.3 !important;
+    white-space: normal !important;       /* Allows normal wrapping of very long paths */
+  }
+
+  /* 2. Fix Hero Features Checklist on Mobile: Force them horizontal, allow wrap, and center */
+  html body div[class*="aiwa__wrapper"] div[class*="sp-hero-split-features"],
+  html body .aiwa__wrapper .sp-hero-split-features,
+  html body [class*="sp-hero-split-features"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Forces row layout */
+    flex-wrap: wrap !important;           /* Wrap cleanly so they do not clip on narrow screens */
+    justify-content: center !important;   /* Centers horizontally */
+    align-items: center !important;       /* Centers vertically */
+    gap: 10px 18px !important;            /* Spacing between items */
+    width: 100% !important;
+    margin: 16px auto 0 !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Force each individual checklist item inside to be inline-row with auto-width */
+  html body div[class*="aiwa__wrapper"] div[class*="sp-hero-split-features"] > *,
+  html body .aiwa__wrapper .sp-hero-split-features > *,
+  html body [class*="sp-hero-split-features"] > * {
+    display: inline-flex !important;
+    flex-direction: row !important;       /* Icon next to text */
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;               /* Stops items from stretching 100% and stacking */
+    flex-shrink: 0 !important;            /* Stops cards from shrinking */
+    white-space: nowrap !important;       /* Keeps text on a single line */
+    margin: 0 !important;
+    gap: 6px !important;                  /* Gap between the green check and text */
+  }
+
+  /* Slightly reduce text/icon size on small viewports so the row fits cleanly */
+  html body [class*="sp-hero-split-features"] span,
+  html body [class*="sp-hero-split-features"] svg {
+    font-size: 12px !important;
+    font-weight: 700 !important;
   }
 }

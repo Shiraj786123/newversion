@@ -1,19 +1,18 @@
 'use client';
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   CheckCircle2, Database, Bot, Settings, BarChart3,
   Users, Globe, ShoppingCart, HeartPulse, Briefcase,
   GraduationCap, Truck, Building2, Megaphone, Rocket,
   Shield, Layers, Code2, Layout, Cpu,
   Activity, Sparkles, Target, FileBarChart, RefreshCw,
-  UserCheck, Search, PieChart, Bell, Plus, Minus
+  UserCheck, Search, PieChart, Bell, Plus, Minus, ArrowRight, TrendingUp
 } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ServicePageHero from "../components/ServicePageHero";
-import ServiceIntroSection from "../components/ServiceIntroSection";
-import ServiceCtaForm from "../components/ServiceCtaForm";
 import { serviceImages } from "../data/serviceImages";
 import "../styles/AIWebAppPage.css";
 
@@ -22,13 +21,14 @@ const imgs = serviceImages['ai-web-app'];
 const AIWebAppDev = () => {
   const [activeFaq, setActiveFaq] = useState(null);
 
-  const aiChecklist = [
-    "Process large amounts of data",
-    "Automate repetitive tasks",
-    "Personalize user experiences",
-    "Generate intelligent insights",
-    "Improve operational efficiency",
-    "Support scalable business workflows",
+  // Modern colorful items for the horizontally moving sitemap cards
+  const introItems = [
+    { title: "Process large amounts of data",       icon: <Database size={32} />,   colorClass: "pink-purple" },
+    { title: "Automate repetitive tasks",          icon: <RefreshCw size={32} />,  colorClass: "cyan-blue" },
+    { title: "Personalize user experiences",        icon: <UserCheck size={32} />,  colorClass: "lime-green" },
+    { title: "Generate intelligent insights",       icon: <Sparkles size={32} />,   colorClass: "orange-yellow" },
+    { title: "Improve operational efficiency",      icon: <Settings size={32} />,   colorClass: "purple-indigo" },
+    { title: "Support scalable business workflows", icon: <TrendingUp size={32} />,  colorClass: "blue-accent" }
   ];
 
   const services = [
@@ -114,6 +114,7 @@ const AIWebAppDev = () => {
     <div className="aiwa__wrapper">
       <Navbar />
 
+      {/* ═══ HERO — KEPY AS IS ═══ */}
       <ServicePageHero
         badge="AI Web Application Development"
         title="Custom AI Web Applications Built for"
@@ -124,15 +125,57 @@ const AIWebAppDev = () => {
         heroAlt={imgs.heroAlt}
       />
 
-      <ServiceIntroSection
-        label="What Is AI Web Application Development?"
-        title="Smarter Applications for"
-        titleAccent="Modern Businesses"
-        description="AI web application development combines powerful web technologies with artificial intelligence and automation to create smart, data-driven applications that improve efficiency and user experiences."
-        checklist={aiChecklist}
-        introImage={imgs.intro}
-        introAlt={imgs.introAlt}
-      />
+      {/* ═══ CUSTOM INTRO SECTION WITH HORIZONTAL MARQUEE TRACK ═══ */}
+      <section className="aiwa-intro-section">
+        <div className="aiwa__container">
+          <div className="aiwa-intro-content">
+            <span className="aiwa-intro-label">What Is AI Web Application Development?</span>
+            <h2 className="aiwa-intro-title">
+              Smarter Applications for <span className="aiwa-text-blue">Modern Businesses</span>
+            </h2>
+            <p className="aiwa-intro-desc">
+              AI web application development combines powerful web technologies with artificial intelligence and automation to create smart, data-driven applications that improve efficiency and user experiences.
+            </p>
+            
+            {/* Seamless Horizontally Moving Grid wrapper */}
+            <div className="aiwa-intro-marquee-wrapper">
+              <div className="aiwa-intro-marquee-track">
+                {/* Duplicated list once to ensure infinite loop consistency */}
+                {[...introItems, ...introItems].map((item, idx) => (
+                  <div key={idx} className="aiwa-intro-sitemap-col">
+                    <div className="aiwa-intro-sitemap-card">
+                      <div className="aiwa-intro-sitemap-header-bar">
+                        <span className="aiwa-intro-browser-dot"></span>
+                        <span className="aiwa-intro-browser-dot"></span>
+                        <span className="aiwa-intro-browser-dot"></span>
+                      </div>
+                      <div className="aiwa-intro-sitemap-body">
+                        <div className="aiwa-intro-card-left-group">
+                          <CheckCircle2 size={16} className="aiwa-intro-check-icon" />
+                          <h4 className="aiwa-intro-sitemap-card-title">{item.title}</h4>
+                        </div>
+                        
+                        {/* Modern Colorful Icon container replacing the wireframe */}
+                        <div className={`aiwa-intro-icon-box ${item.colorClass}`}>
+                          {item.icon}
+                        </div>
+                        
+                        <div className="aiwa-intro-sitemap-card-footer">
+                          <span>Explore</span>
+                          <ArrowRight size={14} className="aiwa-intro-card-arrow" />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Dotted connecting line below each card */}
+                    <div className="aiwa-intro-sitemap-line"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* ═══ SECTION 2 — Services 4-column grid ═══ */}
       <section className="aiwa-services-section">
@@ -154,13 +197,16 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      <section className="sp-why-banner">
+      {/* ═══ SECTION 3 — Why Businesses Choose ZonzocTech ═══ */}
+      <section className="aiwa-why-section">
         <div className="aiwa__container">
-          <h2 className="sp-why-banner-title">Why Businesses Choose ZonzocTech</h2>
-          <div className="sp-why-banner-grid">
+          <div className="aiwa-section-head">
+            <span className="aiwa-pill-white">Why Businesses Choose ZonzocTech</span>
+          </div>
+          <div className="aiwa-why-grid">
             {whyChoose.map((item, i) => (
-              <div key={i} className="sp-why-banner-item">
-                <div className={`aiwa-why-icon sp-why-banner-icon ${item.colorClass}`} style={{ background: 'rgba(56,189,248,0.2)', color: '#38bdf8' }}>{item.icon}</div>
+              <div key={i} className={`aiwa-why-card ${item.colorClass}`}>
+                <div className="aiwa-why-icon">{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
@@ -260,47 +306,90 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 8 — FAQ 2-column ═══ */}
+      {/* ═══ SECTION 8 — FAQ 2-column with Framer Motion ═══ */}
       <section className="aiwa-faq-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
             <h2 className="aiwa-section-title">Frequently Asked Questions</h2>
           </div>
-          <div className="sp-faq-box-grid">
+          <div className="aiwa-faq-2col">
             {faqs.map((faq, i) => (
-              <div key={i} className={`sp-faq-box-item ${activeFaq === i ? "active" : ""}`} onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
-                <div className="sp-faq-box-q">
+              <div key={i} className={`aiwa-faq-item ${activeFaq === i ? "active" : ""}`} onClick={() => setActiveFaq(activeFaq === i ? null : i)}>
+                <div className="aiwa-faq-q">
                   <span>{faq.question}</span>
                   {activeFaq === i ? <Minus size={17} /> : <Plus size={17} />}
                 </div>
-                {activeFaq === i && (
-                  <div className="sp-faq-box-a"><p>{faq.answer}</p></div>
-                )}
+                <AnimatePresence>
+                  {activeFaq === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="aiwa-faq-a"
+                    >
+                      <p>{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <ServiceCtaForm
-        title="Ready to Build Your"
-        titleAccent="AI-Powered Web Application?"
-        description="Let's create a powerful, scalable, and intelligent web application that drives automation, improves efficiency, and grows your business."
-        checks={[
-          "We usually respond within 1–3 business hours",
-          "No spam. No obligation.",
-          "100% focused on your success.",
-        ]}
-        serviceOptions={[
-          "Custom SaaS Development",
-          "AI Dashboard",
-          "Workflow Automation",
-          "AI Chatbot Integration",
-          "CRM / ERP Development",
-        ]}
-        ctaImage={imgs.cta}
-        ctaAlt={imgs.ctaAlt}
-      />
+      {/* ═══ SECTION 9 — CTA with form ═══ */}
+      <section className="aiwa-cta-section">
+        <div className="aiwa__container">
+          <div className="aiwa-cta-inner">
+            <div className="aiwa-cta-left">
+              <span className="aiwa-cta-top-label">Let's Build Something Amazing</span>
+              <h2 className="aiwa-cta-big-title">
+                Ready to Build Your{" "}
+                <span className="aiwa-text-blue">AI-Powered Web Application?</span>
+              </h2>
+              <p className="aiwa-cta-desc">
+                Let's create a powerful, scalable, and intelligent web application that drives
+                automation, improves efficiency, and grows your business.
+              </p>
+              <div className="aiwa-cta-badges">
+                <div className="aiwa-cta-badge">
+                  <CheckCircle2 size={16} className="aiwa-badge-icon" />
+                  <div><strong>Quick Response</strong><span>We respond within 1-3 business hours</span></div>
+                </div>
+                <div className="aiwa-cta-badge">
+                  <CheckCircle2 size={16} className="aiwa-badge-icon" />
+                  <div><strong>No Obligation</strong><span>Free consultation, no commitment</span></div>
+                </div>
+                <div className="aiwa-cta-badge">
+                  <CheckCircle2 size={16} className="aiwa-badge-icon" />
+                  <div><strong>100% Focused</strong><span>We focus on your success</span></div>
+                </div>
+              </div>
+            </div>
+            <div className="aiwa-cta-right">
+              <div className="aiwa-cta-form">
+                <h3>Get Free Consultation</h3>
+                <div className="aiwa-form-row">
+                  <input type="text"  placeholder="Your Name*"     className="aiwa-form-input" />
+                  <input type="email" placeholder="Email Address*" className="aiwa-form-input" />
+                </div>
+                <input type="tel" placeholder="Phone Number*" className="aiwa-form-input" />
+                <select className="aiwa-form-input">
+                  <option value="">Select a Service</option>
+                  <option>Custom SaaS Development</option>
+                  <option>AI Dashboard</option>
+                  <option>Workflow Automation</option>
+                  <option>AI Chatbot Integration</option>
+                  <option>CRM / ERP Development</option>
+                </select>
+                <button className="aiwa-form-btn">Send Message →</button>
+                <p className="aiwa-form-note">🔒 We respect your privacy. No spam, ever.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
