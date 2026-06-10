@@ -1,18 +1,20 @@
 'use client';
+
 import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Plus, Minus, ArrowRight, Shield, Zap, RefreshCw, Search, Settings, CheckCircle2, Layers, Database, UserCheck
+} from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ServicePageHero from '../components/ServicePageHero';
-import ServiceIntroSection from '../components/ServiceIntroSection';
-import ServiceCtaForm from '../components/ServiceCtaForm';
 import { serviceImages } from '../data/serviceImages';
 import '../styles/WebsiteMaintenance.css';
 
 const imgs = serviceImages['website-maintenance'];
 
 const WebsiteMaintenance = () => {
-  const [activeFaq, setActiveFaq] = useState(null);
+  const [openFaq, setOpenFaq] = useState(null);
 
   const stats = [
     { icon: "🖥️", number: "150+", label: "Websites Maintained" },
@@ -22,12 +24,20 @@ const WebsiteMaintenance = () => {
     { icon: "🕐", number: "24/7", label: "Support Available" },
   ];
 
-  const whyChecklist = [
-    "Prevent security threats and malware attacks",
-    "Improve website speed and user experience",
-    "Avoid downtime and unexpected issues",
-    "Protect SEO rankings and online visibility",
-    "Keep your website updated and compatible",
+  // Modern colorful items for the horizontally moving sitemap cards
+  const introItems = [
+    { title: "Prevent security threats and malware attacks",     icon: <Shield size={32} />,     colorClass: "pink-purple" },
+    { title: "Improve website speed and user experience",         icon: <Zap size={32} />,        colorClass: "cyan-blue" },
+    { title: "Avoid downtime and unexpected issues",              icon: <RefreshCw size={32} />,  colorClass: "lime-green" },
+    { title: "Protect SEO rankings and online visibility",        icon: <Search size={32} />,      colorClass: "orange-yellow" },
+    { title: "Keep your website updated and compatible",          icon: <Settings size={32} />,   colorClass: "purple-indigo" }
+  ];
+
+  const floatingCards = [
+    { icon: "⚡", title: "Speed Optimised", sub: "1.2s Load Time", pos: "fc1" },
+    { icon: "🛡️", title: "Secure & Protected", sub: "No Malware Found", pos: "fc2" },
+    { icon: "📡", title: "Uptime Monitoring", sub: "99.9% Uptime", pos: "fc3" },
+    { icon: "💾", title: "Regular Backups", sub: "Automatic. Daily.", pos: "fc4" },
   ];
 
   const services = [
@@ -130,6 +140,7 @@ const WebsiteMaintenance = () => {
       <div className="wm__wrapper">
         <Navbar />
 
+        {/* ── HERO ── */}
         <ServicePageHero
           badge="WEBSITE MAINTENANCE & SECURITY"
           title="Website Maintenance, Performance &"
@@ -155,16 +166,88 @@ const WebsiteMaintenance = () => {
           </div>
         </section>
 
-        <ServiceIntroSection
-          label="WHY WEBSITE MAINTENANCE MATTERS"
-          title="Why Website Maintenance Is Essential for"
-          titleAccent="Your Business"
-          description="A well-maintained website is faster, more secure, and more reliable. Without regular maintenance, your site can face security risks, downtime, slow performance, and lost customers."
-          checklist={whyChecklist}
-          chipLabel="Security"
-          introImage={imgs.intro}
-          introAlt={imgs.introAlt}
-        />
+        {/* ── SECTION 1 — WHY MAINTENANCE ───────────── */}
+        <section className="wm-why-section">
+          <div className="wm-container">
+            <div className="wm-why-grid" style={{ marginBottom: 40 }}>
+
+              {/* Left — text */}
+              <div className="wm-why-left">
+                <span className="wm-eyebrow">Why Website Maintenance Matters</span>
+                <h2 className="wm-section-title" style={{ textAlign: 'left', marginBottom: '18px' }}>
+                  Why Website Maintenance Is Essential for Your Business
+                </h2>
+                <p className="wm-body-text" style={{ textAlign: 'left', margin: '0' }}>
+                  A well-maintained website is faster, more secure, and more reliable. Without regular maintenance, your site can face security risks, downtime, slow performance, and lost customers.
+                </p>
+              </div>
+
+              {/* Right — device visual */}
+              <div className="wm-why-right">
+                <div className="wm-device-wrap">
+                  <div className="wm-device">
+                    <div className="wm-device-bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div className="wm-device-body">
+                      <div className="wm-device-shield">
+                        <span className="wm-shield-emoji">🛡️</span>
+                        <span className="wm-shield-check">✓</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {floatingCards.map((card, i) => (
+                    <div key={i} className={`wm-float-card ${card.pos}`}>
+                      <div className="wm-float-icon">{card.icon}</div>
+                      <div>
+                        <strong>{card.title}</strong>
+                        <span>{card.sub}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            {/* Sitemap Cards Horizontal Marquee Ticker */}
+            <div className="wm-intro-marquee-wrapper">
+              <div className="wm-intro-marquee-track">
+                {[...introItems, ...introItems].map((item, idx) => (
+                  <div key={idx} className="wm-intro-sitemap-col">
+                    <div className="wm-intro-sitemap-card">
+                      <div className="wm-intro-sitemap-header-bar">
+                        <span className="wm-intro-browser-dot"></span>
+                        <span className="wm-intro-browser-dot"></span>
+                        <span className="wm-intro-browser-dot"></span>
+                      </div>
+                      <div className="wm-intro-sitemap-body">
+                        <div className="aiwa-intro-card-left-group">
+                          <CheckCircle2 size={16} className="wm-intro-check-icon" />
+                          <h4 className="wm-intro-sitemap-card-title">{item.title}</h4>
+                        </div>
+                        
+                        {/* Modern Colorful Icon container */}
+                        <div className={`wm-intro-icon-box ${item.colorClass}`}>
+                          {item.icon}
+                        </div>
+                        
+                        <div className="wm-intro-sitemap-card-footer">
+                          <span>Explore</span>
+                          <ArrowRight size={14} className="wm-intro-card-arrow" />
+                        </div>
+                      </div>
+                    </div>
+                    {/* Dotted vertical sitemap connector line */}
+                    <div className="wm-intro-sitemap-line"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </section>
 
         {/* ── SECTION 2 — SERVICES ──────────────────── */}
         <section className="wm-services-section">
@@ -271,7 +354,7 @@ const WebsiteMaintenance = () => {
           </div>
         </section>
 
-        {/* ── SECTION 6 — FAQ ───────────────────────── */}
+        {/* ── SECTION 6 — FAQ ORIGINAL BUBBLE ACCORDION WITH ANIMATEPRESENCE ── */}
         <section className="wm-faq-section">
           <div className="wm-container">
             <div className="wm-section-head">
@@ -279,48 +362,84 @@ const WebsiteMaintenance = () => {
               <h2 className="wm-section-title">Frequently Asked Questions</h2>
             </div>
 
-            <div className="sp-faq-box-grid">
-              {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className={`sp-faq-box-item ${activeFaq === i ? 'active' : ''}`}
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                >
-                  <div className="sp-faq-box-q">
-                    <span>{faq.question}</span>
-                    {activeFaq === i ? <Minus size={17} /> : <Plus size={17} />}
-                  </div>
-                  {activeFaq === i && (
-                    <div className="sp-faq-box-a">
-                      <p>{faq.answer}</p>
-                    </div>
-                  )}
+            <div className="wm-faq-layout">
+              {/* Left — 3D bubble visual */}
+              <div className="wm-faq-visual">
+                <div className="wm-faq-bubble">
+                  <span className="wm-faq-qmark">?</span>
                 </div>
-              ))}
+                <p className="wm-faq-visual-text">
+                  Have more questions? <span>We're here to help.</span>
+                </p>
+                <a href="/contact" className="wm-faq-cta-link">Talk to an expert →</a>
+              </div>
+
+              {/* Right — accordion */}
+              <div className="wm-faq-right">
+                {faqs.map((faq, i) => (
+                  <div
+                    key={i}
+                    className={`wm-faq-item ${openFaq === i ? 'wm-faq-item--open' : ''}`}
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  >
+                    <div className="wm-faq-q">
+                      <span>{faq.question}</span>
+                      <span className="wm-faq-chevron">{openFaq === i ? '−' : '+'}</span>
+                    </div>
+                    <AnimatePresence>
+                      {openFaq === i && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="wm-faq-a"
+                        >
+                          <p>{faq.answer}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <ServiceCtaForm
-          title="Ready to Protect, Optimise &"
-          titleAccent="Maintain Your Website?"
-          description="Let our experts handle your website maintenance, security and performance — while you focus on growing your business."
-          checks={[
-            "No Obligation",
-            "Quick Response (1–3 hours)",
-            "100% Confidential",
-            "UK, USA & UAE Support",
-          ]}
-          serviceOptions={[
-            "Website Security Monitoring",
-            "Performance Optimization",
-            "WordPress Maintenance",
-            "Malware Protection & Removal",
-            "Website Backups",
-          ]}
-          ctaImage={imgs.cta}
-          ctaAlt={imgs.ctaAlt}
-        />
+        {/* ── CTA ORIGINAL SHIELD CTA ── */}
+        <section className="wm-cta-section">
+          <div className="wm-container">
+            <div className="wm-cta-inner">
+              <div className="wm-cta-left">
+                <h2 className="wm-cta-title">Ready to Protect, Optimise &amp; Maintain Your Website?</h2>
+                <p className="wm-cta-desc">
+                  Let our experts handle your website maintenance, security and performance — while you focus on growing your business.
+                </p>
+                <div className="wm-cta-actions">
+                  <a href="/contact" className="wm-btn-primary">Get Free Consultation →</a>
+                  <a href="/#services" className="wm-btn-secondary">See Our Services</a>
+                </div>
+                <div className="wm-cta-trust">
+                  <span className="wm-trust-pill">✓ No Obligation</span>
+                  <span className="wm-trust-pill">✓ Quick Response (1-3 hours)</span>
+                  <span className="wm-trust-pill">✓ 100% Confidential</span>
+                  <span className="wm-trust-pill">✓ UK, USA & UAE Support</span>
+                </div>
+              </div>
+
+              <div className="wm-cta-visual">
+                <div className="wm-cta-shield-wrap">
+                  <div className="wm-cta-ring wm-cta-ring1"></div>
+                  <div className="wm-cta-ring wm-cta-ring2"></div>
+                  <div className="wm-cta-shield-core">
+                    <span className="wm-cta-shield-icon">🛡️</span>
+                    <span className="wm-cta-shield-check">✓</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <Footer />
       </div>
