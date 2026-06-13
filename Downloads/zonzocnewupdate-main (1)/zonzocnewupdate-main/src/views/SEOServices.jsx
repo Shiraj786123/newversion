@@ -110,6 +110,18 @@ const SEOServices = () => {
   return (
     <>
       <div className="seo-page">
+        {/* ── HIGH-PRIORITY INLINE STYLES PREVENTING HYDRATION CONFLICTS ── */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (min-width: 769px) {
+            .seo-page img[alt="Search Engine Optimization Analytics and Targeted Growth Interface"] {
+              max-width: 112% !important;
+              width: 112% !important;
+              transform: scale(1.08) !important;
+              transform-origin: center right !important;
+            }
+          }
+        `}} />
+
         <Navbar />
 
         {/* ── HERO ── */}
@@ -406,5 +418,5 @@ const SEOServices = () => {
     </>
   );
 };
-
+    
 export default SEOServices;
