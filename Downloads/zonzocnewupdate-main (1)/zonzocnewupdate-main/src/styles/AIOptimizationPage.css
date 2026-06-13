@@ -81,9 +81,6 @@
 /* ==========================================================================
    HERO SECTION — UNCHANGED
    ========================================================================== */
-.aiso__wrapper,
-.pg__wrap { /* alias so existing hero selectors still hit */ }
-
 .aiso__hero {
   position: relative !important;
   background: radial-gradient(circle at 50% 90%, #003d73 0%, #001b3a 60%, #000f21 100%) !important;

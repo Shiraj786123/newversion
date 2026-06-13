@@ -2085,7 +2085,9 @@ body div.aiss__wrapper .service-hero-accent {
   display: block;
   background: linear-gradient(135deg, #6366f1 10%, #a855f7 90%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
   margin-top: 0.5rem;
 }
 
