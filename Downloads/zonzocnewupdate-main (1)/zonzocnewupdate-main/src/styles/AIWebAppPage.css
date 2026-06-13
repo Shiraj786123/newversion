@@ -1768,7 +1768,7 @@ html body div.aiwa__wrapper div.sp-hero-split-content span[class*="badge"] {
 @media (max-width: 768px) {
   /* Pulls the image container upward closer to the checklist */
   html body .sp-hero-image-wrap {
-    margin-top: -35px !important; /* Adjust this value to shift it more or less upward */
+    margin-top: -70px !important; /* Adjust this value to shift it more or less upward */
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     display: flex !important;
