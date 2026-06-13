@@ -1518,3 +1518,122 @@ html body div.aiwa__wrapper div.sp-hero-split-content span[class*="badge"] {
     align-self: flex-start !important;
   }
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   MOBILE HERO OPTIMIZATIONS (Enlarged Image & Compressed Empty Space)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Compress the vertical padding of the entire hero section */
+  html body .aiwa__hero_section,
+  html body section.sp-hero-split {
+    padding-top: 30px !important;
+    padding-bottom: 15px !important;
+  }
+
+  /* 2. Tighten the flex/grid gap between the text section and the image section */
+  html body .sp-hero-split,
+  html body [class*="sp-hero-split-grid"],
+  html body [class*="sp-hero-split"] {
+    gap: 8px !important;
+  }
+
+  /* 3. Strip bottom spacing from the text container */
+  html body .sp-hero-split-content,
+  html body [class*="sp-hero-split-content"] {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 4. Minimize bottom spacing of the checklist bullet items */
+  html body [class*="sp-hero-split-features"],
+  html body [class*="features"] {
+    margin-bottom: 5px !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* 5. Clear top padding and pull the entire image wrapper upward using negative margin */
+  html body .sp-hero-image-wrap {
+    padding-top: 0 !important;
+    margin-top: -45px !important; /* Pulls the image upward directly into the empty space */
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    overflow: visible !important;  /* Prevents clipping of the scaled image */
+  }
+
+  /* 6. Maintain the enlarged visual dimensions of the hero image */
+  html body img.sp-hero-image,
+  html body img[src*="webbapp.png"] {
+    width: 115% !important;
+    max-width: 115% !important;
+    height: auto !important;
+    transform: scale(1.22) !important;
+    transform-origin: center top !important;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   MOBILE HERO OPTIMIZATIONS (Enlarged Image & Compressed Empty Space)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Reduce overall padding inside the hero section to compress vertical empty space */
+  html body .aiwa__hero_section,
+  html body section.sp-hero-split {
+    padding-top: 35px !important;   /* Reduce empty space at the very top */
+    padding-bottom: 15px !important; /* Reduce empty space at the very bottom */
+  }
+
+  /* 2. Expand the image wrapper container so the image has room to scale up */
+  html body .sp-hero-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-top: 10px !important;   /* Tightens gap between checklist text and image */
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    overflow: visible !important;    /* Prevents the enlarged image from clipping */
+  }
+
+  /* 3. Increase both physical layout dimensions and visual scale of the image */
+  html body img.sp-hero-image,
+  html body img[src*="webbapp.png"] {
+    width: 115% !important;          /* Expands layout width past container limits */
+    max-width: 115% !important;      /* Forces container boundary override */
+    height: auto !important;         /* Maintains correct aspect ratio */
+    transform: scale(1.25) !important; /* Scales up image dimensions visually */
+    transform-origin: center top !important;
+    margin-top: 10px !important;
+    margin-bottom: 25px !important;  /* Prevents overlap with elements underneath */
+  }
+}
