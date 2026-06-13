@@ -2573,3 +2573,46 @@ html body [class*="company-badge"] {
 
 
 
+
+
+
+
+/* ==========================================================================
+   DESKTOP HERO CHECKLIST: FORCE ALL 3 ITEMS ON A SINGLE HORIZONTAL LINE
+   ========================================================================== */
+@media (min-width: 769px) {
+  /* 1. Force the container to lay out horizontally as a single row with no wrapping */
+  html body .aiss__wrapper .sp-hero-split-features,
+  html body .aiss__wrapper [class*="sp-hero-split-features"],
+  html body .aiss__wrapper div.sp-hero-split-content .sp-hero-split-features,
+  html body .aiss__wrapper div.sp-hero-split-content [class*="sp-hero-split-features"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Lay out horizontally */
+    flex-wrap: nowrap !important;         /* Prevent items from wrapping to a second line */
+    justify-content: flex-start !important; /* Left-align the row along the layout margin */
+    align-items: center !important;
+    gap: 24px !important;                 /* Balanced spacing between list items */
+    width: max-content !important;        /* Shrink container to match row width */
+    max-width: 100% !important;
+    margin-left: 0 !important;            /* Align flush to the container default edge */
+    margin-right: auto !important;
+  }
+
+  /* 2. Prevent internal label text from wrapping inside the list items */
+  html body .aiss__wrapper .sp-hero-split-features > *,
+  html body .aiss__wrapper [class*="sp-hero-split-features"] > *,
+  html body .aiss__wrapper div.sp-hero-split-content .sp-hero-split-features > *,
+  html body .aiss__wrapper div.sp-hero-split-content [class*="sp-hero-split-features"] > * {
+    display: inline-flex !important;
+    flex-direction: row !important;       /* Keeps icon next to text */
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: auto !important;
+    white-space: nowrap !important;       /* Keeps each item text strictly on a single line */
+    margin: 0 !important;
+    gap: 8px !important;                  /* Spacing between icon and text */
+  }
+}
+
+
+
