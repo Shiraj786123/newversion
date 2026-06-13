@@ -2469,7 +2469,7 @@ html body [class*="company-badge"] {
     span.sp-hero-split-badge {
         display: inline-flex !important;
         align-self: flex-start !important; /* Prevents horizontal stretching or centering */
-        margin-left: 20px !important;      /* Shifts the badge comfortably to the right */
+        margin-left: 40px !important;      /* Shifts the badge comfortably to the right */
         margin-right: auto !important;     /* Restricts width growth to fit the text content */
     }
 }
@@ -2508,7 +2508,7 @@ html body [class*="company-badge"] {
         margin: 0 0 16px 0 !important;           /* Resets centering auto-margins */
         
         /* Shift: Adjust this value to shift it further right or left */
-        padding-left: 44px !important;           
+        padding-left: 64px !important;           
         padding-right: 16px !important;
         box-sizing: border-box !important;
     }
@@ -2520,3 +2520,56 @@ html body [class*="company-badge"] {
         justify-content: flex-start !important;
     }
 }
+
+
+
+
+
+
+/* ==========================================================================
+   MOBILE HERO BREADCRUMB CENTERING
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Force outer container to align horizontally and center in the viewport */
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap,
+  html body .aiss__wrapper .breadcrumb-wrap,
+  html body .aiss__wrapper div[class*="breadcrumb-wrap"] {
+    display: flex !important;
+    flex-direction: row !important;       /* Layout horizontally as a single row */
+    flex-wrap: wrap !important;           /* Allow safe wrapping on extremely small devices */
+    justify-content: center !important;   /* Centers horizontally */
+    align-items: center !important;       /* Centers vertically */
+    gap: 8px !important;                  /* Standard gap between links and separators */
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Force all nested text, anchors, and separators to stay inline horizontally */
+  html body .aiss__wrapper .sp-hero-split .breadcrumb-wrap *,
+  html body .aiss__wrapper .breadcrumb-wrap *,
+  html body .aiss__wrapper div[class*="breadcrumb-wrap"] * {
+    display: inline-flex !important;      /* Align elements next to each other */
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    float: none !important;
+    clear: none !important;
+    width: auto !important;               /* Prevents blocks from taking 100% width and stacking */
+    max-width: none !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    font-size: 11px !important;           /* Scales font size slightly on mobile screens */
+    line-height: 1 !important;
+    white-space: nowrap !important;       /* Prevents single words from breaking awkwardly */
+  }
+}
+
+
+
+
+
+
