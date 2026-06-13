@@ -1986,3 +1986,42 @@ h1.ecd__hero_title {
     margin-bottom: 15px !important;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   DESKTOP HERO: SHIFT BREADCRUMBS & BADGE SLIGHTLY TO THE RIGHT
+   ========================================================================== */
+@media (min-width: 769px) {
+  /* 1. Shift the breadcrumb container slightly to the right */
+  html body .ecd__wrapper div.sp-hero-split-content div.breadcrumb-wrap div.breadcrumb-container,
+  html body .ecd__wrapper div.sp-hero-split-content div[class*="breadcrumb"],
+  html body .ecd__wrapper div.sp-hero-split-content div[class*="breadcrumb-wrap"] {
+    margin-left: 75px !important; /* Adjust this value if you need it shifted more or less */
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  /* 2. Shift the hero badge (pill) to match the exact same vertical axis */
+  html body .ecd__wrapper div.sp-hero-split-content div.sp-hero-badge,
+  html body .ecd__wrapper div.sp-hero-split-content [class*="badge"],
+  html body .ecd__wrapper [class*="sp-hero-split-badge"] {
+    margin-left: 5px !important; /* Match the exact same rightward shift as the breadcrumbs */
+    margin-right: auto !important;
+    display: flex !important;
+    max-width: max-content !important;
+    justify-content: flex-start !important;
+  }
+}
