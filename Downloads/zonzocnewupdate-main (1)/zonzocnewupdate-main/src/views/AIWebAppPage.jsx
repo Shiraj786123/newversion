@@ -21,45 +21,44 @@ const imgs = serviceImages['ai-web-app'];
 const AIWebAppDev = () => {
   const [activeFaq, setActiveFaq] = useState(null);
 
-  // Modern colorful items for the horizontally moving sitemap cards
   const introItems = [
-    { title: "Process large amounts of data",       icon: <Database size={32} />,   colorClass: "pink-purple" },
-    { title: "Automate repetitive tasks",          icon: <RefreshCw size={32} />,  colorClass: "cyan-blue" },
-    { title: "Personalize user experiences",        icon: <UserCheck size={32} />,  colorClass: "lime-green" },
-    { title: "Generate intelligent insights",       icon: <Sparkles size={32} />,   colorClass: "orange-yellow" },
-    { title: "Improve operational efficiency",      icon: <Settings size={32} />,   colorClass: "purple-indigo" },
-    { title: "Support scalable business workflows", icon: <TrendingUp size={32} />,  colorClass: "blue-accent" }
+    { title: "Process large amounts of data",      icon: <Database size={32} />,  colorClass: "pink-purple" },
+    { title: "Automate repetitive tasks",          icon: <RefreshCw size={32} />, colorClass: "cyan-blue" },
+    { title: "Personalize user experiences",       icon: <UserCheck size={32} />, colorClass: "lime-green" },
+    { title: "Generate intelligent insights",      icon: <Sparkles size={32} />,  colorClass: "orange-yellow" },
+    { title: "Improve operational efficiency",     icon: <Settings size={32} />,  colorClass: "purple-indigo" },
+    { title: "Support scalable business workflows", icon: <TrendingUp size={32} />, colorClass: "blue-accent" }
   ];
 
   const services = [
-    { icon: <Layers size={28} />,       title: "Custom SaaS Development",                  desc: "Scalable SaaS platforms with multi-tenant architecture, subscriptions, and secure user management." },
-    { icon: <BarChart3 size={28} />,    title: "AI Dashboard Development",                  desc: "Real-time dashboards with powerful analytics, reporting, and data visualization." },
-    { icon: <Settings size={28} />,     title: "Workflow Automation Systems",                desc: "Automate business processes, approvals, notifications, and internal workflows." },
+    { icon: <Layers size={28} />,       title: "Custom SaaS Development",               desc: "Scalable SaaS platforms with multi-tenant architecture, subscriptions, and secure user management." },
+    { icon: <BarChart3 size={28} />,    title: "AI Dashboard Development",              desc: "Real-time dashboards with powerful analytics, reporting, and data visualization." },
+    { icon: <Settings size={28} />,     title: "Workflow Automation Systems",           desc: "Automate business processes, approvals, notifications, and internal workflows." },
     { icon: <Bot size={28} />,          title: "AI Chatbot & Virtual Assistant Integration", desc: "Integrate smart AI assistants to enhance customer support and automate interactions." },
-    { icon: <Database size={28} />,     title: "CRM & ERP Web Applications",                desc: "Custom CRM and ERP solutions to manage your operations, customers, and teams." },
-    { icon: <Users size={28} />,        title: "Customer Portals & Admin Systems",           desc: "Secure portals with role-based access for customers, vendors, and internal teams." },
-    { icon: <FileBarChart size={28} />, title: "Data Analytics & Reporting Platforms",       desc: "Advanced analytics, KPI tracking, and automated reporting for smarter decisions." },
-    { icon: <Globe size={28} />,        title: "API & Third-Party Integrations",             desc: "Seamless integration with payment gateways, CRMs, cloud services, and external APIs." },
+    { icon: <Database size={28} />,     title: "CRM & ERP Web Applications",            desc: "Custom CRM and ERP solutions to manage your operations, customers, and teams." },
+    { icon: <Users size={28} />,        title: "Customer Portals & Admin Systems",        desc: "Secure portals with role-based access for customers, vendors, and internal teams." },
+    { icon: <FileBarChart size={28} />, title: "Data Analytics & Reporting Platforms",      desc: "Advanced analytics, KPI tracking, and automated reporting for smarter decisions." },
+    { icon: <Globe size={28} />,        title: "API & Third-Party Integrations",          desc: "Seamless integration with payment gateways, CRMs, cloud services, and external APIs." },
   ];
 
   const whyChoose = [
-    { icon: <Layers size={22} />,  title: "Scalable Architecture",      desc: "Built for performance, flexibility, and long-term growth.",                       colorClass: "wc-cyan"   },
-    { icon: <Cpu size={22} />,     title: "AI & Automation Expertise",  desc: "Smart solutions that automate and optimize business processes.",                      colorClass: "wc-purple" },
-    { icon: <Layout size={22} />,  title: "Modern UI/UX Design",        desc: "Clean, intuitive, and user-focused interfaces that engage.",                          colorClass: "wc-blue"   },
+    { icon: <Layers size={22} />,  title: "Scalable Architecture",      desc: "Built for performance, flexibility, and long-term growth.",                      colorClass: "wc-cyan"   },
+    { icon: <Cpu size={22} />,    title: "AI & Automation Expertise",  desc: "Smart solutions that automate and optimize business processes.",                      colorClass: "wc-purple" },
+    { icon: <Layout size={22} />,  title: "Modern UI/UX Design",        desc: "Clean, intuitive, and user-focused interfaces that engage.",                         colorClass: "wc-blue"   },
     { icon: <Shield size={22} />,  title: "Secure & High Performance",  desc: "Security-first development with fast, reliable, and optimized applications.",         colorClass: "wc-green"  },
-    { icon: <Rocket size={22} />,  title: "Business-Focused Solutions", desc: "Solutions designed around your goals, workflows, and real business needs.",           colorClass: "wc-orange" },
+    { icon: <Rocket size={22} />,  title: "Business-Focused Solutions", desc: "Solutions designed around your goals, workflows, and real business needs.",          colorClass: "wc-orange" },
   ];
 
   const industries = [
-    { icon: <ShoppingCart size={28} />,  label: "Ecommerce"             },
-    { icon: <HeartPulse size={28} />,    label: "Healthcare"            },
-    { icon: <BarChart3 size={28} />,     label: "Finance"               },
-    { icon: <GraduationCap size={28} />, label: "Education"             },
-    { icon: <Truck size={28} />,         label: "Logistics"             },
-    { icon: <Building2 size={28} />,     label: "Real Estate"           },
-    { icon: <Megaphone size={28} />,     label: "Marketing Agencies"    },
-    { icon: <Rocket size={28} />,        label: "SaaS Startups"         },
-    { icon: <Briefcase size={28} />,     label: "Service Businesses"    },
+    { icon: <ShoppingCart size={28} />,  label: "Ecommerce"            },
+    { icon: <HeartPulse size={28} />,    label: "Healthcare"           },
+    { icon: <BarChart3 size={28} />,     label: "Finance"              },
+    { icon: <GraduationCap size={28} />, label: "Education"            },
+    { icon: <Truck size={28} />,         label: "Logistics"            },
+    { icon: <Building2 size={28} />,     label: "Real Estate"          },
+    { icon: <Megaphone size={28} />,     label: "Marketing Agencies"   },
+    { icon: <Rocket size={28} />,        label: "SaaS Startups"        },
+    { icon: <Briefcase size={28} />,     label: "Service Businesses"   },
     { icon: <Globe size={28} />,         label: "Enterprise Operations" },
   ];
 
@@ -67,38 +66,38 @@ const AIWebAppDev = () => {
     { step: "01", icon: <Search size={26} />,   title: "Discovery & Analysis",    desc: "We understand your business, users, and requirements." },
     { step: "02", icon: <Layout size={26} />,   title: "Planning & Architecture", desc: "We design scalable architecture and plan the perfect solution." },
     { step: "03", icon: <Sparkles size={26} />, title: "UI/UX Design",            desc: "We create modern, intuitive designs, focused on UX." },
-    { step: "04", icon: <Code2 size={26} />,    title: "Development",             desc: "We build your application using latest technologies." },
+    { step: "04", icon: <Code2 size={26} />,    title: "Development",            desc: "We build your application using latest technologies." },
     { step: "05", icon: <Activity size={26} />, title: "Testing & Optimization",  desc: "We test for performance, security, and functionality." },
     { step: "06", icon: <Rocket size={26} />,   title: "Deployment & Support",    desc: "We deploy, monitor, and provide ongoing support." },
   ];
 
   const aiFeatures = [
-    { icon: <Bot size={28} />,          label: "AI Chatbots"                   },
-    { icon: <RefreshCw size={28} />,    label: "Workflow Automation"           },
-    { icon: <Bell size={28} />,         label: "Smart Notifications"           },
-    { icon: <Activity size={28} />,     label: "Predictive Analytics"          },
-    { icon: <Sparkles size={28} />,     label: "AI Content Assistance"         },
-    { icon: <Cpu size={28} />,          label: "Recommendation Systems"        },
-    { icon: <Target size={28} />,       label: "Lead Qualification Systems"    },
-    { icon: <FileBarChart size={28} />, label: "Automated Reporting"           },
-    { icon: <Users size={28} />,        label: "CRM Automation"                },
-    { icon: <UserCheck size={28} />,    label: "User Behavior Tracking"        },
-    { icon: <BarChart3 size={28} />,    label: "Data Visualization Dashboards" },
-    { icon: <Search size={28} />,       label: "AI Search & Filtering"         },
+    { icon: <Bot size={28} />,           label: "AI Chatbots"                 },
+    { icon: <RefreshCw size={28} />,     label: "Workflow Automation"           },
+    { icon: <Bell size={28} />,          label: "Smart Notifications"           },
+    { icon: <Activity size={28} />,      label: "Predictive Analytics"          },
+    { icon: <Sparkles size={28} />,      label: "AI Content Assistance"         },
+    { icon: <Cpu size={28} />,           label: "Recommendation Systems"        },
+    { icon: <Target size={28} />,        label: "Lead Qualification Systems"    },
+    { icon: <FileBarChart size={28} />,  label: "Automated Reporting"           },
+    { icon: <Users size={28} />,         label: "CRM Automation"                },
+    { icon: <UserCheck size={28} />,     label: "User Behavior Tracking"        },
+    { icon: <BarChart3 size={28} />,     label: "Data Visualization Dashboards" },
+    { icon: <Search size={28} />,        label: "AI Search & Filtering"         },
   ];
 
   const technologies = [
-    { name: "React",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",                          color: "#61dafb" },
-    { name: "Next.js",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",                         color: "#000000" },
-    { name: "Node.js",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",                         color: "#339933" },
-    { name: "Laravel",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",                        color: "#ff2d20" },
-    { name: "Python",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",                         color: "#3776ab" },
-    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",                    color: "#336791" },
-    { name: "MongoDB",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",                        color: "#47a248" },
+    { name: "React",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",                      color: "#61dafb" },
+    { name: "Next.js",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",                  color: "#000000" },
+    { name: "Node.js",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",                  color: "#339933" },
+    { name: "Laravel",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg",                  color: "#ff2d20" },
+    { name: "Python",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",                  color: "#3776ab" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",            color: "#336791" },
+    { name: "MongoDB",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",                  color: "#47a248" },
     { name: "AWS",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", color: "#ff9900" },
-    { name: "Firebase",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",                      color: "#ffca28" },
-    { name: "Docker",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",                         color: "#2496ed" },
-    { name: "REST APIs",  icon: null,                                                                                                          color: "#002d62" },
+    { name: "Firebase",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",                color: "#ffca28" },
+    { name: "Docker",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",                  color: "#2496ed" },
+    { name: "REST APIs",  icon: null,                                                                                                    color: "#002d62" },
   ];
 
   const faqs = [
@@ -112,57 +111,41 @@ const AIWebAppDev = () => {
 
   return (
     <div className="aiwa__wrapper">
-      {/* ── HIGH-PRIORITY INLINE STYLE OVERRIDES FOR MOBILE HERO CHECKLIST ── */}
       <style dangerouslySetInnerHTML={{ __html: `
+        /* --- STABILIZED HERO IMAGE CSS --- */
+        .ecd-hero-custom-context .sp-hero-image-wrap {
+          display: flex !important;
+          align-items: center !important;
+          justify-content: flex-start !important;
+          overflow: hidden !important;
+        }
+        @media (min-width: 769px) {
+          .ecd-hero-custom-context img.sp-hero-image {
+            width: 450px !important; 
+            max-width: 100% !important;
+            height: auto !important;
+            margin-left: -80px !important;
+            display: block !important;
+            object-fit: contain !important;
+          }
+        }
         @media (max-width: 768px) {
-          /* 1. Force the checklist container into a 2-column grid */
-          html body .aiwa__wrapper .sp-hero-split-features,
-          html body .aiwa__wrapper [class*="sp-hero-split-features"] {
+          .aiwa__wrapper .sp-hero-split-features {
             display: grid !important;
             grid-template-columns: repeat(2, minmax(130px, max-content)) !important;
             gap: 12px 20px !important;
             justify-content: center !important;
-            width: 100% !important;
-            max-width: 100% !important;
-            margin: 20px auto 0 auto !important;
-            padding: 0 16px !important;
-            box-sizing: border-box !important;
           }
-
-          /* 2. Style individual items to left-align within their grid cells */
-          html body .aiwa__wrapper .sp-hero-split-features > *,
-          html body .aiwa__wrapper [class*="sp-hero-split-features"] > * {
-            display: inline-flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            width: auto !important;
-            margin: 0 !important;
-            gap: 8px !important;
-            white-space: nowrap !important;
-          }
-
-          /* 3. Center the 3rd item (last child) on the second line */
-          html body .aiwa__wrapper .sp-hero-split-features > *:last-child,
-          html body .aiwa__wrapper [class*="sp-hero-split-features"] > *:last-child {
-            grid-column: span 2 !important;
-            justify-self: center !important;
-          }
-
-          /* 4. Optimize checklist typography for mobile */
-          html body .aiwa__wrapper .sp-hero-split-features span,
-          html body .aiwa__wrapper .sp-hero-split-features svg,
-          html body .aiwa__wrapper [class*="sp-hero-split-features"] span,
-          html body .aiwa__wrapper [class*="sp-hero-split-features"] svg {
-            font-size: 11px !important;
-            font-weight: 700 !important;
+          .ecd-hero-custom-context img.sp-hero-image {
+            width: 80% !important;
+            margin: 0 auto !important;
+            display: block !important;
           }
         }
       `}} />
 
       <Navbar />
 
-      {/* ═══ HERO — CONFIGURABLE PNG REPLACEMENT ═══ */}
       <ServicePageHero
         badge="AI Web Application Development"
         title="Custom AI Web Applications Built for"
@@ -170,10 +153,9 @@ const AIWebAppDev = () => {
         subtitle="We design and build intelligent AI web applications that automate workflows, process data, and scale with your business — serving companies across the UK, USA, and worldwide."
         features={["AI Powered Solutions", "Scalable Architecture", "Secure & Reliable"]}
         heroImage="/images/aiwebbapp.png" 
-        heroAlt={imgs.heroAlt || "AI Web Application Development"}
+        heroAlt={imgs?.heroAlt || "AI Web Application Development"}
       />
 
-      {/* ═══ CUSTOM INTRO SECTION WITH HORIZONTAL MARQUEE TRACK ═══ */}
       <section className="aiwa-intro-section">
         <div className="aiwa__container">
           <div className="aiwa-intro-content">
@@ -200,11 +182,9 @@ const AIWebAppDev = () => {
                           <CheckCircle2 size={16} className="aiwa-intro-check-icon" />
                           <h4 className="aiwa-intro-sitemap-card-title">{item.title}</h4>
                         </div>
-                        
                         <div className={`aiwa-intro-icon-box ${item.colorClass}`}>
                           {item.icon}
                         </div>
-                        
                         <div className="aiwa-intro-sitemap-card-footer">
                           <span>Explore</span>
                           <ArrowRight size={14} className="aiwa-intro-card-arrow" />
@@ -216,12 +196,10 @@ const AIWebAppDev = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* ═══ SECTION 2 — Services 4-column grid ═══ */}
       <section className="aiwa-services-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -241,7 +219,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 3 — Why Businesses Choose ZonzocTech ═══ */}
       <section className="aiwa-why-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -259,7 +236,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 4 — Industries ═══ */}
       <section className="aiwa-industries-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -277,7 +253,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 5 — Process (6 steps) ═══ */}
       <section className="aiwa-process-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -298,7 +273,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 6 — AI Features ═══ */}
       <section className="aiwa-features-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -315,7 +289,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 7 — Technologies with icons ═══ */}
       <section className="aiwa-tech-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -350,7 +323,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 8 — FAQ 2-column with Framer Motion ═══ */}
       <section className="aiwa-faq-section">
         <div className="aiwa__container">
           <div className="aiwa-section-head">
@@ -382,7 +354,6 @@ const AIWebAppDev = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 9 — CTA with form ═══ */}
       <section className="aiwa-cta-section">
         <div className="aiwa__container">
           <div className="aiwa-cta-inner">
